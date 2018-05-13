@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Universidade Federal de Santa Catarina
+% Biblioteca Universitária
+%
+% (c)2010 Roberto Simoni (roberto.emc@gmail.com)
+%         Carlos R Rocha (cticarlo@gmail.com)
+% ---------------------------------------------------------------------
+% Alterações:
+% 2018 Rafael Crispim Ignácio (rafael.nacio@gmail.com)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\PassOptionsToPackage{abnt-etal-cite=1, abnt-etal-list=0}{abntcite}
+\documentclass{ufscThesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pacotes usados especificamente para este documento
+% Definidos pelo criador do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx, tikz}
+\usepackage[labelsep=endash]{caption} % O separador de legenda é um -
+
+\include{identificacao}
+\include{banca}
+\include{pre-textual}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Início do documento
+\begin{document}
+
+%----------------------------------------------------------------------
+% Elementos pré-textuais
+\capa  
+\folhaderosto[comficha]
+\folhaaprovacao
+\paginadedicatoria
+\paginaagradecimento
+\paginaepigrafe
+\paginaresumo
+\paginaabstract
+\listadefiguras
+\listadetabelas 
+\listadeabreviaturas
+\listadesimbolos
+\sumario
+
+%----------------------------------------------------------------------
+% Elementos textuais
+
+\foreach \idcapitulo in {1,...,5}{
+    \input{capitulos/\idcapitulo}
+}
+
+\bibliographystyle{ufsc-alf}
+\bibliography{bibliografia}
+
+%----------------------------------------------------------------------
+% Elementos pós-textuais
+
+%\input{elementosPosTextual/apendices}
+%\input{elementosPosTextual/anexos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fim do documento                                
+\end{document}
