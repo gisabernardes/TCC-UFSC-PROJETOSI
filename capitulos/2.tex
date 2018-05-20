@@ -2,9 +2,10 @@
 Para dar ínicio ao nosso panorama geral revisaremos, neste capítulo, os conceitos básicos sobre som, o que é informação musical e como é feito o armazenamento no banco de dados, quais as representações e estruturas do áudio digital e por fim, a recuperação da informação musical.
 
 \section{Conceitos Básicos sobre Som}
-Nós ouvimos uma variedade de sons à todo momento, e vivemos toda a nossa vida rodeados por eles. Sons de portas abrindo e fechando, dos passos, do ruído dos motores dos automóveis, da chuva e da música. O som não é algo que podemos ver com nossos olhos. Então, o que é o som? Usando o exemplo do som de uma campainha, temos que quando a energia cinética é aplicada a ela, através de um martelo, ocorre uma “deformação” da campainha, gerando desta maneira a energia que trata de devolver a campainha ao seu estado original. Começa, então, uma repetição periódica de deformações e restaurações. A isto chamamos de vibração. Estas vibrações produzem mudanças de pressão do ar, resultando em seções de ar que são mais densas e outras que são rarefeitas, ocorrendo sucessivamente uma depois da outra e expandindo-se. Estas são chamadas condensações e rarefações. O processo é similar ao que conhecemos quando jogamos uma pedra dentro d’água, a qual produz ondas circulares em sua superfície. Estas ondas de condensações e rarefações são propagadas para dentro do ouvido humano e irão vibrar o tímpano. As vibrações são captadas pelas terminações nervosas, de maneira que nós as escutamos como sons. Se os corpos que vibram são diferentes, também será diferente a classe de vibração que produzem, isto significa que escutamos distintas classes de sons. No espaço, onde não existe ar, também não existem sons \cite{miletto2004}.
+Nós ouvimos uma variedade de sons à todo momento, e vivemos toda a nossa vida rodeados por eles. Sons de portas abrindo e fechando, dos passos, do ruído dos motores dos automóveis, da chuva e da música. O som não é algo que podemos ver com nossos olhos \cite{miletto2004}. Então, o que é o som? 
+Um som é gerado por algum objeto vibratório, em uma repetição periódica de deformações e restaurações \cite{muller2007}. Estas vibrações produzem mudanças de pressão do ar, resultando em regiões locais de ar que são mais densas e outras que são rarefeitas, ocorrendo sucessivamente uma depois da outra e expandindo-se. Estas são chamadas condensações e rarefações. O processo é similar ao que conhecemos quando jogamos uma pedra dentro d’água, a qual produz ondas circulares em sua superfície. Estas ondas de condensações e rarefações são propagadas para dentro do ouvido humano e irão vibrar o tímpano. As vibrações são captadas pelas terminações nervosas, de maneira que nós as escutamos como sons, ou então ser convertido em um sinal elétrico pelo microfone. Se os corpos que vibram são diferentes, também será diferente a classe de vibração que produzem, isto significa que escutamos distintas classes de sons.
 
-Os autores explicam que o som, é, portanto, a vibração do ar, ou seja, variações na pressão do ar, que percebemos com nossos ouvidos. Se essa pressão varia de acordo com um padrão repetitivo dizemos que o som tem uma forma de onda periódica. Se não há um padrão perceptível no som este é chamado de ruído. E quando as variações na pressão do ar são representadas de forma gráfica, podem ser interpretadas como “formas de onda”. Na Figura \ref{fig:ondaSenoidal} a representação gráfica de um som mostra as mudanças na pressão do ar conforme a passagem do tempo. Lendo-se o gráfico da esquerda para a direita, quando a linha curva está próxima da parte inferior do gráfico, então a pressão do ar é mais baixa, e quando a curva está próxima do topo do gráfico, a pressão do ar aumentou.
+Se essa pressão do ar varia de acordo com um padrão repetitivo dizemos que o som tem uma forma de onda periódica. Se não há um padrão perceptível no som este é chamado de ruído. E quando as variações na pressão do ar são representadas de forma gráfica, podem ser interpretadas como “formas de onda”. Na Figura \ref{fig:ondaSenoidal} a representação gráfica de um som mostra as mudanças na pressão do ar conforme a passagem do tempo. Lendo-se o gráfico da esquerda para a direita, quando a linha curva está próxima da parte inferior do gráfico, então a pressão do ar é mais baixa, e quando a curva está próxima do topo do gráfico, a pressão do ar aumentou \cite{miletto2004}.
 
 \begin{figure}[!htb]
    \centering
@@ -13,18 +14,13 @@ Os autores explicam que o som, é, portanto, a vibração do ar, ou seja, varia�
    Fonte: \cite{miletto2004}.
 \end{figure}
 
-\citeonline{miletto2004} apresentam os quatro elementos básicos do som, que são:
+Os autores \citeonline{miletto2004} apresentam os quatro elementos básicos do som, que são:
 \begin{enumerate}
-\item Altura tonal \newline
-Quando se toca as teclas de um piano, nota-se que os sons são mais agudos quanto mais tocados à direita e mais graves quanto mais se tocar à esquerda. Essa “altura” de um som, ou seja, se é alto ou baixo, agudo ou grave, é chamada “altura tonal”.
+\item Altura tonal: É a “altura” de um som, ou seja, se é alto ou baixo, agudo ou grave. A repetição de uma onda periódica é chamada de ciclo. O número de ciclos dentro do intervalo de um segundo é chamado freqüência, medida em hertz (Hz), que é então a recíproca do período. Quanto maior o valor em hertz, mais agudo é o som. Dobrando a freqüência de um som, este é elevado em uma oitava, então é possível dizer que a freqüência e a altura tonal estão relacionadas logaritmicamente.
 
-Uma repetição de uma onda periódica é chamada de ciclo. Quanto mais agudo o som, maior o número de ciclos por unidade de tempo e quanto mais grave o som, menor será este número. O número de ciclos dentro do intervalo de um segundo é geralmente chamado freqüência e expresso em unidades chamadas hertz (Hz). 100Hz indica que a vibração ocorre com uma freqüência de 100 ciclos por segundo. Quanto maior o valor em hertz, mais agudo é o som. Dobrando a freqüência de um som, este é elevado em uma oitava, então é possível dizer que a freqüência e a altura tonal estão relacionadas logaritmicamente. A faixa de freqüências que podem ser ouvidas por um ouvido humano é de aproximadamente 20Hz para os sons mais graves e de até 20.000Hz para os sons mais agudos.
+\item Volume: A mudança no volume de um som pode ser vista como uma diferença na altura das ondas. A altura de uma onda chama-se “amplitude”. Quanto maior a amplitude, mais forte é o som. Portanto o volume de um som é determinado pela amplitude.
 
-\item Volume \newline
-Se uma tecla de piano é pulsada fortemente, o som produzido será forte. Se for pulsada suavemente, o som produzido será fraco. As denominações alto e baixo devem ser utilizadas de maneira correta apenas para designar a altura tonal e não o volume. A mudança no volume de um som pode ser vista como uma diferença na altura das ondas. A altura de uma onda chama-se “amplitude”. Quanto maior a amplitude, mais forte é o som. Portanto o volume de um som é determinado pela amplitude (altura da onda). Ao contrário do que é falado coloquialmente, um som alto, do ponto de vista da amplitude corresponde a um som forte. Já um som baixo, corresponde a um som fraco.
-
-\item Timbre \newline
-Um clarinete e uma flauta não produzem o mesmo som ao serem tocados com a mesma altura tonal e o mesmo volume. Isso se deve ao fato de haver um fator distinto a mais para o som além da altura tonal e do volume. Este fator é o timbre. De um modo geral, formas de ondas arredondadas produzem um timbre mais suave enquanto que as formas de ondas ponteagudas dão um timbre mais penetrante e estridente.
+\item Timbre: É o que diferencia dois sons de mesma frequência. De um modo geral, formas de ondas arredondadas produzem um timbre mais suave enquanto que as formas de ondas ponteagudas dão um timbre mais penetrante e estridente.
 
 Na Figura \ref{fig:ondaTimbre} são mostradas três formas de onda básicas, seus timbres característicos e os instrumentos que se assemelham a cada caso.
 
@@ -35,15 +31,10 @@ Na Figura \ref{fig:ondaTimbre} são mostradas três formas de onda básicas, seu
    Fonte: \cite{miletto2004}.
 \end{figure}
 
-\item Envolvente da Onda \newline
-Trata-se da variação do som em um transcurso de tempo. Mais precisamente, a variação de cada um dos três elementos em um transcurso de tempo que vai desde o começo do som até um ponto do tempo onde ele desaparece completamente. Se um violino for tocado com arco, por exemplo, geralmente o volume do som aumenta gradualmente e também o timbre e a altura tonal mudam ligeiramente. Estas mudanças no tempo são o que determina o timbre característico de um violino, além do seu espectro harmônico. Por outro lado, o relaxamento do som de um piano é um caimento contínuo. Sem este caimento seria muito difícil distingüi-lo do som de uma flauta. Envolventes são, portanto, as mudanças de altura tonal, volume e timbre em um transcurso de tempo. Ocasionalmente, a mudança apenas do volume (amplitude) em um transcurso de tempo é também chamada envolvente.
+\item Envolvente da Onda: É a variação da altura tonal, do volume e do timbre em um transcurso de tempo que vai desde o começo do som até um ponto do tempo onde ele desaparece completamente. Estas mudanças no tempo são o que determina o timbre característico de um objeto, além do seu espectro harmônico.
 \end{enumerate}
 
-Segundo \citeonline{miletto2004} é possível encontrar dois tipos de sons: Sons Complexos e Sons Harmônicos ou Parciais.
-
-Os sons complexos são formados por ondas simples (ondas senoidais) que são os harmônicos e a fundamental. Os harmônicos ou parciais são múltiplos da freqüência básica ou fundamental. A fundamental de um som complexo é o componente de mais baixa freqüência. A freqüência fundamental e seus harmônicos constituem a série harmônica. A resultante é uma forma de onda que representa um som complexo.
-
-E o som é dividido em sons musicais e não-musicais dependendo do tipo de vibração principal. Os sons com vibrações regulares (ou seja, sons em que existem muito poucos componentes distintos dos harmônicos) são considerados musicais, enquanto os sons causados por vibrações irregulares complicadas (ou seja, sons com muitos componentes que não são harmônicos), cuja altura tonal não pode, portanto, ser medida, são chamados sons não-musicais. Os sons não-musicais incluem também os sons do tipo desagradáveis. A maioria dos sons usados na música são, por pressuposto, sons musicais. Várias classes de ruídos, como os produzidos por instrumentos de percussão, são também usados para realizar o efeito musical.
+Os sons com vibrações regulares - que são os harmônicos e a fundamental \footnote{Por definição, o primeiro harmônico corresponde à freqüência fundamental, o segundo harmônico ao primeiro harmônico e assim por diante \cite{muller2007}.} - são considerados sons musicais, enquanto os sons causados por vibrações irregulares - que não são harmônicos - cuja altura tonal não pode, portanto, ser medida, são chamados sons não-musicais. A maioria dos sons usados na música são, por pressuposto, sons musicais.
 
 \section{Informação Musical}
 Para \citeonline{miletto2004} o processo de representar numericamente o som é chamado de digitalização. Um som contendo freqüências limitadas pode então ser representado por uma seqüência de simbolos quantificados ou quantificáveis, ou seja, de números. Segundo \citeonline{setzer2001}, dado é uma sequencia de números, portanto, um texto, fotos, figuras, sons gravados e animação são dados, pois todos podem ser quantificados. Um dado é necessariamente uma entidade matemática e, desta forma, é puramente sintático. Isto significa que os dados podem ser totalmente descritos através de respresentações formais, estruturais e obviamente ser armazenados em um computador e processados por ele. O processamento de dados em um computador limita-se exclusivamente a manipulações estruturais dos mesmos, e é feito por meio de programas. Estes são sempre funções matemáticas, e portanto também são dados. Exemplos dessas manipulações nos casos de textos são a comparação com outros textos, etc.
@@ -97,65 +88,39 @@ Sua invenção, propiciou a a popularização de eletrônicos com portas USB e o
 
 Com a internet, a música ultrapassa os limites físicos da mídia, mergulhando no universo digital, a música passa a circular livremente pela rede mundial de computadores através do \textit{streaming} que tomou forma no final da década de 80 e começou a se desenvolver na década de 90, com a evolução dos SGBDs \abreviatura{SGBD}{Sistemas de Gerenciamento de Banco de Dados} e o surgimento dos BDOOs \abreviatura{BDOO}{Banco de Dados Orientado a Objetos} \cite{junior&segundo2008}, que possibilitou o armazenamento de multimidias e a primeira rádio online surgiu em 1994. Assim como a popularização de aplicativos móveis, conhecido normalmente por app, que oferecem mais de 30 milhões de música a seus usuários, por exemplo, "Spotify"\footnote{https://www.spotify.com/br/} e "Deezer"\footnote{https://www.deezer.com/br/}.
 
-A evolução dos arquivos musicais não foi acompanhada de tentativas de inserção de informações elementares da música a esses arquivos. Há pouco tempo não existia um padrão para a representação dos metadados associados a esses arquivos \cite{andrade&crispim2008} 
-
--------
-
-e os tradicionais métodos de representação e recuperação de informação, que se baseiam na linguagem natural ou controlada — em documentos-texto completos ou metadados — tem seu foco voltado para “ambientes de palavras”. Sendo assim, os documentos são traduzidos em palavras para representação simbólica das ideias neles contidos, e os mecanismos de busca desenhados para recuperá-los têm sua construção baseada em definições, sinônimos, e as mais variadas relações entre palavras \cite{lima&santini2006}.
-
-E a recuperação dessa informação pode continuar a funcionar em “ambientes de palavras” ou tradicionais, porém só será bem sucedida se esses documentos multimídias puderem ser representados de acordo com as suas peculiaridades.
+A evolução dos arquivos musicais não foi acompanhada de tentativas de inserção de informações elementares da música a esses arquivos. Há pouco tempo não existia um padrão para a representação dos metadados associados a esses arquivos \cite{andrade&crispim2008}. E a recuperação dessa informação só será bem sucedida se esses documentos multimídias puderem ser representados de acordo com as suas peculiaridades \cite{gomes2015}.
 
 \section{Representação e Estruturas da Informação Musical}
 
-Criaram-se muitas formas de codificar o som para que seja processado em computadores, o que resulta na existência de uma quantidade equivalente de formatos de arquivo para o armazenamento do som digitalizado. Os formatos de arquivo mais utilizados para o processamento de som são:
+O som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia \cite{miletto2004}. A digitalização das formas de onda consiste em duas etapas: \textbf{amostragem} e \textbf{quantização}. Na primeira etapa, a forma de onda é lida ou amostrada em intervalos de tempo uniformes. Então, na segunda etapa, o valor da forma de onda em cada ponto amostrado é restrito ou quantificado para um conjunto discreto de valores. É uma transformação com perdas, no sentido de que se perde informação neste processo. Veja a Figura \ref{fig:ondaAnalog} para uma ilustração.
+
+\begin{figure}[!htb]
+   \centering
+   \caption{Forma de onda analógica (curva preta) e representação digitalizada (os valores digitalizados são indicados pelas caixas cinzentas). Neste exemplo, a forma de onda é amostrada em 24 pontos e a quantização dos valores emprega um esquema de codificação de 4 bits (16 valores possíveis)}\label{fig:ondaAnalog} 
+   \includegraphics[scale=0.6]{figuras/ondaAnalog.png}
+   Fonte: \cite{muller2007}.
+\end{figure}
+
+Armazenar dados de áudio em formato analógico discretizado consome muito espaço \cite{juliana2004}, e como solução foi adotada a codificação MIDI \abreviatura{MIDI}{Musical Instrument Digital Interface}. Essa codificação é uma representação da informação musical, e é usado atualmente como o formato de intercâmbio de música digital simbólico mais comum para possibilitar a transferência de informações entre instrumentos musicais e computadores \cite{muller2007}. E o tamanho desses arquivos, tende a ser bem reduzido, já que a codificação de eventos musicais pode ser bem compacta.
+
+Embora isso seja satisfatório em algumas situações, arquivos MIDI (extensão .mid ou .smf) basicamente codificam apenas instruções referentes a notas e durações e não a informação sonora propriamente dita \cite{fernando&kon1998}. Ou seja, seu código são instruções para um sintetizador, correspondentes a eventos musicais como soar uma nota, silenciar uma nota, mudar o andamento ou o tom da música, etc. O sintetizador, por sua vez, interpreta este código e o executa, podendo usar vários timbres de instrumentos simultaneamente \cite{miletto2004}, e por isso, o resultado sonoro é totalmente dependente da qualidade e das possibilidades oferecidas por esse aparelho \cite{fernando&kon1998}.
+
+Com o mesmo objetivo, os formatos Wave, da Microsoft (extensão .wav) e AIFF, da Apple (extensão .aiff ou .aif) são do tipo áudio digitalizado sem compressão. Baseiam-se na codificação PCM \abreviatura{PCM}{Pulse Code Modulation}, onde a própria onda sonora é representada como uma sucessão de números correspondentes às amplitudes do sinal medidas a uma freqüência constante. Ou seja, armazenam dados de um processo de digitalização simples. A diferença para com o formato MIDI, é que esse tipo de codificação origina um grande volume de dados e exige muito espaço para armazenamento e sua única vantagem é a reprodução fiel do áudio, se o arquivo for gravado com qualidade de CD \cite{miletto2004}.
+
+Outro recurso é a compressão de dados que é feita através de programas ou hardware específicos que compactam os arquivos de áudio, reduzindo o seu tamanho, antes de serem enviados. Ao chegar ao seu destino, esses arquivos são descompactados e, em seguida, tocados. Entretanto, compressão, nesse contexto, é sinônimo de perda de qualidade: quanto maior a compressão, maior, também, a quantidade de informação que se perde \cite{fernando&kon1998}. Apesar disso, certos padrões de compressão já permitem a transmissão de arquivos de áudio de boa qualidade em tempo real, o que resulta na existência de uma quantidade equivalente de formatos de arquivo para a compressão do som digitalizado \cite{miletto2004}.
+
+Segundo \citeonline{miletto2004}, os formatos de arquivo mais utilizados para a compressão de som são:
 
 \begin{itemize}
-   \item Wave, da Microsoft (extensão .wav);
-   \item AIFF, da Apple (extensão .aiff ou .aif);
    \item Sun Audio, da Sun (extensão .au);
    \item Real Audio, da RealNetworks (extensão .ra);
    \item MPEG Layer 3 (extensão .mp3);
    \item Windows Media Audio, da Microsoft (extensão .wma).
  \end{itemize}
- 
- Os formatos Wave e AIFF são do tipo áudio digitalizado sem compressão. Baseiam-se na codificação PCM (Pulse Code Modulation), onde a própria onda sonora é representada como uma sucessão de números correspondentes às amplitudes do sinal medidas a uma freqüência constante. Esse tipo de codificação origina normalmente um grande volume de dados, na ordem de 0,6 MB a 10 MB por minuto de gravação, dependendo da qualidade definida para o arquivo. Por conseqüência, exige muito espaço para seu armazenamento definitivo. Sua única vantagem é a reprodução fiel do áudio, se o arquivo for gravado com qualidade de CD.
-
-Uma das alternativas é a compressão desse tipo de arquivos, reduzindo o seu tamanho. Diferentes técnicas desenvolvidas acabaram por originar novos formatos de arquivos, como o Sun Audio (que também é aceito pela plataforma Apple), o MPEG-3, o Real Audio e o Windows Media Audio. Esses são, portanto, formatos de arquivos tipo áudio digitalizado com compressão.
-
-Alguns desses algoritmos são muito eficientes, alcançando taxas de compressão de até 12:1 se for mantida uma aparente qualidade, no caso do MPEG-3 (ou até maiores, mas com declínio na qualidade). Ou seja, o arquivo não comprimido poderá ser reduzido a 1/12 do seu tamanho original. O problema é que essas taxas só são alcançadas através de compressão com perdas: parte da informação sonora é descartada, o que reduz a fidelidade da representação em relação ao áudio original.
-
-Outro problema dos arquivos do tipo áudio digitalizado, além do grande volume de dados gerado, é que eles representam a informação sonora porém nenhuma informação musical. Isso quer dizer que, se quisermos manipular os sons no nível de elementos musicais, para alterar parâmetros da música ou gerar uma música nota por nota, por exemplo, teremos que buscar uma representação mais adequada a esse objetivo.
-
-Felizmente essa opção existe e é adotada na codificação MIDI. Essa codificação é uma representação da informação musical. Em geral, arquivos MIDI (extensão .mid ou .smf) contém o equivalente a uma partitura para o computador, mais especificamente para o sintetizador presente na placa de som. Seu código são instruções para um sintetizador, correspondentes a eventos musicais como soar uma nota, silenciar uma nota, mudar o andamento ou o tom da música, etc. O sintetizador, por sua vez, interpreta este código e o executa, podendo usar vários timbres de instrumentos simultaneamente. O tamanho desses arquivos, portanto, tende a ser bem reduzido, já que a codificação de
-eventos musicais pode ser bem compacta. A limitação desse sistema está, justamente, no sintetizador, pois de sua qualidade dependerá a qualidade final da música executada. Isso também quer dizer que a mesma música poderá soar bastante diferente se tocada em diferentes sintetizadores.
-
-MIDI é a sigla de Musical Instrument Digital Interface, um padrão de comunicação de dados criado em 1983 por um acordo entre diversos fabricantes de instrumentos musicais norte-americanos e japoneses, para possibilitar a transferência de informações entre instrumentos musicais e computadores.
-
-O padrão MIDI usa tecnologia digital, codificando eventos musicais em dados binários (bits) que são transferidos por meio de uma linha física (cabo MIDI) de um equipamento para outro. Todos os detalhes técnicos relativos aos códigos e os circuitos básicos necessários à comunicação MIDI são definidos na MIDI Specification 1.0, publicada pela MIDI Manufacturers Association (MMA, antiga International MIDI Association) (MIDI MANUFACTURERS ASSOCIATION , 2004; M C Q UEER , 1989).
-
-Embora o objetivo principal do MIDI seja transferir informações de caráter musical, tais como a execução de notas e outros controles de expressão, seu uso tem sido expandido de tal forma que atualmente o MIDI é usado não só para a transferência de dados relativos à execução musical propriamente dita, mas também para outras aplicações de alguma forma correlatas à música, como controle de iluminação e equipamentos de áudio.
-
-Na forma mais simples de se usar MIDI, um músico pode controlar um teclado a partir de outro (controle remoto), pois todas as suas ações de execução musical são codificadas e transmitidas pelo cabo MIDI para o outro teclado, que recebe, decodifica e executa aquelas mesmas ações. Assim, numa implementação bastante simples, é possível tocar dois ou mais instrumentos a partir de um deles, o que possibilita, entre outras coisas, a superposição dos sons dos vários instrumentos controlados simultaneamente.
-
-É importante frisar que as informações MIDI transferidas de um equipamento (mestre) para outros (escravos) não carregam consigo nenhum sinal de áudio (som). Essas informações são mensagens que codificam as ações do músico, tais como o ato de pressionar uma tecla, ou o de soltar uma tecla. O som (áudio) conseqüente do ato de pressionar uma tecla não é transferido via MIDI, mas sim gerado em cada um dos instrumentos da cadeia. Dessa forma, quando um instrumento “mestre” comanda outro via MIDI, basicamente ele “diz” ao outro quais as notas que devem ser tocadas, mas o som (áudio) do segundo instrumento será determinado pelo próprio “escravo”.
-
-Principais características do sistema MIDI
-
-\begin{itemize}
-    \item Sistema digital de comunicação de dados.
-    \item Transmissão serial assíncrona.
-    \item Taxa de transmissão: 31.250 bits/s.
-    \item Comunicação unilateral.
-    \item Permite padronizar a comunicação entre os instrumentos (protocolo MIDI).
-    \item Facilita a ligação entre instrumentos e computadores.
-    \item Permite a edição de qualquer evento musical através de software.
-    \item Permite tocar vários instrumentos simultaneamente.
-    \item Permite gerar arquivos MIDI Standard.
-\end{itemize}
 
 \section{Recuperação da Informação Musical}
 
-A área de pesquisa denominada Music Information Retrieval(MIR) ou Recuperação da Informação Musical (RIM), tradução literal incorporada pela corrente da área no Brasil. Porém, como apontado por \citeonline{santini&souza2007} a produção de pesquisas voltadas para a área são praticamente inexistentes na literatura nacional.
+A área de pesquisa denominada \textit{Music Information Retrieval}(MIR \abreviatura{MIR}{Music Information Retrieval}) ou Recuperação da Informação Musical (RIM \abreviatura{RIM}{Recuperação da Informação Musical}), tradução literal incorporada pela corrente da área no Brasil.
 
 De acordo com \citeonline{futrelle&downie2002} a Recuperação da Informação Musical é:
 
@@ -182,7 +147,7 @@ A origem de RIM não apresenta uma ação interdisciplinar, o que prejudica todo
 
 A escassa produção científica a respeito do tema e as características impostas pelas músicas acarretam em certas dificuldades para sua representação.
 
-Como elucidado no final do item 2.1 desta seção, o ponto de partida para os estudos sobre a música como fonte de informação e tratamento, representação e recuperação foi dado em 1996 por Alexander McLane. Neste mesmo período já era possível identificar o desenvolvimento de tecnologias de compressão de arquivos digitais de música para transmissão na Internet e a popularização da Internet no mundo \cite{santini&souza2007}.
+Como elucidado no final do item 2.1 deste capítulo, o ponto de partida para os estudos sobre a música como fonte de informação e tratamento, representação e recuperação foi dado em 1996 por Alexander McLane. Neste mesmo período já era possível identificar o desenvolvimento de tecnologias de compressão de arquivos digitais de música para transmissão na Internet e a popularização da Internet no mundo \cite{santini&souza2007}.
 
 Em seu estudo McLane direciona sua discussão para os grandes problemas relacionados à representação de documentos de música e à recuperação destes documentos. McLane analisa aspectos significantes da música – sua notação e seu som – e propõe algumas ideias para sistemas de recuperação de música, e formaliza a música como informação segundo três visões: visão subjetiva, visão objetiva e visão interpretativa. Segundo o autor, as necessidades dos vários tipos de análises musicais são tão diversas que é preferível considerar três “visões” sobre a representação da obra musical.
 
@@ -214,10 +179,10 @@ De acordo com \citeonline[p.5]{downie2003,santini&souza2007} os quatro desafios 
 
 \begin{citacao}
     \begin{enumerate}
-        \item Considerar permanentemente as diferentes formas de representação da música, o que caracteriza o “desafio multirepresentacional”. O copyright faz parte deste desafio.
-        \item Cada época histórica e cada formação cultural criam modos próprios e singulares de se expressar através da música. A música transcende as fronteiras culturais e temporais. A ampla variedade de expressões musicais coloca em evidência o “desafio multicultural”.
-        \item Compreender e responder às diferentes formas de interação individual com a música e com os siste mas de RIM constitui o “desafio multiexperimental”.
-        \item Maximizar os benefícios de ter uma comunidade multidisciplinar de pesquisadores, enquanto minimiza a desvantagem inerente, representa o “desafio multidisciplinar”.
+        \item Considerar permanentemente as diferentes formas de representação da música, o que caracteriza o \textbf{desafio multirepresentacional}. O copyright faz parte deste desafio.
+        \item Cada época histórica e cada formação cultural criam modos próprios e singulares de se expressar através da música. A música transcende as fronteiras culturais e temporais. A ampla variedade de expressões musicais coloca em evidência o \textbf{desafio multicultural}.
+        \item Compreender e responder às diferentes formas de interação individual com a música e com os sistemas de RIM constitui o \textbf{desafio multiexperimental}.
+        \item Maximizar os benefícios de ter uma comunidade multidisciplinar de pesquisadores, enquanto minimiza a desvantagem inerente, representa o \textbf{desafio multidisciplinar}.
     \end{enumerate}
 \end{citacao}
 

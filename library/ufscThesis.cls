@@ -27,12 +27,19 @@
 
 %---------------------------------------------------------------------------
 % Carrega classe ABNTex, com padrăo de página A5, fonte 10pt, frente e verso
-\LoadClass[cleardoublepage=plain,a5paper,10pt,twoside,capchap,capsec,openright,abntfigtabnum,espacosimples]{abnt}
+
+%---------------------------------------------------------------------------
+% Teses
+%\LoadClass[cleardoublepage=plain,a5paper,10pt,twoside,capchap,capsec,openright,abntfigtabnum,espacosimples]{abnt}
 
 %---------------------------------------------------------------------------
 % Definicao da geometria da página
-\RequirePackage[a5paper,inner=2.5cm,outer=1.5cm,top=2.0cm,bottom=1.5cm,head=0.7cm,foot=0.7cm]{geometry}
+%\RequirePackage[a5paper,inner=2.5cm,outer=1.5cm,top=2.0cm,bottom=1.5cm,head=0.7cm,foot=0.7cm]{geometry}
 % Se o cabecalho e o rodape estao dentro das margens, acrescentar as opcoes includehead e includefoot
+
+%---------------------------------------------------------------------------
+% TCCs
+\LoadClass[cleardoublepage=plain,a4paper,12pt,oneside,capchap,capsec,openright,abntfigtabnum,espacoumemeio]{abnt}
 
 %---------------------------------------------------------------------------
 % Definicao de espacamento simples
@@ -610,6 +617,7 @@
 %\setcounter{page}\z@	% Reseta o contador de páginas. Parece năo ser necessário aqui
 \begin{center}
     \begin{espacosimples}
+    \includegraphics[width=2cm]{figuras/ufsc-logo-brasao}\\%
 	\ABNTifnotempty{\ABNTinstituicaodata}%
 	    {\instituicaoformat{\ABNTinstituicaodata}}\\
 	\ABNTifnotempty{\UFSCdepartamentodata}%
