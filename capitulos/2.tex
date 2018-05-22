@@ -1,6 +1,6 @@
 \chapter{Fundamentação Teórica}
 Para dar ínicio ao nosso panorama geral revisaremos, neste capítulo, os conceitos básicos sobre som, o que é informação musical e como é feito o armazenamento no banco de dados, quais as representações e estruturas do áudio digital e por fim, a recuperação da informação musical.
-
+%CONCEITOS BÁSICOS SOBRE SOM%
 \section{Conceitos Básicos sobre Som}
 Nós ouvimos uma variedade de sons à todo momento, e vivemos toda a nossa vida rodeados por eles. Sons de portas abrindo e fechando, dos passos, do ruído dos motores dos automóveis, da chuva e da música. O som não é algo que podemos ver com nossos olhos \cite{miletto2004}. Então, o que é o som? 
 Um som é gerado por algum objeto vibratório, em uma repetição periódica de deformações e restaurações \cite{muller2007}. Estas vibrações produzem mudanças de pressão do ar, resultando em regiões locais de ar que são mais densas e outras que são rarefeitas, ocorrendo sucessivamente uma depois da outra e expandindo-se. Estas são chamadas condensações e rarefações. O processo é similar ao que conhecemos quando jogamos uma pedra dentro d’água, a qual produz ondas circulares em sua superfície. Estas ondas de condensações e rarefações são propagadas para dentro do ouvido humano e irão vibrar o tímpano. As vibrações são captadas pelas terminações nervosas, de maneira que nós as escutamos como sons, ou então ser convertido em um sinal elétrico pelo microfone. Se os corpos que vibram são diferentes, também será diferente a classe de vibração que produzem, isto significa que escutamos distintas classes de sons.
@@ -35,7 +35,7 @@ Na Figura \ref{fig:ondaTimbre} são mostradas três formas de onda básicas, seu
 \end{enumerate}
 
 Os sons com vibrações regulares - que são os harmônicos e a fundamental \footnote{Por definição, o primeiro harmônico corresponde à freqüência fundamental, o segundo harmônico ao primeiro harmônico e assim por diante \cite{muller2007}.} - são considerados sons musicais, enquanto os sons causados por vibrações irregulares - que não são harmônicos - cuja altura tonal não pode, portanto, ser medida, são chamados sons não-musicais. A maioria dos sons usados na música são, por pressuposto, sons musicais.
-
+%INFORMAÇÃO MUSICAL%
 \section{Informação Musical}
 Para \citeonline{miletto2004} o processo de representar numericamente o som é chamado de digitalização. Um som contendo freqüências limitadas pode então ser representado por uma seqüência de simbolos quantificados ou quantificáveis, ou seja, de números. Segundo \citeonline{setzer2001}, dado é uma sequencia de números, portanto, um texto, fotos, figuras, sons gravados e animação são dados, pois todos podem ser quantificados. Um dado é necessariamente uma entidade matemática e, desta forma, é puramente sintático. Isto significa que os dados podem ser totalmente descritos através de respresentações formais, estruturais e obviamente ser armazenados em um computador e processados por ele. O processamento de dados em um computador limita-se exclusivamente a manipulações estruturais dos mesmos, e é feito por meio de programas. Estes são sempre funções matemáticas, e portanto também são dados. Exemplos dessas manipulações nos casos de textos são a comparação com outros textos, etc.
 
@@ -64,7 +64,7 @@ A música é um produto social e simbólico de grande importância nas diferente
 \end{citacao}
 
 A compreensão da música como informação é ainda bastante recente. O estudo mais significativo e considerado, dentro da literatura especializada, como pioneiro na conceituação e estudo da música como fonte de informação é o de Alexander McLane. Em 1996 o autor publicou em um capítulo do ARIST \abreviatura{ARIST}{Annual Review of Information Science and Technology} o artigo intitulado \textit{Music as Information} onde formaliza a música como informação.
-
+%ARMAZENAMENTO DA INFORMAÇÃO MUSICAL%
 \section{Armazenamento da Informação Musical}
 
 Até o surgimento dos inventos tecnológicos, a música era um meio de comunicação exclusivamente presencial. Apesar das formas de registros, a exemplo das partituras, possibilitarem a execução de uma obra em diferentes momentos e lugares, a reprodução do que ali estava representando nunca seria a mesma. Com o decorrer do tempo as técnicas e invenções aplicadas ao processo de gravação do som foram surgindo e se aperfeiçoando, resultando em aparelhos reprodutores e suportes cada vez mais versáteis e manipuláveis \cite{daquino2012}. Especialmente após o desenvolvimento das coleções em rede na web, com formatos de arquivos compactados e custos decrescentes de armazenamento de arquivos na forma digital, a música se tornou um objeto de consumo universal e extremamente acessível \cite{gomes2015}.
@@ -89,7 +89,7 @@ Sua invenção, propiciou a a popularização de eletrônicos com portas USB e o
 Com a internet, a música ultrapassa os limites físicos da mídia, mergulhando no universo digital, a música passa a circular livremente pela rede mundial de computadores através do \textit{streaming} que tomou forma no final da década de 80 e começou a se desenvolver na década de 90, com a evolução dos SGBDs \abreviatura{SGBD}{Sistemas de Gerenciamento de Banco de Dados} e o surgimento dos BDOOs \abreviatura{BDOO}{Banco de Dados Orientado a Objetos} \cite{junior&segundo2008}, que possibilitou o armazenamento de multimidias e a primeira rádio online surgiu em 1994. Assim como a popularização de aplicativos móveis, conhecido normalmente por app, que oferecem mais de 30 milhões de música a seus usuários, por exemplo, "Spotify"\footnote{https://www.spotify.com/br/} e "Deezer"\footnote{https://www.deezer.com/br/}.
 
 A evolução dos arquivos musicais não foi acompanhada de tentativas de inserção de informações elementares da música a esses arquivos. Há pouco tempo não existia um padrão para a representação dos metadados associados a esses arquivos \cite{andrade&crispim2008}. E a recuperação dessa informação só será bem sucedida se esses documentos multimídias puderem ser representados de acordo com as suas peculiaridades \cite{gomes2015}.
-
+%REPRESENTAÇÃO E ESTRUTURAS DA INFORMAÇÃO MUSICAL%
 \section{Representação e Estruturas da Informação Musical}
 
 O som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia \cite{miletto2004}. A digitalização das formas de onda consiste em duas etapas: \textbf{amostragem} e \textbf{quantização}. Na primeira etapa, a forma de onda é lida ou amostrada em intervalos de tempo uniformes. Então, na segunda etapa, o valor da forma de onda em cada ponto amostrado é restrito ou quantificado para um conjunto discreto de valores. É uma transformação com perdas, no sentido de que se perde informação neste processo. Veja a Figura \ref{fig:ondaAnalog} para uma ilustração.
@@ -117,7 +117,7 @@ Segundo \citeonline{miletto2004}, os formatos de arquivo mais utilizados para a 
    \item MPEG Layer 3 (extensão .mp3);
    \item Windows Media Audio, da Microsoft (extensão .wma).
  \end{itemize}
-
+%RECUPERAÇÃO DA INFORMAÇÃO MUSICAL%
 \section{Recuperação da Informação Musical}
 
 A área de pesquisa denominada \textit{Music Information Retrieval}(MIR \abreviatura{MIR}{Music Information Retrieval}) ou Recuperação da Informação Musical (RIM \abreviatura{RIM}{Recuperação da Informação Musical}), tradução literal incorporada pela corrente da área no Brasil.
@@ -210,15 +210,17 @@ Percebe-se por tanto, que se por um lado, a ação multidisciplinar dos pesquisa
 
 A análise documental da informação musical para sua representação apresenta complexidades, pois exige diferentes técnicas de extração de informações para distintas formas de apresentação \cite{downie2003}.
 
-\subsection{Técnicas e Métodos para Recuperação da Informação}
+\subsection{Métodos e Algoritmos para Recuperação da Informação Musical}
 
-Um dado multimídia geralmente é representado por um conjunto de características extraídas do conteúdo do dado. Isto porque dados multimídia são basicamente arranjos multidimensionais de valores derivados de vários sensores, que é uma representação limitada para definir a semântica do dado. Neste sentido, dados complexos raramente são comparados diretamente. Em vez disso, o conteúdo do dado (ou uma faceta do conteúdo) é analisado por meio de algoritmos especializados de análise, extraindo um conjunto de características, que descrevem numericamente o dado. Desta forma, um dado multimídia pode ser representado como um ponto no espaço de características, de acordo com o valor extraído para cada uma das características. Representando dados complexos em um espaço de características, torna-se possível estabelecer relações de similaridade entre os dados \cite{kaster2012}.
+Um dado multimídia geralmente é representado por um conjunto de características extraídas do conteúdo do dado. Isto porque dados multimídia são basicamente arranjos multidimensionais de valores derivados de vários sensores, que é uma representação limitada para definir a semântica do dado. Neste sentido, dados complexos raramente são comparados diretamente. Em vez disso, o conteúdo do dado (ou uma faceta do conteúdo) é analisado por meio de algoritmos especializados de análise, extraindo um conjunto de características, que descrevem numericamente o dado \cite{kaster2012}. Desta forma, as aplicações que lidam com dados complexos, como dados multimı́dia, requerem a realização de consultas por similaridade, ou seja, consultas que realizem busca por objetos da base que sejam similares a um objeto de consulta, de acordo com uma certa medida de similaridade (baseada em uma função de distância) \cite{barioni2006}.
+
+A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\abreviatura{ISMIR}{International Society for Music Information Retrieval}, na sigla em inglês) abriga durante sua conferência anual o MIREX\footnote{http://www.music-ir.org/mirex/wiki/MIREX_HOME}\abreviatura{}{Music Information Retrieval Evaluation eXchange}. Nesta espécie de competição, pesquisadores inscrevem algoritmos que realizam diferentes tarefas da área de recuperação da informação musical, como classificação automática de gênero musical, identificação automática da pulsação, extração de melodia a partir arquivos áudio, entre outros.
 
 Dadas as características de um sinal de áudio, pode-se definir métricas de similaridade para comparar músicas.
 
 \subsubsection{Dynamic Time Warping}
 
-O \textit{Dynamic Time Warping} (DTW\abreviatura{DTW}{Dynamic Time Warping}) (Keogh et al., 2005) é uma técnica que permite definir uma métrica entre séries temporais, por exemplo, características de áudio. Dadas duas séries \({Q}\) e \({C}\) de tamanhos \({n}\) e \({m}\), respectivamente, cria-se uma matriz \({D}\), \({n\times m}\), onde o elemento \({d_{i,j}}\) é a distância entre o elemento \({q_{i}}\) e \({c_{j}}\).
+O \textit{Dynamic Time Warping} (DTW\abreviatura{DTW}{Dynamic Time Warping}) \cite{keogh2004} é uma técnica que permite definir uma métrica entre séries temporais, por exemplo, características de áudio. Dadas duas séries \({Q}\) e \({C}\) de tamanhos \({n}\) e \({m}\), respectivamente, cria-se uma matriz \({D}\), \({n\times m}\), onde o elemento \({d_{i,j}}\) é a distância entre o elemento \({q_{i}}\) e \({c_{j}}\).
 
 A partir da matriz \({D}\), o algoritmo procura por um caminho mínimo \({W}\), onde \({w_{k} = (i,j)_{k}}\), que respeite as seguintes condições:
 
@@ -228,7 +230,7 @@ A partir da matriz \({D}\), o algoritmo procura por um caminho mínimo \({W}\), 
     \item Percorra espaçamentos iguais no tempo.
 \end{itemize}
 
-O caminho mínimo é encontrado por meio de um algoritmo de programação dinâmica de complexidade \({O(nm)}\) (Keogh et al., 2005). A métria de dissimilaridade DTW é dada por:
+O caminho mínimo é encontrado por meio de um algoritmo de programação dinâmica de complexidade \({O(nm)}\) \cite{keogh2004}. A métria de dissimilaridade DTW é dada por:
 
 \begin{equation}
     DTW(Q,C) = \sqrt{\sum_{k=1}^{K} D[w_{k}]}
@@ -240,22 +242,46 @@ O caminho mínimo é encontrado por meio de um algoritmo de programação dinâm
    \centering
    \caption{Execução do algoritmo de DTW. (A) Séries C e Q. (B) Matriz de distâncias. (C) Alinhamento das duas séries com o caminho mínimo.}\label{fig:dtw} 
    \includegraphics[scale=0.47]{figuras/dtw.png}
-   Fonte: \cite{ono2015}.
+   Fonte: \cite{keogh2004}.
 \end{figure}
+
+\subsubsection{Similaridade pelo Timbre}
+
+Segundo Aucouturier\&Pachet, é uma medida de similaridade do "timbre global" dos títulos de música, com base no sinal de áudio, que tem como objetivo descrever uma qualidade timbral que se aplica à música inteira ou instrumento, como por exemplo:
+
+\begin{itemize}
+    \item Uma sonata de \textit{Schumann} ("Clássica") e uma pela de \textit{Bill Evans} ("Jazz") são similares pois possuem o som do piano romântico em comum;
+    \item uma música de \textit{Nick Drake} ("Folk"), uma música acústica do \textit{Smashing Pumpkins} ("Rock"), uma peça da Bossa Nova de \textit{João Gilberto} ("Mundo") são similares pois todos eles consistem em um violão simples e uma voz masculina gentil, etc.
+\end{itemize}
+
+---------------------
 
 \subsubsection{Cross Recurrence Plot}
 
-O trabalho de Serrà et al. (2009) propõe o uso de \textit{Cross Recurrence Plots} (CRP\abreviatura{CRP}{Cross Recurrence Plots}) como métrica de similaridade entre músicas. Antes de definir CRP, é necessário introduzir o conceito de \textit{Recurrence Plot} (RP\abreviatura{RP}{Recurrence Plot}). RP é uma ferramenta utilizada para visualizar recorrências com uma série temporal, ou seja, regiões onde a órbita da série passa perto de um estado previamente visitado. Mais especificamente, RP é uma matriz quadrada preenchida com zeros e uns, que indicam se há ou não recorrência, ou seja, se o estado no tempo \({i}\) é similar ao estado do tempo \({j}\) (Eckmann et al., 1995; Alligood et al., 2000). A diagonal principal de um RP é, portanto, composta por uns. CRPs sao construídos da mesma maneira que RPs, mas cada eixo corresponde a uma série temporal diferente e a matriz resultante não é quadrada.
+O trabalho de \citeonline{serra2009} propõe o uso de \textit{Cross Recurrence Plots} (CRP\abreviatura{CRP}{Cross Recurrence Plots}) como métrica de similaridade entre músicas. Antes de definir CRP, é necessário introduzir o conceito de \textit{Recurrence Plot} (RP\abreviatura{RP}{Recurrence Plot}). RP é uma ferramenta utilizada para visualizar recorrências com uma série temporal, ou seja, regiões onde a órbita da série passa perto de um estado previamente visitado. Mais especificamente, RP é uma matriz quadrada preenchida com zeros e uns, que indicam se há ou não recorrência, ou seja, se o estado no tempo \({i}\) é similar ao estado do tempo \({j}\) \cite{eckmann1987, alligood1996}. A diagonal principal de um RP é, portanto, composta por uns. CRPs sao construídos da mesma maneira que RPs, mas cada eixo corresponde a uma série temporal diferente e a matriz resultante não é quadrada.
 
-Primeiramente, o algoritmo extrai a característica HPCP (Gomez, 2006) de duas músicas, resultando em séries temporais de \({H = 12}\) variáveis. Dados os vetores HPCP da música \textbf{\({x}\)} e da música \textbf{\({y}\)}, calcula-se a transposição de \textbf{\({y}\)} de modo que ela fique na mesma tonalidade de \textbf{\({x}\)}. A transposição ocorre rotacionando-se o vetor HPCP de \textbf{\({y}\)} em \({k}\) posições, por meio da técnica \textit{Optimal Transposition Index}, proposta em (Serra et al., 2008).
+Primeiramente, o algoritmo extrai a característica HPCP \cite{gomez2006} de duas músicas, resultando em séries temporais de \({H = 12}\) variáveis. Dados os vetores HPCP da música \textbf{\({x}\)} e da música \textbf{\({y}\)}, calcula-se a transposição de \textbf{\({y}\)} de modo que ela fique na mesma tonalidade de \textbf{\({x}\)}. A transposição ocorre rotacionando-se o vetor HPCP de \textbf{\({y}\)} em \({k}\) posições, por meio da técnica \textit{Optimal Transposition Index}, proposta em \cite{serra2009}.
 
 A seguir, calcula-se o \textit{embedding} das duas músicas em um espaço de fase, isto é, um espaço onde as recorrências do sinal podem ser obtidas. Considere que  HPCP \textbf{\({x}\)} tem \({N_{x}^{*}}\) janelas. O \textit{embedding} de \textbf{\({x}\)} é dado por \({x' = \big\{x_{i}\big\}}\), para \({i = 1, ..., N_{x}, N_{x} = N_{x}^{*} - (m - 1)*\tau}\), em que \({x_{i}}\) é calculado com:
 
-\begin{gather}
-    x_{i} = (x_{1,i},x_{1,i+\tau}, ..., x_{1,i+(m-1)\tau},\\
-             x_{2,i},x_{2,i+\tau}, ..., x_{2,i+(m-1)\tau},\\
-                                                   ...\\
-             x_{H,i},x_{H,i+\tau}, ..., x_{H,i+(m-1)\tau})
-\end{gather}
+\begin{eqnarray} \label{embedding}
+    x_{i} &=& (x_{1,i},x_{1,i+\tau}, \ldots, x_{1,i+(m-1)\tau}, \\
+          & & x_{2,i},x_{2,i+\tau}, \ldots, x_{2,i+(m-1)\tau}, \nonumber \\
+          & & \vdots \nonumber \\
+          & & x_{H,i},x_{H,i+\tau}, \ldots, x_{H,i+(m-1)\tau}) \nonumber
+\end{eqnarray}
 
-Os autores estimaram os valores ótimos de \({m}\) e \({\tau}\) para o reconhecimento de músicas \textit{cover}, por meio da divisão de uma base de dados em conjunto de treinamento e teste:
+Os autores estimaram os valores ótimos de \({m}\) e \({\tau}\) para o reconhecimento de músicas \textit{cover}, por meio da divisão de uma base de dados em conjunto de treinamento e teste: os parâmetros encontrados foram \({m = 10}\) e \({\tau = 1}\).
+
+\citeonline{serra2009} utilizam a Equação \ref{embedding} para calcular o CRP, em que \({\Theta(\cdot)}\) é a função degrau tipo Heaviside \({(\Theta(v) = 0 \ \textrm{se} \ v < 0 \  e \  \Theta(v) = 1 \ \textrm{caso contrário})}\), \({\epsilon_{i}^{x}}\) e \({\epsilon_{i}^{y}}\) são limiares de distâncias e \({|| \cdot ||}\) é a norma Euclidiana. No artigo, os autores calculam os limiares dinamicamente, de modo que 10\% dos vizinhos de cada entrada sejam considerados semelhantes.
+
+\begin{equation}
+    R_{i,j} = \Theta(\epsilon_{i}^{x} - ||\mathbf{x_{i} - y_{j}}||)\Theta(\epsilon_{i}^{y} - ||\mathbf{x_{i} - y_{j}}||)
+\end{equation}
+
+Em geral, pares de músicas diferentes não exibem nenhum padrão evidente no CRP e pares de músicas \textit{cover} apresentam estrutura de linhas longas e caso contrário, tais padrões não ocorrem.
+
+Com base no CRP de duas músicas, o trabalho de \citeonline{serra2009} propõe o uso do maior comprimento das diagonais formadas na matriz como métrica de similaridade. A medida \({Q_{max}}\) é definida como o maior comprimento das diagonais na matriz CRP, considerando possíveis variações no tempo da música (que correspondem a curvaturas nos traços) e na melodia (pequenas rupturas). Uma análise detalhada para o cáculo do \({Q_{max}}\) pode ser encontrada em \cite{serra2009}.
+
+A partir da medida \({Q_{max}}\), é possível identificar grupos de música \textit{cover} em uma base de dados. Quanto maior o \({Q_{max}}\) entre duas instâncias, maior a probabilidade de elas serem interpretações diferentes da mesma música. Até hoje, \({Q_{max}}\) é considerado o estado da arte em métricas para identificação de músicas \textit{cover}. Sua principal desvantagem é seu alto custo computacional.
+
