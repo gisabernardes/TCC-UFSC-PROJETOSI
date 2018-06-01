@@ -1,51 +1,55 @@
 \chapter{Fundamentação Teórica}
-Para dar ínicio ao nosso panorama geral revisaremos, neste capítulo, os conceitos básicos sobre som, o que é informação musical e como é feito o armazenamento no banco de dados, quais as representações e estruturas do áudio digital e por fim, a recuperação da informação musical.
+Este capítulo apresenta os conceitos básicos sobre som, o que é informação musical e como é feito o seu armazenamento em bancos de dados, quais as representações e estruturas do áudio digital e por fim, o tema recuperação da informação musical.
+
 %CONCEITOS BÁSICOS SOBRE SOM%
 \section{Conceitos Básicos sobre Som}
-Nós ouvimos uma variedade de sons à todo momento, e vivemos toda a nossa vida rodeados por eles. Sons de portas abrindo e fechando, dos passos, do ruído dos motores dos automóveis, da chuva e da música. O som não é algo que podemos ver com nossos olhos \cite{miletto2004}. Então, o que é o som? 
-Um som é gerado por algum objeto vibratório, em uma repetição periódica de deformações e restaurações \cite{muller2007}. Estas vibrações produzem mudanças de pressão do ar, resultando em regiões locais de ar que são mais densas e outras que são rarefeitas, ocorrendo sucessivamente uma depois da outra e expandindo-se. Estas são chamadas condensações e rarefações. O processo é similar ao que conhecemos quando jogamos uma pedra dentro d’água, a qual produz ondas circulares em sua superfície. Estas ondas de condensações e rarefações são propagadas para dentro do ouvido humano e irão vibrar o tímpano. As vibrações são captadas pelas terminações nervosas, de maneira que nós as escutamos como sons, ou então ser convertido em um sinal elétrico pelo microfone. Se os corpos que vibram são diferentes, também será diferente a classe de vibração que produzem, isto significa que escutamos distintas classes de sons.
+Nós ouvimos uma variedade de sons à todo momento e vivemos toda a nossa vida rodeados por eles. Sons de portas abrindo e fechando, dos passos, do ruído dos motores dos automóveis, da chuva e da música. O som não é algo que podemos ver com nossos olhos \cite{miletto2004}. Então, o que é o som? 
+Um som é gerado por algum objeto vibratório, em uma repetição periódica de deformações e restaurações \cite{muller2007}. Estas vibrações produzem mudanças de pressão do ar, resultando em regiões locais de ar que são mais densas e outras que são rarefeitas, ocorrendo sucessivamente uma depois da outra e expandindo-se. Estas são chamadas condensações e rarefações. O processo é similar ao que conhecemos quando jogamos uma pedra dentro d’água, a qual produz ondas circulares em sua superfície. Estas ondas de condensações e rarefações são propagadas para dentro do ouvido humano e irão vibrar o tímpano. As vibrações do tímpano são captadas pelas nossas terminações nervosas, de maneira que nós as escutamos como sons. Se os corpos que vibram são diferentes, também será diferente a classe de vibração que produzem. Isto significa que escutamos distintas classes de sons.
 
-Se essa pressão do ar varia de acordo com um padrão repetitivo dizemos que o som tem uma forma de onda periódica. Se não há um padrão perceptível no som este é chamado de ruído. E quando as variações na pressão do ar são representadas de forma gráfica, podem ser interpretadas como “formas de onda”. Na Figura \ref{fig:ondaSenoidal} a representação gráfica de um som mostra as mudanças na pressão do ar conforme a passagem do tempo. Lendo-se o gráfico da esquerda para a direita, quando a linha curva está próxima da parte inferior do gráfico, então a pressão do ar é mais baixa, e quando a curva está próxima do topo do gráfico, a pressão do ar aumentou \cite{miletto2004}.
+Se essa pressão do ar varia de acordo com um padrão repetitivo, dizemos que o som tem uma forma de onda periódica. Se não há um padrão perceptível no som, este é chamado de ruído. Ainda, quando as variações na pressão do ar são representadas de forma gráfica, elas podem ser interpretadas como “formas de onda”. Na Figura \ref{fig:ondaSenoidal}, a representação gráfica de um som mostra as mudanças na pressão do ar conforme a passagem do tempo. Lendo-se o gráfico da esquerda para a direita, quando a linha curva está próxima da parte inferior do gráfico então a pressão do ar é mais baixa e quando a curva está próxima do topo do gráfico, a pressão do ar aumentou \cite{miletto2004}.
 
 \begin{figure}[!htb]
    \centering
    \caption{Representação gráfica, no domínio temporal, de uma forma de onda senoidal}\label{fig:ondaSenoidal} 
    \includegraphics[scale=0.6]{figuras/ondaSenoidal.png}
-   Fonte: \cite{miletto2004}.
+   \\Fonte: \cite{miletto2004}.
 \end{figure}
 
-Os autores \citeonline{miletto2004} apresentam os quatro elementos básicos do som, que são:
+Segundo \citeonline{miletto2004}, os quatro elementos básicos do som são:
 \begin{enumerate}
-\item Altura tonal: É a “altura” de um som, ou seja, se é alto ou baixo, agudo ou grave. A repetição de uma onda periódica é chamada de ciclo. O número de ciclos dentro do intervalo de um segundo é chamado freqüência, medida em hertz (Hz), que é então a recíproca do período. Quanto maior o valor em hertz, mais agudo é o som. Dobrando a freqüência de um som, este é elevado em uma oitava, então é possível dizer que a freqüência e a altura tonal estão relacionadas logaritmicamente.
+\item \textit{Altura tonal}: É a “altura” de um som, ou seja, se é alto ou baixo, agudo ou grave. A repetição de uma onda periódica é chamada de ciclo. O número de ciclos dentro do intervalo de um segundo é chamado freqüência, medida em hertz (Hz), que é então a recíproca do período. Quanto maior o valor em hertz, mais agudo é o som. Dobrando a freqüência de um som, este é elevado em uma oitava. Então, é possível dizer que a freqüência e a altura tonal estão relacionadas logaritmicamente.
 
-\item Volume: A mudança no volume de um som pode ser vista como uma diferença na altura das ondas. A altura de uma onda chama-se “amplitude”. Quanto maior a amplitude, mais forte é o som. Portanto o volume de um som é determinado pela amplitude.
+\item \textit{Volume}: A mudança no volume de um som pode ser vista como uma diferença na altura das ondas. A altura de uma onda chama-se “amplitude”. Quanto maior a amplitude, mais forte é o som. Portanto, o volume de um som é determinado pela amplitude.
 
-\item Timbre: É o que diferencia dois sons de mesma frequência. De um modo geral, formas de ondas arredondadas produzem um timbre mais suave enquanto que as formas de ondas ponteagudas dão um timbre mais penetrante e estridente.
+\item \textit{Timbre}: É o que diferencia dois sons de mesma frequência. De um modo geral, formas de ondas arredondadas produzem um timbre mais suave enquanto que as formas de ondas ponteagudas dão um timbre mais penetrante e estridente.
 
-Na Figura \ref{fig:ondaTimbre} são mostradas três formas de onda básicas, seus timbres característicos e os instrumentos que se assemelham a cada caso.
+A Figura \ref{fig:ondaTimbre} mostra três formas de onda básicas, seus timbres característicos e os instrumentos que se assemelham a cada caso.
 
 \begin{figure}[!htb]
    \centering
    \caption{Formas de onda simples e seus timbres}\label{fig:ondaTimbre} 
    \includegraphics[scale=0.6]{figuras/ondaTimbre.png}
-   Fonte: \cite{miletto2004}.
+   \\Fonte: \cite{miletto2004}.
 \end{figure}
 
-\item Envolvente da Onda: É a variação da altura tonal, do volume e do timbre em um transcurso de tempo que vai desde o começo do som até um ponto do tempo onde ele desaparece completamente. Estas mudanças no tempo são o que determina o timbre característico de um objeto, além do seu espectro harmônico.
+\item \textit{Envolvente da Onda}: É a variação da altura tonal, do volume e do timbre em um transcurso de tempo que vai desde o começo do som até um ponto do tempo onde ele desaparece completamente. Estas mudanças no tempo são o que determina o timbre característico de um objeto, além do seu espectro harmônico.
 \end{enumerate}
 
 Os sons com vibrações regulares - que são os harmônicos e a fundamental \footnote{Por definição, o primeiro harmônico corresponde à freqüência fundamental, o segundo harmônico ao primeiro harmônico e assim por diante \cite{muller2007}.} - são considerados sons musicais, enquanto os sons causados por vibrações irregulares - que não são harmônicos - cuja altura tonal não pode, portanto, ser medida, são chamados sons não-musicais. A maioria dos sons usados na música são, por pressuposto, sons musicais.
+
 %INFORMAÇÃO MUSICAL%
 \section{Informação Musical}
-Para \citeonline{miletto2004} o processo de representar numericamente o som é chamado de digitalização. Um som contendo freqüências limitadas pode então ser representado por uma seqüência de simbolos quantificados ou quantificáveis, ou seja, de números. Segundo \citeonline{setzer2001}, dado é uma sequencia de números, portanto, um texto, fotos, figuras, sons gravados e animação são dados, pois todos podem ser quantificados. Um dado é necessariamente uma entidade matemática e, desta forma, é puramente sintático. Isto significa que os dados podem ser totalmente descritos através de respresentações formais, estruturais e obviamente ser armazenados em um computador e processados por ele. O processamento de dados em um computador limita-se exclusivamente a manipulações estruturais dos mesmos, e é feito por meio de programas. Estes são sempre funções matemáticas, e portanto também são dados. Exemplos dessas manipulações nos casos de textos são a comparação com outros textos, etc.
+Para \citeonline{miletto2004}, o processo de representar numericamente o som é chamado de \textit{digitalização}, ou seja, é representar uma onda sonora em código binário. O som é repartido em amostras, transformando os valores contínuos de amplitude em uma sequência de números. Depois de amostrado é feito o processo de quantização, como um arredondamento dos valores e assumem valores discretos de tempo. Por fim, são codificados para serem traduzidos para código binário.
 
-Sendo o dado puramente sintático, ao incluir um “significado” implícito na palavra, usado para sua caracterização, é gerado a informação, que é necessariamente semântica.
+Segundo \citeonline{setzer2001}, dado é uma sequencia de números, portanto, um texto, fotos, figuras, sons gravados e animação são dados, pois todos podem ser amostrados, quantificados e codificados. Um dado é necessariamente uma entidade matemática e, desta forma, é puramente sintático. Isto significa que os dados podem ser totalmente descritos através de representações formais, estruturais e obviamente ser armazenados em um computador e processados por ele.
 
-O autor expõe que a informação é uma abstração informal (isto é, não pode ser formalizada através de uma teoria lógica ou matemática) que está na mente de alguém, representando algo significativo para essa pessoa. Utilizando-se da frase “Paris é uma cidade fascinante” é um exemplo de informação – desde que seja lida ou ouvida por alguém, desde que "Paris" signifique para essa pessoa a capital da França (supondo-se que o autor da frase queria referir-se a essa cidade) e "fascinante" tenha a qualidade usual e intuitiva associada com essa palavra.
+O dado é a representação física de um evento no tempo e espaço que não agrega fundamento, não podendo ser possível entender o que ele representa ou para que ele existe, se somente for disponibilizado para alguém ou para o tempo e espaço, por alguém ou por um evento, não é possível saber o que ele significa ou o que ele representa, podendo representar qualquer coisa ou não representar nada, porém, ao incluir um “significado” no dado e gerar sentido para quem o ouve e ficando claro ou não a que se refere, é gerada a informação \cite{rafael2013}.
 
-A informação pode ser armazenada em um computador, ou melhor, a sua representação em forma de dados e não a informação propriamente dita. Essa representação pode ser transformada pela máquina, como na formatação de um texto (o que seria uma transformação sintática), mas não pode mudar o significado, já que ele depende de uma pessoa que possui a informação. Os dados são sempre incorporados por alguém como informação, porque os seres humanos buscam constantemente por significação e entendimento \citeonline{setzer2001}.
+O autor \citeonline{setzer2001} expõe que a informação é uma abstração informal (isto é, não pode ser formalizada através de uma teoria lógica ou matemática) que está na mente de alguém, representando algo significativo para essa pessoa. A frase “Paris é uma cidade fascinante” é um exemplo de informação desde que seja lida ou ouvida por alguém, desde que "Paris"\ signifique para essa pessoa a capital da França (supondo-se que o autor da frase queria referir-se a essa cidade) e "fascinante"\ tenha a qualidade usual e intuitiva associada com essa palavra.
 
-Á partir daí, a autora \citeonline{barros2012} expõe que um dado musical é resultado de um processo de significação social. Assim, a música é uma expressão humana construída socialmente e objetivada por meio de sua comunicação oral, registro sonoro ou representação gráfica.
+A informação pode ser armazenada em um computador, ou melhor, a sua representação em forma de dados e não a informação propriamente dita. Essa representação pode ser transformada pela máquina, como na formatação de um texto, mas não pode mudar o significado, já que ele depende de uma pessoa que possui a informação. Os dados são sempre incorporados por alguém como informação, porque os seres humanos buscam constantemente por significação e entendimento.
+
+A partir daí, a autora \citeonline{barros2012} expõe que um dado musical é resultado de um processo de significação social. Assim, a música é uma expressão humana construída socialmente e objetivada por meio de sua comunicação oral, registro sonoro ou representação gráfica.
 
 Para \citeonline{almeida2007}, a obra musical é efêmera e abstrata, pois só se concretiza no momento de cada interpretação, na execução da música. \citeonline{berger&luckmann2014} afirmam que:
 
@@ -53,9 +57,9 @@ Para \citeonline{almeida2007}, a obra musical é efêmera e abstrata, pois só s
 A expressividade humana é capaz de objetivações, isto é, manifesta-se em produtos da atividade humana que estão ao dispor tanto dos produtores quanto dos outros homens, como elementos que são de um mundo comum.
 \end{citacao}
 
-Para \citeonline{angeles2010,pinheiro&loureito1995} a informação é o que se acrescenta a uma representação. Segundo o autor, recebemos informação se o que conhecemos é alterado. Informação é o que logicamente justifica alteração ou reforço de uma representação ou de um estado de coisas. As representações podem ser explícitas (como em um mapa, ou em uma proposição), ou podem estar implícitas no estado de atividade dirigida do receptor.
+Para \citeonline{angeles2010,pinheiro&loureito1995}, a informação é o que se acrescenta a uma representação. Segundo os autores, recebemos informação se o que conhecemos é alterado. Informação é o que logicamente justifica alteração ou reforço de uma representação ou de um estado de coisas. As representações podem ser explícitas (como em um mapa ou em uma proposição), ou podem estar implícitas no estado de atividade dirigida do receptor.
 
-A informação musical apresenta determinadas especificidades de comportamento na sua produção, objetivação e uso, pois a manifestação da música apresenta-se carregada de características próprias. \citeonline{michels1992} explica que a música contém dois elementos: o material acústico e a ideia intelectual, sendo que tais elementos não se encontram justapostos, mas sim, se combinam para formar uma imagem unitária. Portanto, a compreensão completa da música está diretamente ligada com o reconhecimento do contexto histórico e social de sua origem, com a interpretação pessoal e individual do ouvinte, e com os aspectos sonoros que a constituem, dessa forma, a música tem diferente significações para cada indivíduo.
+A informação musical apresenta determinadas especificidades de comportamento na sua produção, objetivação e uso, pois a manifestação da música apresenta-se carregada de características próprias. \citeonline{michels1992} explica que a música contém dois elementos: o \textit{material acústico} e a \textit{ideia intelectual}, sendo que tais elementos não se encontram justapostos, mas sim se combinam para formar uma imagem unitária. Portanto, a compreensão completa da música está diretamente ligada com o reconhecimento do contexto histórico e social de sua origem, com a interpretação pessoal e individual do ouvinte, e com os aspectos sonoros que a constituem. Dessa forma, a música tem diferentes significações para cada indivíduo.
 
 \citeonline{lima&santini2006} afirmam que:
 
@@ -63,51 +67,50 @@ A informação musical apresenta determinadas especificidades de comportamento n
 A música é um produto social e simbólico de grande importância nas diferentes formações culturais, principalmente se considerarmos a sua capacidade de criar vínculos afetivos e cognitivos entre as pessoas.
 \end{citacao}
 
-A compreensão da música como informação é ainda bastante recente. O estudo mais significativo e considerado, dentro da literatura especializada, como pioneiro na conceituação e estudo da música como fonte de informação é o de Alexander McLane. Em 1996 o autor publicou em um capítulo do ARIST \abreviatura{ARIST}{Annual Review of Information Science and Technology} o artigo intitulado \textit{Music as Information} onde formaliza a música como informação.
+A compreensão da música como informação é ainda bastante recente. O estudo mais significativo e considerado, dentro da literatura especializada, como pioneiro na conceituação e estudo da música como fonte de informação é o de Alexander McLane. Em 1996, o autor publicou em um capítulo do \textit{ARIST} (\textit{Annual Review of Information Science and Technology}) o artigo intitulado \textit{Music as Information}, onde formaliza a música como informação.
+
 %ARMAZENAMENTO DA INFORMAÇÃO MUSICAL%
 \section{Armazenamento da Informação Musical}
 
-Até o surgimento dos inventos tecnológicos, a música era um meio de comunicação exclusivamente presencial. Apesar das formas de registros, a exemplo das partituras, possibilitarem a execução de uma obra em diferentes momentos e lugares, a reprodução do que ali estava representando nunca seria a mesma. Com o decorrer do tempo as técnicas e invenções aplicadas ao processo de gravação do som foram surgindo e se aperfeiçoando, resultando em aparelhos reprodutores e suportes cada vez mais versáteis e manipuláveis \cite{daquino2012}. Especialmente após o desenvolvimento das coleções em rede na web, com formatos de arquivos compactados e custos decrescentes de armazenamento de arquivos na forma digital, a música se tornou um objeto de consumo universal e extremamente acessível \cite{gomes2015}.
+Até o surgimento dos inventos tecnológicos, a música era um meio de comunicação exclusivamente presencial. Apesar das formas de registros, a exemplo das partituras, possibilitarem a execução de uma obra em diferentes momentos e lugares, a reprodução do que ali estava representando nunca seria a mesma. Com o decorrer do tempo,  as técnicas e invenções aplicadas ao processo de gravação do som foram surgindo e se aperfeiçoando, resultando em aparelhos reprodutores e suportes cada vez mais versáteis e manipuláveis \cite{daquino2012}. Especialmente após o desenvolvimento das coleções em rede na \textit{Web}, com formatos de arquivos compactados e custos decrescentes de armazenamento de arquivos na forma digital, a música se tornou um objeto de consumo universal e extremamente acessível \cite{gomes2015}.
 
-Os dispositivos de armazenamento musical são divididos em dois grandes grupos: analógicos e digitais \cite{andrade&crispim2008}. Os analógicos são antecessores dos digitais e foram o meio tecnológico dominante em boa parte do século XX \cite{paulozuben2004}. O primeiro invento significativo foi o fonógrafo, patenteado por Thomas Edison em 1877. Dez anos mais tarde, em 1887, surgiu o gramofone, tendo uma capacidade maior de armazenamento e reprodução das músicas \cite{marchi2005}. 
+Os dispositivos de armazenamento musical são divididos em dois grandes grupos: \textit{analógicos} e \textit{digitais} \cite{andrade&crispim2008}. Os analógicos são antecessores dos digitais e foram o meio tecnológico dominante em boa parte do século XX \cite{paulozuben2004}. O primeiro invento significativo foi o fonógrafo, patenteado por Thomas Edison em 1877. Dez anos mais tarde, em 1887, surgiu o gramofone, tendo uma capacidade maior de armazenamento e reprodução das músicas \cite{marchi2005}. 
 
-Dentre as invenções mais importantes para o armazenamento e a reprodução sonora analógica está o disco de vinil, lançado em 1948, comumente conhecido como LP\abreviatura{LP}{long-play}. Era um disco com rotação por minuto mais demorada, o que permitia aumentar a capacidade de armazenamento da informação na superficie do vinil. Em seguida, entre as décadas de 60 e 70, com a evolução dos cartuchos 8-track (pioneiros em armazenar dados musicais em fitas magnéticas), o lançamento da fita cassete ou compact cassette \cite{marchi2005}, era basicamente, dois carretéis, a fita magnética e todo o mecanismo de movimento da fita, alojados em uma caixa plástica \cite{andrade&crispim2008}.
+Dentre as invenções mais importantes para o armazenamento e a reprodução sonora analógica está o disco de vinil, lançado em 1948, comumente conhecido como LP\abreviatura{LP}{\textit{long-play}}. Era um disco com rotação por minuto mais demorada, o que permitia aumentar a capacidade de armazenamento da informação na superficie do vinil. Em seguida, entre as décadas de 60 e 70, com a evolução dos cartuchos 8-track (pioneiros em armazenar dados musicais em fitas magnéticas), o lançamento da fita cassete ou \textit{compact cassette} \cite{marchi2005}, era basicamente, dois carretéis, a fita magnética e todo o mecanismo de movimento da fita, alojados em uma caixa plástica \cite{andrade&crispim2008}.
 
 No armazenamento analógico, as formas de onda dos sinais elétricos emitidos do aparelho eram registradas similarmente, isto é, de maneira análoga, pelas partículas magnéticas encontradas na fita. No momento da reprodução, os sinais magnéticos impressos na fita são interpretados analogamente como diferenças de voltagem, isto é, sinais elétricos. Como o nível do sinal elétrico era muito baixo, utilizava-se um amplificador para que a variação de voltagem estivesse suficiente para mover os cones dos alto-falantes. Dizemos que esse processo é uma gravação analógica, pois a forma de onda do sinal gravado é análoga à forma de onda do sinal original captado \cite{paulozuben2004}.
 
-Porém a paritr da década de 80, com a intensificação do uso de \textit{hardwares} e \textit{softwares}, surge um dos primeiros meios de
-armazenamento digital: o CD \abreviatura{CD}{Compact-Disc}. E acabou por se tornar um dos meios de armazenamento de dados musicais mais populares das décadas seguintes. Além de quebrar paradigmas na época, o CD foi inspiração para o desenvolvimento de outros meios de armazenamento como os DVDs\abreviatura{DVD}{Digital Versatile Disc} e os discos de Blu-ray \cite{marchi2005}.
+Porém, a partir da década de 80, com a intensificação do uso de \textit{hardwares} e \textit{softwares}, surge um dos primeiros meios de armazenamento digital: o CD (\textit{Compact-Disc}). Ele acabou por se tornar um dos meios de armazenamento de dados musicais mais populares das décadas seguintes. Além de quebrar paradigmas na época, o CD foi inspiração para o desenvolvimento de outros meios de armazenamento como os DVDs\abreviatura{DVD}{\textit{Digital Versatile Disc}} e os discos de Blu-ray \cite{marchi2005}.
 
-Entretanto surgiu a necessidade de disponibilizar informações no dispositivo de armazenamento. Na era analógica esses recursos estavam associados à capa e/ou contracapa. Todavia, com a mudança do paradigma para digital, necessitou-se que essas informações pudessem ser disponibilizadas digitalmente, porém o CD de áudio não inclui em sua estrutura, por exemplo, o nome do disco ou o nome de suas faixas. Sendo assim, surgiram as bases de dados de CDs que visam prover informações dos mesmos quando esses são utilizados por sistemas de mídia modernos \cite{andrade&crispim2008}.
+Entretanto, surgiu a necessidade de disponibilizar informações no dispositivo de armazenamento. Na era analógica, esses recursos estavam associados à capa e/ou contracapa. Todavia, com a mudança do paradigma para digital, necessitou-se que essas informações pudessem ser disponibilizadas digitalmente, porém, o CD de áudio não inclui em sua estrutura, por exemplo, o nome do disco ou o nome de suas faixas. Sendo assim, surgiram as bases de dados de CDs, que visam prover informações dos mesmos quando esses são utilizados por sistemas de mídia modernos \cite{andrade&crispim2008}.
 
-Com o surgimento dos arquivos digitais de áudio, as músicas se desvincularam do suporte físico (CD) e passaram a ser vistas isoladamente e esses tipos de arquivos requerem um espaço consideravel para seu armazenamento (chegando a ocupar dezenas de megabytes em disco), o que propiciou o surgimento de um formato mais compacto: O MP3 \abreviatura{MP3}{Moving Picture Experts Group-1 Layer 3}. 
+Com o surgimento dos arquivos digitais de áudio, as músicas se desvincularam do suporte físico (CD) e passaram a ser vistas isoladamente. Esses tipos de arquivos requerem um espaço consideravel para seu armazenamento (chegando a ocupar dezenas de megabytes em disco), o que propiciou o surgimento de um formato mais compacto: O MP3 (\textit{Moving Picture Experts Group-1 Layer 3}). 
 
-O grande desenvolvimento tecnológico das redes de compartilhamento de arquivos contribuiram para uma maior aceitação de formato de áudio MP3 \cite{andrade&crispim2008}, por ser facilmente transportado em qualquer bolso ou mochila e pela sua longa vida útil, além do aumento gradativo de armazenamento com o passar dos anos \cite{marchi2005}.
+O grande desenvolvimento tecnológico das redes de compartilhamento de arquivos contribuiram para uma maior aceitação de formato de áudio MP3 \cite{andrade&crispim2008}, por ser facilmente transportado em qualquer bolso ou mochila e pela sua longa vida útil, além do aumento gradativo de armazenamento com o passar dos anos \cite{marchi2005}. Sua invenção, propiciou a popularização de eletrônicos com portas USB e o surgimento de cartões de memória \textit{microSD}, prometendo maior capacidade, durabilidade e clareza sonora \cite{marchi2005}.
 
-Sua invenção, propiciou a a popularização de eletrônicos com portas USB e o surgimento de cartões de memória microSD, prometendo maior capacidade, durabilidade e clareza sonora \cite{marchi2005}.
+Com a Internet, a música ultrapassa os limites físicos da mídia - mergulhando no universo digital- e passa a circular livremente pela rede mundial de computadores através do \textit{streaming}, que tomou forma no final da década de 80 e começou a se desenvolver na década de 90, com a evolução dos SGBDs (\textit{Sistemas de Gerenciamento de Banco de Dados}) e o surgimento dos BDOOs (\textit{Bancos de Dados Orientado a Objetos}) \cite{junior&segundo2008}, que possibilitaram o armazenamento de multimidias, assim como a popularização de aplicativos móveis, conhecidos normalmente por \textit{apps}, que oferecem mais de 30 milhões de música a seus usuários, por exemplo, "Spotify"\footnote{https://www.spotify.com/br/} e "Deezer"\footnote{https://www.deezer.com/br/}.
 
-Com a internet, a música ultrapassa os limites físicos da mídia, mergulhando no universo digital, a música passa a circular livremente pela rede mundial de computadores através do \textit{streaming} que tomou forma no final da década de 80 e começou a se desenvolver na década de 90, com a evolução dos SGBDs \abreviatura{SGBD}{Sistemas de Gerenciamento de Banco de Dados} e o surgimento dos BDOOs \abreviatura{BDOO}{Banco de Dados Orientado a Objetos} \cite{junior&segundo2008}, que possibilitou o armazenamento de multimidias e a primeira rádio online surgiu em 1994. Assim como a popularização de aplicativos móveis, conhecido normalmente por app, que oferecem mais de 30 milhões de música a seus usuários, por exemplo, "Spotify"\footnote{https://www.spotify.com/br/} e "Deezer"\footnote{https://www.deezer.com/br/}.
+A evolução dos arquivos musicais não foi acompanhada de tentativas de inserção de informações elementares da música a esses arquivos. Há pouco tempo não existia um padrão para a representação dos metadados associados a esses arquivos \cite{andrade&crispim2008}, e a recuperação dessa informação só será bem sucedida se esses documentos multimídias puderem ser representados de acordo com as suas peculiaridades \cite{gomes2015}.
 
-A evolução dos arquivos musicais não foi acompanhada de tentativas de inserção de informações elementares da música a esses arquivos. Há pouco tempo não existia um padrão para a representação dos metadados associados a esses arquivos \cite{andrade&crispim2008}. E a recuperação dessa informação só será bem sucedida se esses documentos multimídias puderem ser representados de acordo com as suas peculiaridades \cite{gomes2015}.
 %REPRESENTAÇÃO E ESTRUTURAS DA INFORMAÇÃO MUSICAL%
 \section{Representação e Estruturas da Informação Musical}
 
-O som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia \cite{miletto2004}. A digitalização das formas de onda consiste em duas etapas: \textbf{amostragem} e \textbf{quantização}. Na primeira etapa, a forma de onda é lida ou amostrada em intervalos de tempo uniformes. Então, na segunda etapa, o valor da forma de onda em cada ponto amostrado é restrito ou quantificado para um conjunto discreto de valores. É uma transformação com perdas, no sentido de que se perde informação neste processo. Veja a Figura \ref{fig:ondaAnalog} para uma ilustração.
+Como comentado anteriormente, o som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia \cite{miletto2004}. A digitalização das formas de onda consiste em três etapas: \textit{amostragem}, \textit{quantização} e \textit{codificação}. Na primeira etapa, a forma de onda é lida ou amostrada em intervalos de tempo uniformes. Então, na segunda etapa, o valor da forma de onda em cada ponto amostrado é restrito ou quantificado para um conjunto discreto de valores. Por fim, na terceira etapa é feita a codificação, traduzindo os valores para código binário. É uma transformação com perdas, no sentido de que se perde informação neste processo. (ver Figura \ref{fig:ondaAnalog}).
 
 \begin{figure}[!htb]
    \centering
    \caption{Forma de onda analógica (curva preta) e representação digitalizada (os valores digitalizados são indicados pelas caixas cinzentas). Neste exemplo, a forma de onda é amostrada em 24 pontos e a quantização dos valores emprega um esquema de codificação de 4 bits (16 valores possíveis)}\label{fig:ondaAnalog} 
    \includegraphics[scale=0.9]{figuras/ondaAnalog.png}
-   Fonte: \cite{muller2007}.
+   \\Fonte: \cite{muller2007}.
 \end{figure}
 
-Armazenar dados de áudio em formato analógico discretizado consome muito espaço \cite{juliana2004}, e como solução foi adotada a codificação MIDI \abreviatura{MIDI}{Musical Instrument Digital Interface}. Essa codificação é uma representação da informação musical, e é usado atualmente como o formato de intercâmbio de música digital simbólico mais comum para possibilitar a transferência de informações entre instrumentos musicais e computadores \cite{muller2007}. E o tamanho desses arquivos, tende a ser bem reduzido, já que a codificação de eventos musicais pode ser bem compacta.
+Armazenar dados de áudio em formato analógico discretizado consome muito espaço \cite{juliana2004}, e como solução foi adotada a codificação MIDI (\textit{Musical Instrument Digital Interface}). Essa codificação é uma representação da informação musical, sendo usada atualmente como o formato de intercâmbio de música digital simbólico mais comum para possibilitar a transferência de informações entre instrumentos musicais e computadores \cite{muller2007}. O tamanho desses arquivos tende a ser bem reduzido, já que a codificação de eventos musicais pode ser bem compacta.
 
-Embora isso seja satisfatório em algumas situações, arquivos MIDI (extensão .mid ou .smf) basicamente codificam apenas instruções referentes a notas e durações e não a informação sonora propriamente dita \cite{fernando&kon1998}. Ou seja, seu código são instruções para um sintetizador, correspondentes a eventos musicais como soar uma nota, silenciar uma nota, mudar o andamento ou o tom da música, etc. O sintetizador, por sua vez, interpreta este código e o executa, podendo usar vários timbres de instrumentos simultaneamente \cite{miletto2004}, e por isso, o resultado sonoro é totalmente dependente da qualidade e das possibilidades oferecidas por esse aparelho \cite{fernando&kon1998}.
+Embora isso seja satisfatório em algumas situações, arquivos MIDI (extensão .mid ou .smf) basicamente codificam apenas instruções referentes a notas e durações e não a informação sonora propriamente dita \cite{fernando&kon1998}. Ou seja, seu código são instruções para um sintetizador correspondentes a eventos musicais como soar uma nota, silenciar uma nota, mudar o andamento ou o tom da música, etc. O sintetizador, por sua vez, interpreta este código e o executa, podendo usar vários timbres de instrumentos simultaneamente \cite{miletto2004}, e por isso, o resultado sonoro é totalmente dependente da qualidade e das possibilidades oferecidas por esse aparelho \cite{fernando&kon1998}.
 
-Com o mesmo objetivo, os formatos Wave, da Microsoft (extensão .wav) e AIFF, da Apple (extensão .aiff ou .aif) são do tipo áudio digitalizado sem compressão. Baseiam-se na codificação PCM \abreviatura{PCM}{Pulse Code Modulation}, onde a própria onda sonora é representada como uma sucessão de números correspondentes às amplitudes do sinal medidas a uma freqüência constante. Ou seja, armazenam dados de um processo de digitalização simples. A diferença para com o formato MIDI, é que esse tipo de codificação origina um grande volume de dados e exige muito espaço para armazenamento e sua única vantagem é a reprodução fiel do áudio, se o arquivo for gravado com qualidade de CD \cite{miletto2004}.
+Com o mesmo objetivo, os formatos \textit{Wave}, da Microsoft (extensão .wav) e AIFF, da Apple (extensão .aiff ou .aif) são do tipo áudio digitalizado sem compressão. Baseiam-se na codificação PCM (\textit{Pulse Code Modulation}), onde a própria onda sonora é representada como uma sucessão de números correspondentes às amplitudes do sinal medidas a uma freqüência constante. Ou seja, armazenam dados de um processo de digitalização simples. A diferença para com o formato MIDI, é que esse tipo de codificação origina um grande volume de dados e exige muito espaço para armazenamento e sua única vantagem é a reprodução fiel do áudio se o arquivo for gravado com qualidade de CD \cite{miletto2004}.
 
-Outro recurso é a compressão de dados que é feita através de programas ou hardware específicos que compactam os arquivos de áudio, reduzindo o seu tamanho, antes de serem enviados. Ao chegar ao seu destino, esses arquivos são descompactados e, em seguida, tocados. Entretanto, compressão, nesse contexto, é sinônimo de perda de qualidade: quanto maior a compressão, maior, também, a quantidade de informação que se perde \cite{fernando&kon1998}. Apesar disso, certos padrões de compressão já permitem a transmissão de arquivos de áudio de boa qualidade em tempo real, o que resulta na existência de uma quantidade equivalente de formatos de arquivo para a compressão do som digitalizado \cite{miletto2004}.
+Outro recurso é a compressão de dados, que é feita através de programas ou \textit{hardware} específicos que compactam os arquivos de áudio, reduzindo o seu tamanho, antes de serem enviados. Ao chegar ao seu destino, esses arquivos são descompactados e, em seguida, tocados. Entretanto, compressão, nesse contexto, é sinônimo de perda de qualidade: quanto maior a compressão, maior também a quantidade de informação que se perde \cite{fernando&kon1998}. Apesar disso, certos padrões de compressão já permitem a transmissão de arquivos de áudio de boa qualidade em tempo real, o que resulta na existência de uma quantidade equivalente de formatos de arquivo para a compressão do som digitalizado \cite{miletto2004}.
 
 Segundo \citeonline{miletto2004}, os formatos de arquivo mais utilizados para a compressão de som são:
 
@@ -117,29 +120,45 @@ Segundo \citeonline{miletto2004}, os formatos de arquivo mais utilizados para a 
    \item MPEG Layer 3 (extensão .mp3);
    \item Windows Media Audio, da Microsoft (extensão .wma).
  \end{itemize}
+ 
 %RECUPERAÇÃO DA INFORMAÇÃO MUSICAL%
 \section{Recuperação da Informação Musical}
 
-A área de pesquisa denominada \textit{Music Information Retrieval}(MIR \abreviatura{MIR}{Music Information Retrieval}) ou Recuperação da Informação Musical (RIM \abreviatura{RIM}{Recuperação da Informação Musical}), tradução literal incorporada pela corrente da área no Brasil.
-
-De acordo com \citeonline{futrelle&downie2002} a Recuperação da Informação Musical é:
+A área de pesquisa denominada \textit{Music Information Retrieval} (MIR - \textit{Music Information Retrieval}) ou Recuperação da Informação Musical (RIM), tradução literal incorporada pela corrente da área no Brasil, é definida, de acordo com \citeonline{futrelle&downie2002}, como:
 
 \begin{citacao}
 [...] uma agenda de pesquisa que, de forma geral, pretende desenvolver formas de gestão de coleções de obras musicais para preservação, busca, acesso e outros usos.
 \end{citacao}
 
-A agenda de pesquisas sobre a RIM intensificou sua produção recentemente com a explosão do interesse em coleções em rede que contenham obras musicais na forma digital, possibilitadas pelo desenvolvimento das citadas técnicas de compressão de áudio. Os pesquisadores de RIM observam que a motivação maior para essa área de pesquisa é o grande volume de música digital disponível na Internet que quanto mais cresce menos possibilita sua recuperação eficiente visto que estão apenas disponíveis aos montes, mas sem o tratamento adequado \cite{gomes2015}.
+A agenda de pesquisas sobre a RIM intensificou sua produção recentemente com a explosão do interesse em coleções em rede que contenham obras musicais na forma digital, possibilitadas pelo desenvolvimento das citadas técnicas de compressão de áudio. Os pesquisadores de RIM observam que a motivação maior para essa área de pesquisa é o grande volume de música digital disponível na Internet que, quanto mais cresce, menos possibilita sua recuperação eficiente, visto que estão apenas disponíveis aos montes, mas sem o tratamento adequado \cite{gomes2015}.
 
-A área de RIM conta com profissionais das mais diversas áreas inclusas na questão do tratamento e recuperação da informação musical como apresentado na tabela a seguir, traduzida por \citeonline[p.11]{santini&souza2007}
+A área de RIM conta com profissionais das mais diversas áreas inclusas na questão do tratamento e recuperação da informação musical como apresentado na tabela \ref{tab:comunidadeRim}, traduzida por \citeonline[p.11]{santini&souza2007}
 
-\begin{figure}[!htb]
-   \centering
-   \caption{Comunidades de RIM}\label{fig:comunidadeRim} 
-   \includegraphics[scale=0.6]{figuras/comunidadeRim.png}
-   Fonte: \cite{futrelle&downie2002}.
-\end{figure}
+\begin{table}[h]
+    \centering
+    \caption{Comunidades de RIM}
+    \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
+    \hline
+        Comunidade & Tipo(s) de instituição & Área de pesquisa \\
+    \hline
+        Ciência da Computação, Recuperação da Informação & Acadêmica, Comercial & Representação, Indexação, Recuperação, Aprendizado de máquina, Design de interface de uso \\
+    \hline
+        Engenharia de áudio, Processamento de sinais digitais & Acadêmica, Comercial & Compressão, detecção de critério, Localização de tom, Aprendizado de máquina, Classificação, Análise musical \\
+    \hline
+        Musicologia, Teoria Musical & Acadêmica & Representação, Análise musical \\
+    \hline
+        Ciência da Informação, Biblioteconomia & Bibliotecas, Acadêmica & Representação, Metadados, Estudos de usuário, Classificação, Direitos de propriedade intelectual, Design de interface de uso \\
+    \hline
+        Ciência Cognitiva, Psicologia, Filosofia & Acadêmica & Representação, Percepção, Estudos de usuário, Ontologia \\
+    \hline
+        Direito & Governamental, Profissionais da lei, Acadêmica & Direitos de propriedade intelectual \\
+    \hline
+    \end{tabular}
+    \label{tab:comunidadeRim}
+    \\Fonte: \cite{futrelle&downie2002}.
+\end{table}
 
-A origem de RIM não apresenta uma ação interdisciplinar, o que prejudica todo o seu processo de comunicação científica. Como pontua \citeonline[p.11]{santini&souza2007}:
+A origem de RIM não apresenta uma ação interdisciplinar, o que prejudica todo o seu processo de comunicação científica. Como  pontua \citeonline[p.11]{santini&souza2007}:
 
 \begin{citacao}
 (...) não há uma sociedade (inter)disciplinar de RIM; um periódico ou livro-texto fundador onde pessoas interessadas podem adquirir as bases teóricas e práticas de RIM. Com exceção de alguns pequenos encontros interdisciplinares, muitos pesquisadores estão apresentando seus resultados para membros das suas próprias disciplinas. A literatura de RIM é difícil de ser localizada, lida e estudada, o que dificulta construir e sustentar uma área de pesquisa respeitável, próspera.
@@ -147,16 +166,16 @@ A origem de RIM não apresenta uma ação interdisciplinar, o que prejudica todo
 
 A escassa produção científica a respeito do tema e as características impostas pelas músicas acarretam em certas dificuldades para sua representação.
 
-Como elucidado no final do item 2.1 deste capítulo, o ponto de partida para os estudos sobre a música como fonte de informação e tratamento, representação e recuperação foi dado em 1996 por Alexander McLane. Neste mesmo período já era possível identificar o desenvolvimento de tecnologias de compressão de arquivos digitais de música para transmissão na Internet e a popularização da Internet no mundo \cite{santini&souza2007}.
+Como elucidado no final da seção 2.1 deste capítulo, o ponto de partida para os estudos sobre a música como fonte de informação e tratamento, representação e recuperação foi dado em 1996 por Alexander McLane. Neste mesmo período já era possível identificar o desenvolvimento de tecnologias de compressão de arquivos digitais de música para transmissão na Internet e a popularização da Internet no mundo \cite{santini&souza2007}.
 
-Em seu estudo McLane direciona sua discussão para os grandes problemas relacionados à representação de documentos de música e à recuperação destes documentos. McLane analisa aspectos significantes da música – sua notação e seu som – e propõe algumas ideias para sistemas de recuperação de música, e formaliza a música como informação segundo três visões: visão subjetiva, visão objetiva e visão interpretativa. Segundo o autor, as necessidades dos vários tipos de análises musicais são tão diversas que é preferível considerar três “visões” sobre a representação da obra musical.
+Em seu estudo, McLane direciona sua discussão para os grandes problemas relacionados à representação de documentos de música e à recuperação destes documentos. Ele analisa aspectos significantes da música – sua notação e seu som –, e propõe algumas ideias para sistemas de recuperação de música e formaliza a música como informação segundo três visões: \textit{visão subjetiva}, \textit{visão objetiva} e \textit{visão interpretativa}. Segundo o autor, as necessidades dos vários tipos de análises musicais são tão diversas que é preferível considerar três “visões” sobre a representação da obra musical.
 
 Em resumo adaptado, \citeonline{santini&souza2007} apresenta as principais características das visões estabelecidas por \citeonline{mclane1996}.
 
 \begin{itemize}
-    \item A visão \textbf{subjetiva} da informação musical se faz por meio do uso do esquema de notação para representação da informação musical. A subjetividade se dá porque a escolha de elementos de notação geralmente representa uma obra em “contexto-dependente” sendo assim a decisão da notação pode incluir ou excluir aspectos particulares da obra.
-    \item A visão \textbf{objetiva} está vinculada a audição e ao momento da execução musical. Um som gravado pode ser identificado como visão objetiva da obra musical. A sonoridade se caracteriza como objetiva por não se configurar como uma representação, mas como a obra em sua essência. O som musical uma vez gravado torna-se fixo e não está mais sujeito a variações editoriais e de performance. Segundo McLane esta visão pode ser considerada a mais completa representação da música, ao passo em que inclui as facetas: tom, tempo, harmonia, editorial e timbre.
-    \item A visão \textbf{interpretativa} é realizada através da análise de alguns aspectos da obra, engloba informações que não são diretamente dependentes do documento. Entram nessa categoria classificações e esquemas analíticos que elucidam características como o gênero musical e avaliações críticas.
+    \item A visão \textit{subjetiva} da informação musical se faz por meio do uso do esquema de notação para representação da informação musical. A subjetividade se dá porque a escolha de elementos de notação geralmente representa uma obra em “contexto-dependente”. Sendo assim, a decisão da notação pode incluir ou excluir aspectos particulares da obra.
+    \item A visão \textit{objetiva} está vinculada a audição e ao momento da execução musical. Um som gravado pode ser identificado como visão objetiva da obra musical. A sonoridade se caracteriza como objetiva por não se configurar como uma representação, mas como a obra em sua essência. O som musical uma vez gravado torna-se fixo e não está mais sujeito a variações editoriais e de performance. Segundo McLane, esta visão pode ser considerada a mais completa representação da música, ao passo em que inclui as facetas tom, tempo, harmonia, editorial e timbre.
+    \item A visão \textit{interpretativa} é realizada através da análise de alguns aspectos da obra, englobando informações que não são diretamente dependentes do documento. Entram nessa categoria classificações e esquemas analíticos que elucidam características como o gênero musical e avaliações críticas.
 \end{itemize}
 
 De acordo com \citeonline[p.11]{cruz2014}:
@@ -179,19 +198,19 @@ De acordo com \citeonline[p.5]{downie2003,santini&souza2007} os quatro desafios 
 
 \begin{citacao}
     \begin{enumerate}
-        \item Considerar permanentemente as diferentes formas de representação da música, o que caracteriza o \textbf{desafio multirepresentacional}. O copyright faz parte deste desafio.
-        \item Cada época histórica e cada formação cultural criam modos próprios e singulares de se expressar através da música. A música transcende as fronteiras culturais e temporais. A ampla variedade de expressões musicais coloca em evidência o \textbf{desafio multicultural}.
-        \item Compreender e responder às diferentes formas de interação individual com a música e com os sistemas de RIM constitui o \textbf{desafio multiexperimental}.
-        \item Maximizar os benefícios de ter uma comunidade multidisciplinar de pesquisadores, enquanto minimiza a desvantagem inerente, representa o \textbf{desafio multidisciplinar}.
+        \item Considerar permanentemente as diferentes formas de representação da música, o que caracteriza o \textit{desafio multirepresentacional}. O copyright faz parte deste desafio.
+        \item Cada época histórica e cada formação cultural criam modos próprios e singulares de se expressar através da música. A música transcende as fronteiras culturais e temporais. A ampla variedade de expressões musicais coloca em evidência o \textit{desafio multicultural}.
+        \item Compreender e responder às diferentes formas de interação individual com a música e com os sistemas de RIM constitui o \textit{desafio multiexperimental}.
+        \item Maximizar os benefícios de ter uma comunidade multidisciplinar de pesquisadores, enquanto minimiza a desvantagem inerente, representa o \textit{desafio multidisciplinar}.
     \end{enumerate}
 \end{citacao}
 
-O desafio multirepresentacional é dividido em sete facetas a serem consideradas na descrição da música e que representam a estrutura musical \cite{downie2003}. São elas: tonal, temporal, harmônica, de timbre, editorial, textual e faceta bibliográfica. Sendo as quatro primeiras relativas a aspectos sonoros da música com formas gráficas de representação em figuras rítmicas ou notações musicais, enquanto que as três últimas são representadas na forma gráfica e dizem respeito às informações de produção, intérprete, compositor, copyright, data de produção e outras \cite{barros2012}.
+O desafio multirepresentacional é dividido em sete facetas a serem consideradas na descrição da música e que representam a estrutura musical \cite{downie2003}: tonal, temporal, harmônica, de timbre, editorial, textual e faceta bibliográfica, sendo as quatro primeiras relativas a aspectos sonoros da música com formas gráficas de representação em figuras rítmicas ou notações musicais, enquanto que as três últimas são representadas na forma gráfica e dizem respeito às informações de produção, intérprete, compositor, copyright, data de produção e outras \cite{barros2012}.
 
-Apesar de completas, a interação dessas facetas resulta em um complexo tratamento da informação musical, visto que cada faceta citada possui por si só uma complexidade inerente e sofre um tipo de representação enquanto produto. As autoras \citeonline[p.8]{santini&souza2007} resumem a problemática multirepresentacional da seguinte forma:
+Apesar de completas, a interação dessas facetas resulta em um complexo tratamento da informação musical, visto que cada faceta citada possui, por si só, uma complexidade inerente e sofre um tipo de representação enquanto produto. As autoras \citeonline[p.8]{santini&souza2007} resumem a problemática multirepresentacional da seguinte forma:
 
 \begin{citacao}
-    A complexa interação entre as facetas da música - tempo, harmonia, timbre, freqüência, editoria, texto e bibliografia – evidencia um dos principais problemas de RIM: o desafio multirepresentacional. A escolha da representação da música – se baseada em símbolos, áudio ou ambos – adiciona-se a diversas questões: como, por exemplo, cada escolha determina a tecnologia, a organização, a recuperação e a interface entre requisitos e capacidades dos sistemas.
+    A complexa interação entre as facetas da música - tempo, harmonia, timbre, freqüência, editorial, texto e bibliografia – evidencia um dos principais problemas de RIM: o desafio multirepresentacional. A escolha da representação da música – se baseada em símbolos, áudio ou ambos – adiciona-se a diversas questões: como, por exemplo, cada escolha determina a tecnologia, a organização, a recuperação e a interface entre requisitos e capacidades dos sistemas.
 \end{citacao}
 
 Sendo assim, apesar de possuir as facetas estabelecidas pelo autor, a estrutura da música incorpora elementos extras que nos permitem defini-la como um objeto informacional mais complexo. Além das facetas definidas por \citeonline[p.283]{downie2003,cruz2014}, a estrutura musical:
@@ -202,25 +221,59 @@ Sendo assim, apesar de possuir as facetas estabelecidas pelo autor, a estrutura 
 
 O segundo desafio (multicultural) nasce da condição inerente à música de ser uma objetivação de algo extremamente subjetivo: a expressão humana. Sendo assim, sofre a interferência de uma grande variedade de fatores, da cultura vigente no momento da produção musical e da localização geográfica desta produção.
 
-O desafio multiexperimental diz respeito à percepção da música como experiência individual ou coletiva capaz de causar diferentes reações em diferentes momentos e situações, de cada mente e humor individual. Neste caso ouvir uma música gravada funciona como “ajudar a memória” que traz a tona experiências prazerosas ou dolorosas relacionadas a uma música em especial \cite{downie2003,santini&souza2007}. As variações de pessoa para pessoa na forma de apropriação, apreciação e nos tipos de experiências emocionais que a música evoca demonstram de maneira pragmática o desafio multiexperimental.
+O desafio multiexperimental diz respeito à percepção da música como experiência individual ou coletiva capaz de causar diferentes reações em diferentes momentos e situações, de cada mente e humor individual. Neste caso, ouvir uma música gravada funciona como “ajudar a memória” que traz a tona experiências prazerosas ou dolorosas relacionadas a uma música em especial \cite{downie2003,santini&souza2007}. As variações de pessoa para pessoa na forma de apropriação, apreciação e nos tipos de experiências emocionais que a música evoca demonstram de maneira pragmática o desafio multiexperimental.
 
 O quarto e último desafio estabelecido por \citeonline{downie2003} é o desafio multidisciplinar. Como citado anteriormente, a diversidade intelectual da comunidade de pesquisadores de RIM é, ao mesmo tempo, uma vantagem e uma adversidade. A heterogeneidade das visões de mundo das disciplinas apresenta um problema particular. Cada disciplina traz suas crenças, práticas, questões de pesquisa e paradigmas de avaliação \cite{downie2003}. De acordo com \citeonline{futrelle&downie2002}, não há uma aceitação comum dos objetivos, técnicas e resultados obtidos nas pesquisas referentes à informação musical.
 
-Percebe-se por tanto, que se por um lado, a ação multidisciplinar dos pesquisadores envolvidos com o tema possibilita o surgimento de diversos avanços tecnológicos e que a cada dia são divulgadas novas soluções para o tratamento de conteúdos musicais, com algoritmos mais sofisticados, novas formas de indexação de músicas, novos tipos de interfaces de áudio e novas formas de representação musical, em contrapartida, é notável a dificuldade de comunicação entre esses resultados. Nota-se ainda a dificuldade de identificação desses conteúdos musicais, porque a música é complexa e possui um leque de propriedades que possibilitam abordagens, às vezes, contraditórias \cite{cruz2014}.
+Percebe-se, portanto, que, se por um lado, a ação multidisciplinar dos pesquisadores envolvidos com o tema possibilita o surgimento de diversos avanços tecnológicos e que a cada dia são divulgadas novas soluções para o tratamento de conteúdos musicais, com algoritmos mais sofisticados, novas formas de indexação de músicas, novos tipos de interfaces de áudio e novas formas de representação musical, em contrapartida, é notável a dificuldade de comunicação entre esses resultados. Nota-se ainda a dificuldade de identificação desses conteúdos musicais, porque a música é complexa e possui um leque de propriedades que possibilitam abordagens, às vezes, contraditórias \cite{cruz2014}.
 
 A análise documental da informação musical para sua representação apresenta complexidades, pois exige diferentes técnicas de extração de informações para distintas formas de apresentação \cite{downie2003}.
 
+%MÉTODOS E ALGORITMOS PARA RECUPERAÇÃO DA INFORMAÇÃO MUSICAL%
 \subsection{Métodos e Algoritmos para Recuperação da Informação Musical}
 
-Um dado multimídia geralmente é representado por um conjunto de características extraídas do conteúdo do dado. Isto porque dados multimídia são basicamente arranjos multidimensionais de valores derivados de vários sensores, que é uma representação limitada para definir a semântica do dado. Neste sentido, dados complexos raramente são comparados diretamente. Em vez disso, o conteúdo do dado (ou uma faceta do conteúdo) é analisado por meio de algoritmos especializados de análise, extraindo um conjunto de características, que descrevem numericamente o dado \cite{kaster2012}. Desta forma, as aplicações que lidam com dados complexos, como dados multimı́dia, requerem a realização de consultas por similaridade, ou seja, consultas que realizem busca por objetos da base que sejam similares a um objeto de consulta, de acordo com uma certa medida de similaridade (baseada em uma função de distância) \cite{barioni2006}.
+Um dado multimídia geralmente é representado por um conjunto de características extraídas do conteúdo do dado. Isto porque dados multimídia são basicamente arranjos multidimensionais de valores derivados de vários sensores, que é uma representação limitada para definir a semântica do dado. Neste sentido, dados complexos raramente são comparados diretamente. Em vez disso, o conteúdo do dado (ou uma faceta do conteúdo) é analisado por meio de algoritmos especializados de análise, extraindo um conjunto de características que descrevem numericamente o dado \cite{kaster2012}. Desta forma, as aplicações que lidam com dados complexos, como dados multimı́dia, requerem a realização de consultas por similaridade, ou seja, consultas que realizem busca por objetos da base que sejam similares a um objeto de consulta, de acordo com uma certa medida de similaridade (baseada em uma função de distância) \cite{barioni2006}.
 
-A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\abreviatura{ISMIR}{International Society for Music Information Retrieval}, na sigla em inglês) abriga durante sua conferência anual o MIREX\footnote{http://www.music-ir.org/mirex/wiki/MIREX_HOME}\abreviatura{}{Music Information Retrieval Evaluation eXchange}. Nesta espécie de competição, pesquisadores inscrevem algoritmos que realizam diferentes tarefas da área de recuperação da informação musical, como classificação automática de gênero musical, identificação automática da pulsação, extração de melodia a partir arquivos áudio, entre outros.
+A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\abreviatura{ISMIR}{\textit{International Society for Music Information Retrieval}}, na sigla em inglês) abriga, durante sua conferência anual, o MIREX\footnote{http://www.music-ir.org/mirex/wiki/MIREX_HOME}\abreviatura{MIREX}{\textit{Music Information Retrieval Evaluation eXchange}}. Nesta espécie de competição, pesquisadores inscrevem algoritmos que realizam diferentes tarefas da área de recuperação da informação musical, como classificação automática de gênero musical, identificação automática da pulsação, extração de melodia a partir de arquivos áudio, entre outros.
 
 Dadas as características de um sinal de áudio, pode-se definir métricas de similaridade para comparar músicas.
 
+Embora exista uma grande variedade de funções de distância disponível na literatura, não existe um método que determine, de um modo geral, qual deve ser a melhor função de distância a ser utilizada em cada caso. A escolha ou definição de uma função de distância é uma tarefa que depende muito da análise das características específicas do domínio dos dados a serem manipulados \cite{barioni2006}.
+
+%CROSS RECURRENCE PLOT%
+\subsubsection{Cross Recurrence Plot}
+
+O trabalho de \citeonline{serra2009} propõe o uso de \textit{Cross Recurrence Plots} (CRP\abreviatura{CRP}{Cross Recurrence Plots}) como métrica de similaridade entre músicas. Antes de definir CRP, é necessário introduzir o conceito de \textit{Recurrence Plot} (RP\abreviatura{RP}{\textit{Recurrence Plot}}). RP é uma ferramenta utilizada para visualizar recorrências com uma série temporal, ou seja, regiões onde a órbita da série passa perto de um estado previamente visitado. Mais especificamente, RP é uma matriz quadrada preenchida com zeros e uns, que indicam se há ou não recorrência, ou seja, se o estado no tempo \({i}\) é similar ao estado do tempo \({j}\) \cite{eckmann1987, alligood1996}. A diagonal principal de um RP é, portanto, composta por uns. CRPs sao construídos da mesma maneira que RPs, mas cada eixo corresponde a uma série temporal diferente e a matriz resultante não é quadrada.
+
+Primeiramente, o algoritmo extrai a característica HPCP \cite{gomez2006} de duas músicas, resultando em séries temporais de \({H = 12}\) variáveis. Dados os vetores HPCP da música \textbf{\({x}\)} e da música \textbf{\({y}\)}, calcula-se a transposição de \textbf{\({y}\)} de modo que ela fique na mesma tonalidade de \textbf{\({x}\)}. A transposição ocorre rotacionando-se o vetor HPCP de \textbf{\({y}\)} em \({k}\) posições por meio da técnica \textit{Optimal Transposition Index}, proposta em \cite{serra2009}.
+
+A seguir, calcula-se o \textit{embedding} das duas músicas em um espaço de fase, isto é, um espaço onde as recorrências do sinal podem ser obtidas. Considere que  HPCP \textbf{\({x}\)} tem \({N_{x}^{*}}\) janelas. O \textit{embedding} de \textbf{\({x}\)} é dado por \({x' = \big\{x_{i}\big\}}\), para \({i = 1, ..., N_{x}, N_{x} = N_{x}^{*} - (m - 1)*\tau}\), em que \({x_{i}}\) é calculado com:
+
+\begin{eqnarray} \label{embedding}
+    x_{i} &=& (x_{1,i},x_{1,i+\tau}, \ldots, x_{1,i+(m-1)\tau}, \\
+          & & x_{2,i},x_{2,i+\tau}, \ldots, x_{2,i+(m-1)\tau}, \nonumber \\
+          & & \vdots \nonumber \\
+          & & x_{H,i},x_{H,i+\tau}, \ldots, x_{H,i+(m-1)\tau}) \nonumber
+\end{eqnarray}
+
+Os autores estimaram os valores ótimos de \({m}\) e \({\tau}\) para o reconhecimento de músicas \textit{cover} por meio da divisão de uma base de dados em conjunto de treinamento e teste. Os parâmetros encontrados foram \({m = 10}\) e \({\tau = 1}\).
+
+\citeonline{serra2009} utilizam a Equação \ref{crp} para calcular o CRP, em que \({\Theta(\cdot)}\) é a função degrau tipo Heaviside \({(\Theta(v) = 0 \ \textrm{se} \ v < 0 \  e \  \Theta(v) = 1, \ \textrm{caso contrário})}\), \({\epsilon_{i}^{x}}\) e \({\epsilon_{i}^{y}}\) são limiares de distâncias e \({|| \cdot ||}\) é a norma Euclidiana. No artigo, os autores calculam os limiares dinamicamente, de modo que 10\% dos vizinhos de cada entrada sejam considerados semelhantes.
+
+\begin{equation} \label{crp}
+    R_{i,j} = \Theta(\epsilon_{i}^{x} - ||\mathbf{x_{i} - y_{j}}||)\Theta(\epsilon_{i}^{y} - ||\mathbf{x_{i} - y_{j}}||)
+\end{equation}
+
+Em geral, pares de músicas diferentes não exibem nenhum padrão evidente no CRP e pares de músicas \textit{cover} apresentam estrutura de linhas longas e caso contrário, tais padrões não ocorrem.
+
+Com base no CRP de duas músicas, o trabalho de \citeonline{serra2009} propõe o uso do maior comprimento das diagonais formadas na matriz como métrica de similaridade. A medida \({Q_{max}}\) é definida como o maior comprimento das diagonais na matriz CRP, considerando possíveis variações no tempo da música (que correspondem a curvaturas nos traços) e na melodia (pequenas rupturas). Uma análise detalhada para o cáculo do \({Q_{max}}\) pode ser encontrada em \cite{serra2009}.
+
+A partir da medida \({Q_{max}}\), é possível identificar grupos de música \textit{cover} em uma base de dados. Quanto maior o \({Q_{max}}\) entre duas instâncias, maior a probabilidade de elas serem interpretações diferentes da mesma música. Até hoje, \({Q_{max}}\) é considerado o estado da arte em métricas para identificação de músicas \textit{cover}. Sua principal desvantagem é seu alto custo computacional.
+
+%DYNAMIC TIME WARPING%
 \subsubsection{Dynamic Time Warping}
 
-O \textit{Dynamic Time Warping} (DTW\abreviatura{DTW}{Dynamic Time Warping}) \cite{keogh2004} é uma técnica que permite definir uma métrica entre séries temporais, por exemplo, características de áudio. Dadas duas séries \({Q}\) e \({C}\) de tamanhos \({n}\) e \({m}\), respectivamente, cria-se uma matriz \({D}\), \({n\times m}\), onde o elemento \({d_{i,j}}\) é a distância entre o elemento \({q_{i}}\) e \({c_{j}}\).
+O \textit{Dynamic Time Warping} (DTW\abreviatura{DTW}{\textit{Dynamic Time Warping}}) \cite{keogh2004} é uma técnica que permite definir uma métrica entre séries temporais, por exemplo, características de áudio. Dadas duas séries \({Q}\) e \({C}\) de tamanhos \({n}\) e \({m}\), respectivamente, cria-se uma matriz \({D}\), \({n\times m}\), onde o elemento \({d_{i,j}}\) é a distância entre o elemento \({q_{i}}\) e \({c_{j}}\).
 
 A partir da matriz \({D}\), o algoritmo procura por um caminho mínimo \({W}\), onde \({w_{k} = (i,j)_{k}}\), que respeite as seguintes condições:
 
@@ -236,7 +289,7 @@ O caminho mínimo é encontrado por meio de um algoritmo de programação dinâm
     DTW(Q,C) = \sqrt{\sum_{k=1}^{K} D[w_{k}]}
 \end{equation}
 
-, em que \({K}\) é o tamanho do caminho e \({D[w_{k}]}\) é o valor da entrada \({(i,j)_{k}}\) na matriz \({D}\). A Figura \ref{fig:dtw} ilustra a execução do algoritmo DTW.
+em que \({K}\) é o tamanho do caminho e \({D[w_{k}]}\) é o valor da entrada \({(i,j)_{k}}\) na matriz \({D}\). A Figura \ref{fig:dtw} ilustra a execução do algoritmo DTW.
 
 \begin{figure}[!htb]
    \centering
@@ -245,43 +298,15 @@ O caminho mínimo é encontrado por meio de um algoritmo de programação dinâm
    Fonte: \cite{keogh2004}.
 \end{figure}
 
-\subsubsection{Similaridade pelo Timbre}
+\subsubsection{Fingerprint}
+%Método encontrado no Shazam, Musixmatch e MusicID%
 
-Segundo Aucouturier\&Pachet, é uma medida de similaridade do "timbre global" dos títulos de música, com base no sinal de áudio, que tem como objetivo descrever uma qualidade timbral que se aplica à música inteira ou instrumento, como por exemplo:
+\subsubsection{Machine Learning}
+%Método encontrado no SoundHound%
 
-\begin{itemize}
-    \item Uma sonata de \textit{Schumann} ("Clássica") e uma pela de \textit{Bill Evans} ("Jazz") são similares pois possuem o som do piano romântico em comum;
-    \item uma música de \textit{Nick Drake} ("Folk"), uma música acústica do \textit{Smashing Pumpkins} ("Rock"), uma peça da Bossa Nova de \textit{João Gilberto} ("Mundo") são similares pois todos eles consistem em um violão simples e uma voz masculina gentil, etc.
-\end{itemize}
+\subsubsection{Recuperação por Conteúdo}
+% Euclidiana, Manhattan, Longest Common Subsequence, Transformada de Fourier de Curta Duração (Short Time Fourier Transform – STFT)
+%Método encontrado no Musixmatch, ainda verificar se tem um método utilizado além do fingerprint%
+%Incluiu recuperação da informação de artista, álbum e título de música que pode ser encontrado no Spotify, Deezer e SoundCloud%
 
----------------------
-
-\subsubsection{Cross Recurrence Plot}
-
-O trabalho de \citeonline{serra2009} propõe o uso de \textit{Cross Recurrence Plots} (CRP\abreviatura{CRP}{Cross Recurrence Plots}) como métrica de similaridade entre músicas. Antes de definir CRP, é necessário introduzir o conceito de \textit{Recurrence Plot} (RP\abreviatura{RP}{Recurrence Plot}). RP é uma ferramenta utilizada para visualizar recorrências com uma série temporal, ou seja, regiões onde a órbita da série passa perto de um estado previamente visitado. Mais especificamente, RP é uma matriz quadrada preenchida com zeros e uns, que indicam se há ou não recorrência, ou seja, se o estado no tempo \({i}\) é similar ao estado do tempo \({j}\) \cite{eckmann1987, alligood1996}. A diagonal principal de um RP é, portanto, composta por uns. CRPs sao construídos da mesma maneira que RPs, mas cada eixo corresponde a uma série temporal diferente e a matriz resultante não é quadrada.
-
-Primeiramente, o algoritmo extrai a característica HPCP \cite{gomez2006} de duas músicas, resultando em séries temporais de \({H = 12}\) variáveis. Dados os vetores HPCP da música \textbf{\({x}\)} e da música \textbf{\({y}\)}, calcula-se a transposição de \textbf{\({y}\)} de modo que ela fique na mesma tonalidade de \textbf{\({x}\)}. A transposição ocorre rotacionando-se o vetor HPCP de \textbf{\({y}\)} em \({k}\) posições, por meio da técnica \textit{Optimal Transposition Index}, proposta em \cite{serra2009}.
-
-A seguir, calcula-se o \textit{embedding} das duas músicas em um espaço de fase, isto é, um espaço onde as recorrências do sinal podem ser obtidas. Considere que  HPCP \textbf{\({x}\)} tem \({N_{x}^{*}}\) janelas. O \textit{embedding} de \textbf{\({x}\)} é dado por \({x' = \big\{x_{i}\big\}}\), para \({i = 1, ..., N_{x}, N_{x} = N_{x}^{*} - (m - 1)*\tau}\), em que \({x_{i}}\) é calculado com:
-
-\begin{eqnarray} \label{embedding}
-    x_{i} &=& (x_{1,i},x_{1,i+\tau}, \ldots, x_{1,i+(m-1)\tau}, \\
-          & & x_{2,i},x_{2,i+\tau}, \ldots, x_{2,i+(m-1)\tau}, \nonumber \\
-          & & \vdots \nonumber \\
-          & & x_{H,i},x_{H,i+\tau}, \ldots, x_{H,i+(m-1)\tau}) \nonumber
-\end{eqnarray}
-
-Os autores estimaram os valores ótimos de \({m}\) e \({\tau}\) para o reconhecimento de músicas \textit{cover}, por meio da divisão de uma base de dados em conjunto de treinamento e teste: os parâmetros encontrados foram \({m = 10}\) e \({\tau = 1}\).
-
-\citeonline{serra2009} utilizam a Equação \ref{embedding} para calcular o CRP, em que \({\Theta(\cdot)}\) é a função degrau tipo Heaviside \({(\Theta(v) = 0 \ \textrm{se} \ v < 0 \  e \  \Theta(v) = 1 \ \textrm{caso contrário})}\), \({\epsilon_{i}^{x}}\) e \({\epsilon_{i}^{y}}\) são limiares de distâncias e \({|| \cdot ||}\) é a norma Euclidiana. No artigo, os autores calculam os limiares dinamicamente, de modo que 10\% dos vizinhos de cada entrada sejam considerados semelhantes.
-
-\begin{equation}
-    R_{i,j} = \Theta(\epsilon_{i}^{x} - ||\mathbf{x_{i} - y_{j}}||)\Theta(\epsilon_{i}^{y} - ||\mathbf{x_{i} - y_{j}}||)
-\end{equation}
-
-Em geral, pares de músicas diferentes não exibem nenhum padrão evidente no CRP e pares de músicas \textit{cover} apresentam estrutura de linhas longas e caso contrário, tais padrões não ocorrem.
-
-Com base no CRP de duas músicas, o trabalho de \citeonline{serra2009} propõe o uso do maior comprimento das diagonais formadas na matriz como métrica de similaridade. A medida \({Q_{max}}\) é definida como o maior comprimento das diagonais na matriz CRP, considerando possíveis variações no tempo da música (que correspondem a curvaturas nos traços) e na melodia (pequenas rupturas). Uma análise detalhada para o cáculo do \({Q_{max}}\) pode ser encontrada em \cite{serra2009}.
-
-A partir da medida \({Q_{max}}\), é possível identificar grupos de música \textit{cover} em uma base de dados. Quanto maior o \({Q_{max}}\) entre duas instâncias, maior a probabilidade de elas serem interpretações diferentes da mesma música. Até hoje, \({Q_{max}}\) é considerado o estado da arte em métricas para identificação de músicas \textit{cover}. Sua principal desvantagem é seu alto custo computacional.
-
+%As técnicas baseadas em busca por conteúdo utilizam caracterı́sticas extraı́das automaticamente dos dados complexos para representar e indexar as informações embutidas nesses dados. Cada caracterı́stica é usualmente um valor ou conjunto de valores numéricos e o conjunto de caracterı́sticas extraı́das é chamado vetor de caracterı́sticas. Nos sistemas de recuperação por conteúdo, as operações de comparação entre dados complexos utilizam os vetores de caracterı́sticas para medir a similaridade do conteúdo presente nos dados que eles representam.
