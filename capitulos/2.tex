@@ -232,9 +232,9 @@ A análise documental da informação musical para sua representação apresenta
 %MÉTODOS E ALGORITMOS PARA RECUPERAÇÃO DA INFORMAÇÃO MUSICAL%
 \subsection{Métodos e Algoritmos para Recuperação da Informação Musical}
 
-Um dado multimídia geralmente é representado por um conjunto de características extraídas do conteúdo do dado. Isto porque dados multimídia são basicamente arranjos multidimensionais de valores derivados de vários sensores, que é uma representação limitada para definir a semântica do dado. Neste sentido, dados complexos raramente são comparados diretamente. Em vez disso, o conteúdo do dado (ou uma faceta do conteúdo) é analisado por meio de algoritmos especializados de análise, extraindo um conjunto de características que descrevem numericamente o dado \cite{kaster2012}. Desta forma, as aplicações que lidam com dados complexos, como dados multimı́dia, requerem a realização de consultas por similaridade, ou seja, consultas que realizem busca por objetos da base que sejam similares a um objeto de consulta, de acordo com uma certa medida de similaridade (baseada em uma função de distância) \cite{barioni2006}.
+Um dado multimídia geralmente é representado por um conjunto de características extraídas do conteúdo do dado. Isto porque dados multimídia são basicamente arranjos multidimensionais de valores derivados de vários sensores, que é uma representação limitada para definir a semântica do dado. Neste sentido, dados complexos raramente são comparados diretamente. Em vez disso, o conteúdo do dado (ou uma faceta do conteúdo) é analisado por meio de algoritmos especializados de análise, extraindo um conjunto de características que descrevem numericamente o dado \cite{kaster2012}. Desta forma, as aplicações que lidam com dados complexos, como dados multimídia, requerem a realização de consultas por similaridade, ou seja, consultas que realizam busca por objetos da base que sejam similares a um objeto de consulta, de acordo com uma certa medida de similaridade (baseada em uma função de distância) \cite{barioni2006}.
 
-A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\abreviatura{ISMIR}{\textit{International Society for Music Information Retrieval}}, na sigla em inglês) abriga, durante sua conferência anual, o MIREX\footnote{http://www.music-ir.org/mirex/wiki/MIREX_HOME}\abreviatura{MIREX}{\textit{Music Information Retrieval Evaluation eXchange}}. Nesta espécie de competição, pesquisadores inscrevem algoritmos que realizam diferentes tarefas da área de recuperação da informação musical, como classificação automática de gênero musical, identificação automática da pulsação, extração de melodia a partir de arquivos áudio, entre outros.
+A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\abreviatura{ISMIR}{\textit{International Society for Music Information Retrieval}}, na sigla em inglês) abriga, durante sua conferência anual, o MIREX\footnote{$http://www.music-ir.org/mirex/wiki/MIREX\_HOME$}\abreviatura{MIREX}{\textit{Music Information Retrieval Evaluation eXchange}}. Nesta espécie de competição, pesquisadores inscrevem algoritmos que realizam diferentes tarefas da área de recuperação da informação musical, como classificação automática de gênero musical, identificação automática da pulsação, extração de melodia a partir de arquivos áudio, entre outros.
 
 Dadas as características de um sinal de áudio, pode-se definir métricas de similaridade para comparar músicas.
 
@@ -248,7 +248,6 @@ O trabalho de \citeonline{serra2009} propõe o uso de \textit{Cross Recurrence P
 Primeiramente, o algoritmo extrai a característica HPCP \cite{gomez2006} de duas músicas, resultando em séries temporais de \({H = 12}\) variáveis. Dados os vetores HPCP da música \textbf{\({x}\)} e da música \textbf{\({y}\)}, calcula-se a transposição de \textbf{\({y}\)} de modo que ela fique na mesma tonalidade de \textbf{\({x}\)}. A transposição ocorre rotacionando-se o vetor HPCP de \textbf{\({y}\)} em \({k}\) posições por meio da técnica \textit{Optimal Transposition Index}, proposta em \cite{serra2009}.
 
 A seguir, calcula-se o \textit{embedding} das duas músicas em um espaço de fase, isto é, um espaço onde as recorrências do sinal podem ser obtidas. Considere que  HPCP \textbf{\({x}\)} tem \({N_{x}^{*}}\) janelas. O \textit{embedding} de \textbf{\({x}\)} é dado por \({x' = \big\{x_{i}\big\}}\), para \({i = 1, ..., N_{x}, N_{x} = N_{x}^{*} - (m - 1)*\tau}\), em que \({x_{i}}\) é calculado com:
-
 \begin{eqnarray} \label{embedding}
     x_{i} &=& (x_{1,i},x_{1,i+\tau}, \ldots, x_{1,i+(m-1)\tau}, \\
           & & x_{2,i},x_{2,i+\tau}, \ldots, x_{2,i+(m-1)\tau}, \nonumber \\
@@ -259,7 +258,6 @@ A seguir, calcula-se o \textit{embedding} das duas músicas em um espaço de fas
 Os autores estimaram os valores ótimos de \({m}\) e \({\tau}\) para o reconhecimento de músicas \textit{cover} por meio da divisão de uma base de dados em conjunto de treinamento e teste. Os parâmetros encontrados foram \({m = 10}\) e \({\tau = 1}\).
 
 \citeonline{serra2009} utilizam a Equação \ref{crp} para calcular o CRP, em que \({\Theta(\cdot)}\) é a função degrau tipo Heaviside \({(\Theta(v) = 0 \ \textrm{se} \ v < 0 \  e \  \Theta(v) = 1, \ \textrm{caso contrário})}\), \({\epsilon_{i}^{x}}\) e \({\epsilon_{i}^{y}}\) são limiares de distâncias e \({|| \cdot ||}\) é a norma Euclidiana. No artigo, os autores calculam os limiares dinamicamente, de modo que 10\% dos vizinhos de cada entrada sejam considerados semelhantes.
-
 \begin{equation} \label{crp}
     R_{i,j} = \Theta(\epsilon_{i}^{x} - ||\mathbf{x_{i} - y_{j}}||)\Theta(\epsilon_{i}^{y} - ||\mathbf{x_{i} - y_{j}}||)
 \end{equation}
@@ -284,7 +282,6 @@ A partir da matriz \({D}\), o algoritmo procura por um caminho mínimo \({W}\), 
 \end{itemize}
 
 O caminho mínimo é encontrado por meio de um algoritmo de programação dinâmica de complexidade \({O(nm)}\) \cite{keogh2004}. A métria de dissimilaridade DTW é dada por:
-
 \begin{equation}
     DTW(Q,C) = \sqrt{\sum_{k=1}^{K} D[w_{k}]}
 \end{equation}
@@ -295,11 +292,46 @@ em que \({K}\) é o tamanho do caminho e \({D[w_{k}]}\) é o valor da entrada \(
    \centering
    \caption{Execução do algoritmo de DTW. (A) Séries C e Q. (B) Matriz de distâncias. (C) Alinhamento das duas séries com o caminho mínimo.}\label{fig:dtw} 
    \includegraphics[scale=0.47]{figuras/dtw.png}
-   Fonte: \cite{keogh2004}.
+   \\Fonte: \cite{keogh2004}.
 \end{figure}
 
-\subsubsection{Fingerprint}
-%Método encontrado no Shazam, Musixmatch e MusicID%
+\subsubsection{Audio Fingerprinting}
+\textit{Audio Fingerprint} é como uma assinatura única de uma música, contendo um sumário de suas características que resume uma gravação de áudio. \citeonline{cano2005} definem que uma \textit{fingerprint} de áudio é um resumo digital, que pode ser utilizado para identificar uma amostra ou localizar rapidamente itens semelhantes em uma base de dados de áudio, independente do nível de compressão, distorção ou interferência no canal de transmissão.
+
+Esse sistema pode ser separado em dois processos: extração do \textit{fingerprint} (frontend), e o algoritmo de comparação (match). Podendo ser divido em oito etapas, conforme mostrado na Figura \ref{fig:etapasFinger}.
+
+\begin{figure}[!htb]
+   \centering
+   \caption{Diagrama de identificação de áudio.}\label{fig:etapasFinger} 
+   \includegraphics[scale=0.47]{figuras/etapasFinger.png}
+   \\Fonte: \cite{carreira2015}.
+\end{figure}
+
+Segundo \citeonline{cano2005}, o pré-processamento se dá pela remoção dos dados que não interessam à extração de características, convertendo o sinal de entrada para o formato de 16 bits PCM\footnote{Pulse-code modulation: método usado para representação digital de sinais analógicos.}, agrupando através da média os canais esquerdo e direito em uma taxa de amostragem variando de 5 a 44,1 kHz.
+
+O enquadramento adapta a amostragem para o que será utilizado e \citeonline{cano2005} o definem que:
+
+\begin{citacao}
+Um pressuposto fundamental na medição das características é que o sinal pode ser considerado como estacionário em um intervalo de alguns milissegundos. Portanto, o sinal é dividido em quadros de dimensão comparável à velocidade de variação dos eventos acústicos subjacentes. O número de quadros computados por segundo é chamado de taxa de quadros. Uma função de janela é aplicada a cada bloco para minimizar as descontinuidades entre o início e o fim. Uma justaposição deve ser aplicada para garantir robustez para o deslocamento (isto é, quando os dados de entrada não forem perfeitamente alinhados). E é necessário equilibrar os valores acima entre a taxa de variação no espectro e complexidade do sistema.
+\end{citacao}
+
+Desta forma, para se extrair características, precisa-se ter o áudio no domínio da frequência \cite{bunnell1996a}. Assim, são aplicadas transformadas que convertem esses sinais em função da frequência, para que o algoritmo de reconhecimento possa realizar uma melhor classificação dentro das características desejadas.
+
+\citeonline{cano2005} citam transformadas que podem ser utilizadas para extrair características:
+
+\begin{itemize}
+    \item Transformada de Karhunen-Loève
+    \item Tranformada rápida de Fourier
+    \item Transformada de Walsh-Hadamard
+    \item \textit{Modulated Complex Lapped Transform (MCLT)}
+    \item Transformada Wavelet
+\end{itemize}
+
+Na extração de características os dados obtidos pela transformada serão novamente transformados de modo que aumente a sua invariância a distorções do som. E para complementar os dados absolutos, no pós-processamento, as variações temporais podem ser adicionadas ao sinal processado, através das derivativas de primeira e segunda ordem. Até aqui os métodos podem ser classificados como o frontend da obtenção do \textit{fingerprint} \cite{cano2005}.
+
+
+
+
 
 \subsubsection{Machine Learning}
 %Método encontrado no SoundHound%
