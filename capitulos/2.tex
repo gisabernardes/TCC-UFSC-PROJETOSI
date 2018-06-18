@@ -376,20 +376,6 @@ em que \({K}\) é o tamanho do caminho e \({D[w_{k}]}\) é o valor da entrada \(
 
 Seu uso é inviável em grandes conjuntos de dados. Por este motivo, diversas técnicas de indexação específicas para esse algoritmo foram propostas para a tarefa de busca por similaridade, tais como \textit{lower bound} e \textit{early abandoning}. Com essas técnicas, é possível encontrar os vizinhos mais próximos de uma dada subsequência em uma quantidade massiva de séries temporais. Informações mais detalhadas podem ser consultadas em \cite{mizutani2006}, \cite{kruskal1983} e \cite{juang1991}.
 
-%INDEXAÇÃO%
-\subsubsection{Indexação}
-%Adicionar método de indexação
-Processo pelo qual palavras de um texto são armazenadas em uma
-estrutura de índice para viabilizar consultas por conteúdo
-- Relembrar índices convencionais em bancos de dados
-Para textos: arquivos, listas ou índices invertidos
-• Mecanismos que utilizam palavras para indexar uma coleção de documentos, visando
-facilitar e acelerar a tarefa de busca
-• Dois elementos relevantes:
-• Vocabulário – conjunto de termos que compõem uma coleção
-• Ocorrências – presenças de termos do vocabulário em documentos, indicando os próprios
-documentos (endereçamentos)
-
 %QUERY BY HUMMING%
 \subsubsection{Query by Humming}
 A tarefa de busca musical a partir de um trecho de música cantada ou cantarolada pelo usuário passou a ser conhecida na literatura como \textit{query by humming}, ou QBH. É um sistema capaz de reconhecer música pelo \textit{casamento aproximado} de cadeias de caracteres. \citeonline{ghias1995}, autores do projeto, aplicaram o conceito de \textit{contorno melódico}, ou seja, a forma natural como nós percebemos a música. A Figura \ref{fig:qbh} mostra a arquitetura do sistema.
@@ -578,3 +564,15 @@ As técnicas baseadas em busca por conteúdo utilizam características extraída
     Este algoritmo é apresentado com mais detalhes no trabalho dos autores \citeonline{cormen2009}.
 
 \end{enumerate}
+
+%INDEXAÇÃO%
+\subsubsection{Indexação}
+Indexação é um processo pelo qual as características extraídas dos dados complexos (como artista, álbum e título da música) são armazenados em uma estrutura de índice para facilitar e acelerar a tarefa de busca dos dados musicais.
+
+Na literatura pode ser encontrado variadas formas de indexação para dados musicais. Portanto, o objetivo nesta subseção é descrever de forma genérica sobre os algoritmos de indexação.
+
+Estruturas de indexação são normalmente fornecidas pelos SGBD. Embora essas estruturas de indexação sejam suficientes para suprir as necessidades dos usuários de aplicações que lidam com dados convencionais, elas não são adequadas para os sistemas de recuperação de dados complexos, que lidam com dados que apresentam alta dimensionalidade e não apresentam relação de ordem \cite{barioni2006}.
+
+A idéia básica dessas estruturas consiste na escolha de um objeto arbitrário central e na aplicação de uma função de distância para dividir os demais objetos em vários subconjuntos. Dessa maneira, a estrutura de indexação é construída executando-se esse mesmo procedimento, recursivamente, para cada subconjunto não vazio.
+
+Para uma visão geral sobre essas e outras estruturas de indexação citadas na literatura, como a \textit{VP-tree} (\textit{Vantage Point tree}) \cite{yanilos1993}, a \textit{MVP-tree} (\textit{Multi-Vantage Point tree}) \cite{bozkaya1997}, a GNAT (\textit{Geometric Near-neighbor Access Tree}) \cite{brin1995}, \textit{M-tree} \cite{ciaccia1997}, para \textit{Slim-tree}, \textit{Família-Omni} e a \textit{DBM-tree} \cite{traina2000, filho2001, vieira2004}, \textit{n-grams} \cite{downie1999}, \textit{Vantage Indexing Method} \cite{typke2003} entre outros.
