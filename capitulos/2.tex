@@ -520,7 +520,8 @@ As técnicas baseadas em busca por conteúdo utilizam características extraída
     
     É a maior subsequência de caracteres comuns que há entre dois objetos (ver Figura \ref{fig:lcs}).
     
-    Dada duas sequências \({X}\) e \({Y}\) de comprimento \({m}\) e \({n}\), respectivamente, onde \({X = \left\{X_{1}, X_{2}, \ldots, X_{m} \right\} }\) e \({Y=\left\{Y_{1}, Y_{2}, \ldots, Y_{n} \right\}}\) definimos \({LCS(X,Y)}\) como a máxima subsequência comum entre \({X}\) e \({Y}\). A equação de recorrência para o cálculo de \({LCS(X,Y)}\) pode ser deduzida a partir de duas propriedades:
+    Dada duas sequências \({X}\) e \({Y}\) de comprimento \({m}\) e \({n}\), respectivamente, onde \({}\)
+    \({X = \left\{X_{1}, X_{2}, \ldots, X_{m} \right\} }\) e \({Y=\left\{Y_{1}, Y_{2}, \ldots, Y_{n} \right\}}\) definimos \({LCS(X,Y)}\) como a máxima subsequência comum entre \({X}\) e \({Y}\). A equação de recorrência para o cálculo de \({LCS(X,Y)}\) pode ser deduzida a partir de duas propriedades:
     
     \begin{enumerate}
         \item Se \({X_{1}=Y_{1}}\), então \({LCS(X,Y)}\) é a concatenação de \({X_{1}}\) com \({LCS(X_{2:m},Y_{2:n})}\).
@@ -569,10 +570,10 @@ As técnicas baseadas em busca por conteúdo utilizam características extraída
 \subsubsection{Indexação}
 Indexação é um processo pelo qual as características extraídas dos dados complexos (como artista, álbum e título da música) são armazenados em uma estrutura de índice para facilitar e acelerar a tarefa de busca dos dados musicais.
 
-Na literatura pode ser encontrado variadas formas de indexação para dados musicais. Portanto, o objetivo nesta subseção é descrever de forma genérica sobre os algoritmos de indexação.
+Na literatura podem ser encontradas variadas formas de indexação para dados musicais. Portanto, o objetivo nesta subseção é descrever de forma genérica como funcionam os métodos de indexação e citar os mais conhecidos para indexação de dados musicais.
 
 Estruturas de indexação são normalmente fornecidas pelos SGBD. Embora essas estruturas de indexação sejam suficientes para suprir as necessidades dos usuários de aplicações que lidam com dados convencionais, elas não são adequadas para os sistemas de recuperação de dados complexos, que lidam com dados que apresentam alta dimensionalidade e não apresentam relação de ordem \cite{barioni2006}.
 
 A idéia básica dessas estruturas consiste na escolha de um objeto arbitrário central e na aplicação de uma função de distância para dividir os demais objetos em vários subconjuntos. Dessa maneira, a estrutura de indexação é construída executando-se esse mesmo procedimento, recursivamente, para cada subconjunto não vazio.
 
-Para uma visão geral sobre essas e outras estruturas de indexação citadas na literatura, como a \textit{VP-tree} (\textit{Vantage Point tree}) \cite{yanilos1993}, a \textit{MVP-tree} (\textit{Multi-Vantage Point tree}) \cite{bozkaya1997}, a GNAT (\textit{Geometric Near-neighbor Access Tree}) \cite{brin1995}, \textit{M-tree} \cite{ciaccia1997}, para \textit{Slim-tree}, \textit{Família-Omni} e a \textit{DBM-tree} \cite{traina2000, filho2001, vieira2004}, \textit{n-grams} \cite{downie1999}, \textit{Vantage Indexing Method} \cite{typke2003} entre outros.
+Os métodos de indexação mais conhecidos na literatura e aplicados à indexação de dados musicais são a \textit{VP-tree} (\textit{Vantage Point tree}) \cite{yanilos1993}, a \textit{MVP-tree} (\textit{Multi-Vantage Point tree}) \cite{bozkaya1997}, a GNAT (\textit{Geometric Near-neighbor Access Tree}) \cite{brin1995}, a \textit{M-tree} \cite{ciaccia1997}, a \textit{Slim-tree}, \textit{Família-Omni} e a \textit{DBM-tree} \cite{traina2000, filho2001, vieira2004}, a \textit{n-grams} \cite{downie1999} e o \textit{Vantage Indexing Method} \cite{typke2003}.
