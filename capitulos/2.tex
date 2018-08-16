@@ -1,5 +1,5 @@
 \chapter{Fundamentação Teórica}
-Este capítulo apresenta os conceitos básicos sobre som, o que é informação musical e como é feito o seu armazenamento em bancos de dados, quais as representações e estruturas do áudio digital e por fim, o tema recuperação da informação musical.
+Este capítulo apresenta os conceitos básicos sobre som, quais as representações e estruturas do áudio digital, o que é informação musical e como é feito o seu armazenamento em bancos de dados, por fim, o tema recuperação da informação musical.
 
 %CONCEITOS BÁSICOS SOBRE SOM%
 \section{Conceitos Básicos sobre Som} \label{conceitoSom}
@@ -38,11 +38,89 @@ A Figura \ref{fig:ondaTimbre} mostra três formas de onda básicas, seus timbres
 
 Os sons com vibrações regulares - que são os harmônicos e a fundamental \footnote{Por definição, o primeiro harmônico corresponde à freqüência fundamental, o segundo harmônico ao primeiro harmônico e assim por diante \cite{muller2007}.} - são considerados sons musicais, enquanto os sons causados por vibrações irregulares - que não são harmônicos - cuja altura tonal não pode, portanto, ser medida, são chamados sons não-musicais. A maioria dos sons usados na música são, por pressuposto, sons musicais.
 
+%REPRESENTAÇÃO DO AUDIO DIGITAL%
+\section{Representação do Áudio Digital} \label{formatos}
+
+Como comentado anteriormente, o som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia. Para \citeonline{miletto2004}, o processo de representar numericamente o som é chamado de \textit{digitalização}, ou seja, é representar uma onda sonora (áudio analógico) em código binário (áudio digital). 
+
+A digitalização das formas de onda consiste em três etapas, realizadas por um circuito chamado \textit{conversor analógico/digital} (A/D) \cite{paulozuben2004}: \textit{amostragem}, \textit{quantização} e \textit{codificação}. Na primeira etapa, a forma de onda é lida ou amostrada em curtos intervalos de tempo uniformes (\textit{samples}). Então, na segunda etapa, o valor da forma de onda em cada ponto amostrado é restrito ou quantificado para um conjunto discreto de valores. Por fim, na terceira etapa é feita a codificação, traduzindo os valores para código binário. É uma transformação com perdas, no sentido de que se perde informação neste processo. (ver Figura \ref{fig:ondaAnalog}).
+
+\begin{figure}[!htb]
+   \centering
+   \caption{Forma de onda analógica (curva preta) e representação digitalizada (as amostras digitalizadas são indicados pelas caixas cinzentas). Neste exemplo, a forma de onda é amostrada em 24 pontos e a quantização dos valores emprega um esquema de codificação de 4 bits (16 valores possíveis)}\label{fig:ondaAnalog} 
+   \includegraphics[scale=0.8]{figuras/ondaAnalog.png}
+   \\Fonte: \cite{muller2007}.
+\end{figure}
+
+Para podermos ouvir as informações transformadas em linguagem digital pelo conversor A/D, é preciso realizar o processo inverso, utilizando um \textit{conversor digital/analógico} (D/A) \cite{paulozuben2004}.
+
+Inicialmente, armazenar dados de áudio em formato analógico discretizado consome muito espaço \cite{juliana2004}, e como solução foi adotada a codificação MIDI (\textit{Musical Instrument Digital Interface}). Essa codificação é uma representação numérica do som, sendo usada atualmente como o formato de intercâmbio de música digital simbólico mais comum para possibilitar a transferência de informações entre instrumentos musicais e computadores \cite{muller2007}. O tamanho desses arquivos tende a ser bem reduzido, já que a codificação de eventos musicais pode ser bem compacta.
+
+Embora isso seja satisfatório em algumas situações, arquivos MIDI (extensão .mid ou .smf) basicamente codificam apenas instruções referentes a notas e durações e não a informação sonora propriamente dita \cite{fernando&kon1998}. Ou seja, seu código são instruções para um sintetizador correspondentes a eventos musicais como soar uma nota, silenciar uma nota, mudar o andamento ou o tom da música, etc. O sintetizador, por sua vez, interpreta este código e o executa, podendo usar vários timbres de instrumentos simultaneamente \cite{miletto2004}, e por isso, o resultado sonoro é totalmente dependente da qualidade e das possibilidades oferecidas por esse aparelho \cite{fernando&kon1998}.
+
+Com o mesmo objetivo, os formatos \textit{Wave}, da Microsoft (extensão .wav) e \textit{AIFF}, da Apple (extensão .aiff ou .aif) são do tipo áudio digitalizado sem compressão. Baseiam-se na codificação PCM (\textit{Pulse Code Modulation}), onde a própria onda sonora é representada como uma sucessão de números correspondentes às amplitudes do sinal medidas a uma freqüência constante. Ou seja, armazenam dados de um processo de digitalização simples. A diferença para com o formato MIDI, é que esse tipo de codificação origina um grande volume de dados e exige muito espaço para armazenamento e sua única vantagem é a reprodução fiel do áudio se o arquivo for gravado com qualidade de CD \cite{miletto2004}.
+
+Outro recurso é a compressão de dados, que é feita através de programas ou \textit{hardware} específicos que compactam os arquivos de áudio, reduzindo o seu tamanho, antes de serem enviados. Ao chegar ao seu destino, esses arquivos são descompactados e, em seguida, tocados. Entretanto, compressão, nesse contexto, é sinônimo de perda de qualidade: quanto maior a compressão, maior também a quantidade de informação que se perde \cite{fernando&kon1998}. Apesar disso, certos padrões de compressão já permitem a transmissão de arquivos de áudio de boa qualidade em tempo real, o que resulta na existência de uma quantidade equivalente de formatos de arquivo para a compressão do som digitalizado \cite{miletto2004}.
+
+Segundo \citeonline{miletto2004}, os formatos de arquivo mais utilizados para a compressão de som são:
+
+\begin{itemize}
+    \item MPEG Layer 3 (extensão .mp3);
+    \item Advanced Audio Coding (extensão .aac);
+    \item Windows Media Audio, da Microsoft (extensão .wma);
+    \item Real Audio, da RealNetworks (extensão .ra);
+    \item Sun Audio, da Sun (extensão .au).
+\end{itemize}
+
+Em paralelo, quando o áudio foi do analógico para o digital, tornou-se possível codificar arquivos de áudio com mais informação do que apenas o nome do arquivo - os \textit{metadados}.
+
+Os metadados podem ser usados para nomear, descrever, catalogar e indicar os direitos de autor de um arquivo de áudio digital. Como diferentes formatos de áudio digitais foram desenvolvidos, foi acordado que um local padronizado e específico, seria reservado dentro dos arquivos digitais onde estas informações pudessem ser armazenadas.
+
+Existem padrões diferentes de metadados para finalidades distintas de informações. Para o áudio digital, o padrão mais utilizado é o ID3 (abreviação de \textit{Identify a MP3}). 
+
+O ID3 começou a ser idealizado a partir de 1996 por Eric Kemp. Em sua primeira versão o ID3 limitava-se apenas a 128 B \abreviatura{B}{Byte} de informação e essas informações também eram limitadas quanto ao número de caracteres. Já na segunda versão, idealizada a partir de 1998, o padrão tornou-se mais completo, permitindo que mais informações pudessem ser adicionadas já que o limite passa a ser de 256 MB \abreviatura{MB}{Megabyte} \cite{ferreira2015}.
+
+Na Tabela \ref{tab:diferencasId3} é possível verificar as diferenças entre as versões do ID3.
+
+\begin{table}[ht]
+    \centering
+    \caption{Diferenças entre as versões ID3}
+    \begin{tabular}{|p{4cm}|p{4cm}|}
+    \hline
+        ID3v1 & ID3v2 \\
+    \hline
+        128 bytes & 256 mb \\
+    \hline
+        Título & Título \\
+    \hline
+        Artista & Artista \\
+    \hline
+        Álbum & Álbum \\
+    \hline
+        Ano & Ano \\
+    \hline
+        Comentário & Comentário \\
+    \hline
+        Gênero & Gênero \\
+    \hline
+         & Compositores \\
+    \hline
+         & Letra da música \\
+    \hline
+         & Capa do álbum \\
+    \hline
+    \end{tabular}
+    \label{tab:diferencasId3}
+    \\Fonte: Elaborado pela autora
+\end{table}
+
+Existem diversos \textit{softwares} que editam as \textit{tags} ID3, porém, na maioria das vezes esses \textit{softwares} disponíveis não permitem a edição completa dos dados de descrição do áudio.
+
+Desta forma, podemos afirmar que um arquivo de áudio digital é composto por metadados e som digitalizado, sendo assim, um dado musical.
+
 %INFORMAÇÃO MUSICAL%
 \section{Informação Musical}
-Para \citeonline{miletto2004}, o processo de representar numericamente o som é chamado de \textit{digitalização}, ou seja, é representar uma onda sonora em código binário. O som é repartido em amostras, transformando os valores contínuos de amplitude em uma sequência de números. Depois de amostrado é feito o processo de quantização, como um arredondamento dos valores e assumem valores discretos de tempo. Por fim, são codificados para serem traduzidos para código binário.
-
-Segundo \citeonline{setzer2001}, dado é uma sequencia de números, portanto, um texto, fotos, figuras, sons gravados e animação são dados, pois todos podem ser amostrados, quantificados e codificados. Um dado é necessariamente uma entidade matemática e, desta forma, é puramente sintático. Isto significa que os dados podem ser totalmente descritos através de representações formais, estruturais e obviamente ser armazenados em um computador e processados por ele.
+Para \citeonline{setzer2001}, dado é uma sequencia de números, portanto, um texto, fotos, figuras, sons gravados e animação são dados, pois todos podem ser amostrados, quantificados e codificados. Um dado é necessariamente uma entidade matemática e, desta forma, é puramente sintático. Isto significa que os dados podem ser totalmente descritos através de representações formais, estruturais e obviamente ser armazenados em um computador e processados por ele.
 
 O dado é a representação física de um evento no tempo e espaço que não agrega fundamento, não podendo ser possível entender o que ele representa ou para que ele existe, se somente for disponibilizado para alguém ou para o tempo e espaço, por alguém ou por um evento, não é possível saber o que ele significa ou o que ele representa, podendo representar qualquer coisa ou não representar nada, porém, ao incluir um “significado” no dado e gerar sentido para quem o ouve e ficando claro ou não a que se refere, é gerada a informação \cite{rafael2013}.
 
@@ -93,38 +171,6 @@ Com a Internet, a música ultrapassa os limites físicos da mídia - mergulhando
 
 A evolução dos arquivos musicais não foi acompanhada de tentativas de inserção de informações elementares da música a esses arquivos. Há pouco tempo não existia um padrão para a representação dos metadados associados a esses arquivos \cite{andrade&crispim2008}, e a recuperação dessa informação só será bem sucedida se esses documentos multimídias puderem ser representados de acordo com as suas peculiaridades \cite{gomes2015}.
 
-%REPRESENTAÇÃO E ESTRUTURAS DA INFORMAÇÃO MUSICAL%
-\section{Representação e Estruturas da Informação Musical} \label{formatos}
-
-Como comentado anteriormente, o som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia \cite{miletto2004}. A digitalização das formas de onda consiste em três etapas, realizadas por um circuito chamado \textit{conversor digital} (A/D) \cite{paulozuben2004}: \textit{amostragem}, \textit{quantização} e \textit{codificação}. Na primeira etapa, a forma de onda é lida ou amostrada em curtos intervalos de tempo uniformes (\textit{samples}). Então, na segunda etapa, o valor da forma de onda em cada ponto amostrado é restrito ou quantificado para um conjunto discreto de valores. Por fim, na terceira etapa é feita a codificação, traduzindo os valores para código binário. É uma transformação com perdas, no sentido de que se perde informação neste processo. (ver Figura \ref{fig:ondaAnalog}).
-
-\begin{figure}[!htb]
-   \centering
-   \caption{Forma de onda analógica (curva preta) e representação digitalizada (as amostras digitalizadas são indicados pelas caixas cinzentas). Neste exemplo, a forma de onda é amostrada em 24 pontos e a quantização dos valores emprega um esquema de codificação de 4 bits (16 valores possíveis)}\label{fig:ondaAnalog} 
-   \includegraphics[scale=0.8]{figuras/ondaAnalog.png}
-   \\Fonte: \cite{muller2007}.
-\end{figure}
-
-Para podermos ouvir as informações transformadas em linguagem digital pelo conversor A/D, é preciso realizar o processo inverso, utilizando um \textit{conversor digital/analógico} (D/A) \cite{paulozuben2004}.
-
-Armazenar dados de áudio em formato analógico discretizado consome muito espaço \cite{juliana2004}, e como solução foi adotada a codificação MIDI (\textit{Musical Instrument Digital Interface}). Essa codificação é uma representação da informação musical, sendo usada atualmente como o formato de intercâmbio de música digital simbólico mais comum para possibilitar a transferência de informações entre instrumentos musicais e computadores \cite{muller2007}. O tamanho desses arquivos tende a ser bem reduzido, já que a codificação de eventos musicais pode ser bem compacta.
-
-Embora isso seja satisfatório em algumas situações, arquivos MIDI (extensão .mid ou .smf) basicamente codificam apenas instruções referentes a notas e durações e não a informação sonora propriamente dita \cite{fernando&kon1998}. Ou seja, seu código são instruções para um sintetizador correspondentes a eventos musicais como soar uma nota, silenciar uma nota, mudar o andamento ou o tom da música, etc. O sintetizador, por sua vez, interpreta este código e o executa, podendo usar vários timbres de instrumentos simultaneamente \cite{miletto2004}, e por isso, o resultado sonoro é totalmente dependente da qualidade e das possibilidades oferecidas por esse aparelho \cite{fernando&kon1998}.
-
-Com o mesmo objetivo, os formatos \textit{Wave}, da Microsoft (extensão .wav) e AIFF, da Apple (extensão .aiff ou .aif) são do tipo áudio digitalizado sem compressão. Baseiam-se na codificação PCM (\textit{Pulse Code Modulation}), onde a própria onda sonora é representada como uma sucessão de números correspondentes às amplitudes do sinal medidas a uma freqüência constante. Ou seja, armazenam dados de um processo de digitalização simples. A diferença para com o formato MIDI, é que esse tipo de codificação origina um grande volume de dados e exige muito espaço para armazenamento e sua única vantagem é a reprodução fiel do áudio se o arquivo for gravado com qualidade de CD \cite{miletto2004}.
-
-Outro recurso é a compressão de dados, que é feita através de programas ou \textit{hardware} específicos que compactam os arquivos de áudio, reduzindo o seu tamanho, antes de serem enviados. Ao chegar ao seu destino, esses arquivos são descompactados e, em seguida, tocados. Entretanto, compressão, nesse contexto, é sinônimo de perda de qualidade: quanto maior a compressão, maior também a quantidade de informação que se perde \cite{fernando&kon1998}. Apesar disso, certos padrões de compressão já permitem a transmissão de arquivos de áudio de boa qualidade em tempo real, o que resulta na existência de uma quantidade equivalente de formatos de arquivo para a compressão do som digitalizado \cite{miletto2004}.
-
-Segundo \citeonline{miletto2004}, os formatos de arquivo mais utilizados para a compressão de som são:
-
-\begin{itemize}
-   \item Pulse Code Modulation (extensão .pcm)
-   \item Sun Audio, da Sun (extensão .au);
-   \item Real Audio, da RealNetworks (extensão .ra);
-   \item MPEG Layer 3 (extensão .mp3);
-   \item Windows Media Audio, da Microsoft (extensão .wma).
- \end{itemize}
- 
 %RECUPERAÇÃO DA INFORMAÇÃO MUSICAL%
 \section{Recuperação da Informação Musical}
 
@@ -138,7 +184,7 @@ A agenda de pesquisas sobre a RIM intensificou sua produção recentemente com a
 
 A área de RIM conta com profissionais das mais diversas áreas inclusas na questão do tratamento e recuperação da informação musical como apresentado na Tabela \ref{tab:comunidadeRim}, traduzida por \citeonline{santini&souza2007}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Comunidades de RIM}
     \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
