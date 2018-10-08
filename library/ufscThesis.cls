@@ -326,20 +326,19 @@
        \@tempdima 1.5em
        \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
        {\tablename~\normalfont #1}\nobreak \filltocentry{#2}}
-
+       
 \newcommand{\listadesimbolos}{
     \pretextualchapter{Lista de S\'imbolos}\@starttoc{lsb}}
 \newcommand{\simbolo}[2]{\addcontentsline{lsb}{simb}{\numberline{#1}{#2}}}
 \newcommand{\l@simb}[2]{
-       \vskip -1em
-       \leftskip -1.5em
-       \rightskip 1.6em
-       \parfillskip -\rightskip
-       \parindent 0em
-       \@tempdima 3em
-       \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-       {\normalfont #1}\nobreak \filltocentry{#2}}
-
+      \vskip -1em
+      \leftskip -1.5em
+      \rightskip 1.6em
+      \parfillskip -\rightskip
+      \parindent 0em
+      \@tempdima 3em
+      \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+      {\normalfont #1}\nobreak \filltocentry{#2}}
 
 \newcommand{\listadeabreviaturas}{
     \pretextualchapter{Lista de Abreviaturas e Siglas}\@starttoc{las}}
@@ -358,7 +357,7 @@
 %---------------------------------------------------------------------------
 % Apęndices e Anexos - Pós-Textuais
 \addto\captionsbrazil{
-\renewcommand\refname{REFERĘNCIAS}
+\renewcommand\refname{REFERÊNCIAS}
 }
 
 \renewcommand{\annexname}{ANEXO}

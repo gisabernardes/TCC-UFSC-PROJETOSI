@@ -71,7 +71,7 @@
 
 %---------------------------------------------------------------------------
 % Tipo do documento
-\providecommand{\UFSCdocumentodata}{Tese}
+\providecommand{\UFSCdocumentodata}{Trabalho de Conclusão do Curso de Graduação}
 \providecommand{\UFSCdocumentogenerodata}{a}
 \newcommand{\documento}[2][a]%
     {\renewcommand{\UFSCdocumentodata}{#2} \renewcommand{\UFSCdocumentogenerodata}{#1} \detgenerodoc{#2}}
@@ -189,17 +189,16 @@
 
 %---------------------------------------------------------------------------
 % Texto da folha de rosto
-\newcommand{\UFSCcomentariodata}{\UFSCdocumentodata\ submetid\UFSCdocumentogenerodata\ 
- \aoa{\UFSCcursogenerodata}\ \UFSCcursodata\ para a obtençăo do Grau de \graudata.}
+\newcommand{\UFSCcomentariodata}{\UFSCdocumentodata\ em \UFSCcursodata\ do \UFSCdepartamentodata\ da \ABNTinstituicaodata\ como requisito para a obtençăo do Título de \graudata.}
 
 \renewcommand{\comentarioformat}{\small}
 
 %---------------------------------------------------------------------------
 % Texto da folha de aprovacao
-\newcommand{\textoAprovacaodata}{\esteEsta{\UFSCdocumentogenerodata} \UFSCdocumentodata\ 
-    foi julgad\UFSCdocumentogenerodata\ aprovad\UFSCdocumentogenerodata\ para a 
-    obten\c{c}\~ao do T\'itulo de ``\graudata'',  e aprovad\UFSCdocumentogenerodata\ 
-    em sua forma final \peloPela{\UFSCcursogenerodata} \UFSCcursodata.} 
+\newcommand{\textoAprovacaodata}{Este \UFSCdocumentodata\ 
+    foi julgado adequado para a 
+    obten\c{c}\~ao do T\'itulo de ``\graudata'',  e aprovado 
+    em sua forma final \peloPela{\UFSCcursogenerodata} Curso de \UFSCcursodata.} 
 
 % Resumo e abstract
 \providecommand{\textoResumodata}{}

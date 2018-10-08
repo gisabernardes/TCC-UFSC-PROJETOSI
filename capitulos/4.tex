@@ -1,25 +1,30 @@
 \chapter{Análise e Resultados} \label{analiseResultados}
-Este capítulo visa apresentar os seguintes itens: "Critérios de Análise", "Comparação e Análise"\ e "Resultados".
+Este capítulo visa apresentar os seguintes itens: "Critérios de Análise", "Análise"\ e "Resultados".
 
 Para realização da análise proposta nesse trabalho, utilizaremos uma série de elementos que constituirão a metodologia de comparação entre as soluções que apresentem documentações públicas disponíveis e com informação necessária e suficiente.
 
 \section{Critérios de Análise}
 
-Com base nos conceitos apresentados por \citeonline[p.305]{wazlawick2012}, que define os atributos de qualidade internos, externos e de uso de produtos de software; e pela autora \citeonline{wangenheim2017}, que define heurísticas para assegurar que os produtos são usáveis, esta seção tem por objetivo apresentar os critérios que devem ser considerados na avaliação das soluções para busca de dados musicais, de modo a compará-las e facilitar a escolha pela mais apropriada para uma determinada situação. 
+Com base nos conceitos apresentados por \citeonline[p.305]{wazlawick2012}, que define os atributos de qualidade internos, externos e de uso de produtos de software; e pela autora \citeonline{wangenheim2017}, que define heurísticas para assegurar que os produtos são usáveis, esta seção tem por objetivo apresentar os critérios que devem ser considerados na avaliação das soluções para busca de dados musicais, de modo a compará-las e facilitar a escolha pela mais apropriada para uma determinada situação.
+
+Neste trabalho foi criado um conjunto de heurísticas para permitir uma boa análise da eficiência e adequação funcional das soluções apresentadas, sendo utilizado informações disponibilizadas nas documentações próprias de cada solução comercial e acadêmica.
+
+Para a análise da usabilidade será feito uma adaptação do MATcH Checklist disponibilizado pelo Grupo de Qualidade de Software (GQS) da UFSC, onde o conjunto de perguntas possui uma escala de resposta com 3 opções: Sim (o app atende o objetivo), Não (o app não atende o objetivo) e Não se aplica (a questão avaliada não se aplica).
 
 Assim sendo, os seguintes critérios e subcritérios são considerados:
 
 \begin{itemize}
     \item Eficiência de desempenho: Trata-se da otimização do uso de recursos de tempo e espaço. Espera-se que o sistema seja o mais eficiente possível de acordo com o tipo de problema que ele soluciona:
     \begin{itemize}
-        \item \textit{Comportamento em relação ao tempo}: Este critério mede o tempo que o sistema leva para processar suas funções, ou seja, o tempo de reconhecimento de uma música;
+        \item \textit{Comportamento em relação ao tempo}: Este critério mede o tempo que o sistema leva para processar suas funções, ou seja, o tempo de reconhecimento/busca de uma música;
         \item \textit{Utilização de recursos}: Avalia a complexidade das estratégias e algoritmos utilizados na recuperação de informação musical;
-        \item \textit{Bitrate}: Essa qualidade consiste no número médio de bits que será comprimido em um segundo de dados. A unidade utilizada é o KBPS ou 1000 BITS por segundo.
+        \item \textit{Bitrate}: Este critério mede a qualidade do áudio. Essa qualidade consiste no número médio de bits que será comprimido em um segundo de dados. A unidade utilizada é o KBPS ou 1000 BITS por segundo.
     \end{itemize}
     \item Adequação Funcional: A adequação funcional mede o grau em que o produto oferece funções que satisfazem necessidades estabelecidas e implicadas quando o produto é usado sob condições especificadas:
     \begin{itemize}
         \item \textit{Disponibilidade}: Avalia a disponibilidade da aplicação em diferentes plataformas;
-        \item \textit{Modelo de desenvolvimento}: Avalia se a aplicação é de código aberto, dando a possibilidade para que qualquer um consulte, examine ou modifique o produto, e se permite extensões e/ou integrações com outras aplicações;
+        \item \textit{Modelo de desenvolvimento}: Avalia se a aplicação é de código aberto, dando a possibilidade para que qualquer um consulte, examine ou modifique o produto.
+        \item \textit{Integrações}: Avalia se permite extensões e/ou integrações com outras aplicações;
         \item \textit{Acessibilidade}: Avalia se a aplicação possui acesso ao acervo de músicas online e/ou offline;
         \item \textit{Busca de dados}: Avalia se a aplicação foi projetada para \textit{matching} exato ou aproximado;
         \item \textit{Inclusão da dados}: Avalia se a aplicação permite o envio de músicas feito pelo usuário;
@@ -27,15 +32,26 @@ Assim sendo, os seguintes critérios e subcritérios são considerados:
     \end{itemize}
     \item Usabilidade: Avalia o grau no qual o produto tem atributos que permitem que seja entendido, aprendido, usado e que seja atraente ao usuário, quando usado sob condições especificadas:
     \begin{itemize}
-        \item \textit{Inteligibilidade}: Tem relação com o grau de facilidade que um usuário tem em entender os conceitos chave da aplicação e assim tornar-se competente no seu uso, como por exemplo: as funções mais utilizadas são facilmente acessadas?
-        \item \textit{Operabilidade}: Avalia se a aplicação é fácil de usar e controlar, como por exemplo: Em campos onde há a necessidade de inserção de dados isso é evidente?
-        \item \textit{Estética de interface com usuário}: Avalia se a interface com o usuário proporciona prazer e uma interação satisfatória, como por exemplo: O menu é esteticamente simples e claro?
-        \item \textit{Proteção contra erro de usuário}: Avalia se o produto foi projetado para evitar que o usuário possa cometer erros, como por exemplo: Funções diferentes são apresentadas de maneira distinta ao usuário?
+        \item \textit{Visibilidade do status do sistema}: O sistema deve sempre manter o usuário informado sobre o que está acontecendo;
+        \item \textit{Semelhança entre o sistema e o mundo real}: O sistema deve seguir as convenções do mundo real, trazendo as informações aparecerem de uma forma lógica e natural;
+        \item \textit{Controle e liberdade}: Deve existir a possibilidade do usuário sair do estado em que se encontra, ou retomar facilmente ao estado anterior;
+        \item \textit{Consistência e padrões}: Seguir convenções, indicar ações iguais de maneira similar e utilizar o mesmo tipo de linguagem em toda a interface;
+        \item \textit{Prevenção de erros}: Design que evite que problemas ocorram, além de boas mensagens de erro;
+        \item \textit{Reconhecimento ao invés de recordação}: Utilizar símbolos com contexto e em lugares coerentes para que o usuário entenda facilmente;
+        \item \textit{Flexibilidade e eficiência de uso}: Permitir configuração de ações frequentes;
+        \item \textit{Design minimalista}: Mensagens de diálogos não devem conter informações irrelevantes. Informações a mais conflitam com a visibilidade;
+        \item \textit{Ajudar o reconhecimento, diagnóstico e recuperação de erros}: Mensagens de erros devem ser claras e objetivas, devem indicar o problema com precisão e sugerir uma solução;
+        \item \textit{Ajuda e documentação}: Qualquer informação deve ser fácil de pesquisar e deve ser focada na tarefa do usuário.
     \end{itemize}
 \end{itemize}
 
-\section{Comparação e Análise}
-Comparação e análise das soluções citadas.
+\section{Análise}
+
+
+
+
+
+
 
 \section{Resultados}
 Resultados da comparação e análise das soluções propostas.
