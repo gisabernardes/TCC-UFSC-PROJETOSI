@@ -1,8 +1,8 @@
-\chapter{Fundamentação Teórica}
-Este capítulo apresenta os conceitos básicos sobre som, quais as representações e estruturas do áudio digital, o que é informação musical e como é feito o seu armazenamento em bancos de dados, por fim, o tema recuperação da informação musical.
+\chapter{Fundamentação Teórica} \label{cap:fundamentacao-teorica}
+Esta seção apresenta os conceitos básicos sobre som, quais as representações e estruturas do áudio digital, o que é informação musical e como é feito o seu armazenamento em bancos de dados, por fim, o tema recuperação da informação musical.
 
 %CONCEITOS BÁSICOS SOBRE SOM%
-\section{Conceitos Básicos sobre Som} \label{conceitoSom}
+\section{Conceitos Básicos sobre Som} \label{sec:conceitoSom}
 Nós ouvimos uma variedade de sons à todo momento e vivemos toda a nossa vida rodeados por eles. Sons de portas abrindo e fechando, dos passos, do ruído dos motores dos automóveis, da chuva e da música. O som não é algo que podemos ver com nossos olhos \cite{miletto2004}. Então, o que é o som? 
 Um som é gerado por algum objeto vibratório, em uma repetição periódica de deformações e restaurações \cite{muller2007}. Estas vibrações produzem mudanças de pressão do ar, resultando em regiões locais de ar que são mais densas e outras que são rarefeitas, ocorrendo sucessivamente uma depois da outra e expandindo-se. Estas são chamadas condensações e rarefações. O processo é similar ao que conhecemos quando jogamos uma pedra dentro d’água, a qual produz ondas circulares em sua superfície. Estas ondas de condensações e rarefações são propagadas para dentro do ouvido humano e irão vibrar o tímpano. As vibrações do tímpano são captadas pelas nossas terminações nervosas, de maneira que nós as escutamos como sons. Se os corpos que vibram são diferentes, também será diferente a classe de vibração que produzem. Isto significa que escutamos distintas classes de sons.
 Outra forma é através de aparelhos chamados \textit{tradutores} (um microfone, por exemplo), que converte as vibrações em corrente elétrica equivalente ao sinal sonoro \cite{paulozuben2004}.
@@ -60,7 +60,7 @@ Os sons com vibrações regulares - que são os harmônicos e a fundamental \foo
 \end{figure}
 
 %REPRESENTAÇÃO DO AUDIO DIGITAL%
-\section{Representação do Áudio Digital} \label{formatos}
+\section{Representação do Áudio Digital} \label{sec:formatos}
 
 Como comentado anteriormente, o som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia. Para \citeonline{miletto2004}, o processo de representar numericamente o som é chamado de \textit{digitalização}, ou seja, é representar uma onda sonora (áudio analógico) em código binário (áudio digital). 
 
@@ -95,7 +95,7 @@ Em paralelo, quando o áudio foi do analógico para o digital, tornou-se possív
 
 Metadados podem ser usados para nomear, descrever, catalogar e indicar os direitos de autor de um arquivo de áudio digital. Como diferentes formatos de áudio digitais foram desenvolvidos, foi acordado que um local padronizado e específico seria reservado dentro dos arquivos digitais onde estas informações pudessem ser armazenadas \cite{pachecolopes2014}. Existem padrões diferentes de metadados para finalidades distintas de informações. Para o áudio digital, o padrão mais utilizado é o de \textit{tags} ID3\footnote{Embora referido como um padrão, o termo se aplica apenas no sentido de palavra, já que nenhum organismo de normalização foi envolvido na sua criação, nem nenhuma dessas organizações lhe deu esse estatuto de aprovação formal \cite{pachecolopes2014}.} (abreviação de \textit{IDentify a MP3}). 
 
-O ID3 começou a ser idealizado a partir de 1996 por Eric Kemp\footnote{http://id3.org/}. Em sua primeira versão, o ID3 limitava-se apenas a 128 KB \abreviatura{KB}{Kilobyte} de informação e essas informações também eram limitadas quanto ao número de caracteres. Já na segunda versão, idealizada a partir de 1998, o padrão tornou-se mais completo, permitindo que mais informações pudessem ser adicionadas já que o limite passou a ser de 256 MB \abreviatura{MB}{Megabyte} \cite{ferreira2015}.
+O ID3 começou a ser idealizado a partir de 1996 por Eric Kemp\footnote{http://id3.org/}. Em sua primeira versão, o ID3 limitava-se apenas a 128 KB \abreviatura{KB}{\textit{Kilobyte}} de informação e essas informações também eram limitadas quanto ao número de caracteres. Já na segunda versão, idealizada a partir de 1998, o padrão tornou-se mais completo, permitindo que mais informações pudessem ser adicionadas já que o limite passou a ser de 256 MB \abreviatura{MB}{\textit{Megabyte}} \cite{ferreira2015}.
 
 Na Tabela \ref{tab:diferencasId3} é possível verificar as diferenças com relação aos metadados considerados pelas versões do ID3.
 
@@ -163,7 +163,7 @@ Existem diversos \textit{softwares} que editam as \textit{tags} ID3, porém, na 
 Desta forma, podemos afirmar que um arquivo de áudio digital é composto por metadados e som digitalizado, sendo assim, um dado musical.
 
 %INFORMAÇÃO MUSICAL%
-\section{Informação Musical}
+\section{Informação Musical} \label{sec:informacao-musical}
 Para \citeonline{setzer2001}, dado é uma sequencia de números, portanto, um texto, fotos, figuras, sons gravados e animação são dados, pois todos podem ser amostrados, quantificados e codificados. Um dado é necessariamente uma entidade matemática e, desta forma, é puramente sintático. Isto significa que os dados podem ser totalmente descritos através de representações formais, estruturais e obviamente ser armazenados em um computador e processados por ele.
 
 O dado é a representação física de um evento no tempo e espaço que não agrega fundamento, não sendo possível entender o que ele representa ou para que ele existe, se somente for disponibilizado para alguém ou para o tempo e espaço, por alguém ou por um evento.
@@ -194,7 +194,7 @@ A música é um produto social e simbólico de grande importância nas diferente
 A compreensão da música como informação é ainda bastante recente. O estudo mais significativo e considerado, dentro da literatura especializada, como pioneiro na conceituação e estudo da música como fonte de informação é o de Alexander McLane. Em 1996, o autor publicou em um capítulo do \textit{ARIST} (\textit{Annual Review of Information Science and Technology}) o artigo intitulado \textit{Music as Information}, onde formaliza a música como informação.
 
 %ARMAZENAMENTO DA INFORMAÇÃO MUSICAL%
-\section{Armazenamento da Informação Musical}
+\section{Armazenamento da Informação Musical} \label{sec:armazenamento}
 
 Até o surgimento dos inventos tecnológicos, a música era um meio de comunicação exclusivamente presencial. Apesar das formas de registros, a exemplo das partituras, possibilitarem a execução de uma obra em diferentes momentos e lugares, a reprodução do que ali estava representando nunca seria a mesma. Com o decorrer do tempo,  as técnicas e invenções aplicadas ao processo de gravação do som foram surgindo e se aperfeiçoando, resultando em aparelhos reprodutores e suportes cada vez mais versáteis e manipuláveis \cite{daquino2012}. Especialmente após o desenvolvimento das coleções em rede na \textit{Web}, com formatos de arquivos compactados e custos decrescentes de armazenamento de arquivos na forma digital, a música se tornou um objeto de consumo universal e extremamente acessível \cite{gomes2015}.
 
@@ -217,7 +217,7 @@ Com a Internet, a música ultrapassa os limites físicos da mídia - mergulhando
 Ainda, para uma eficiente recuperação de informação é preciso que o conjunto dos arquivos musicais estejam representados de forma adequada, contemplando as possíveis informações que o usuário busca \cite{ferreira2015}.
 
 %RECUPERAÇÃO DA INFORMAÇÃO MUSICAL%
-\section{Recuperação da Informação Musical}
+\section{Recuperação da Informação Musical} \label{sec:recuperacao}
 
 A área de pesquisa denominada \textit{Music Information Retrieval} (MIR - \textit{Music Information Retrieval}) ou Recuperação da Informação Musical (RIM), tradução literal incorporada pela corrente da área no Brasil, é definida, de acordo com \citeonline{futrelle&downie2002}, como:
 
@@ -261,7 +261,7 @@ A origem de MIR não apresenta uma ação interdisciplinar, o que prejudica todo
 
 A escassa produção científica a respeito do tema e as características impostas pelas músicas acarretam certas dificuldades para sua representação.
 
-Como elucidado no final da seção 2.1 deste capítulo, o ponto de partida para os estudos sobre a música como fonte de informação e tratamento, representação e recuperação foi dado em 1996 por Alexander McLane. Neste mesmo período já era possível identificar o desenvolvimento de tecnologias de compressão de arquivos digitais de música para transmissão na Internet e a popularização da Internet no mundo \cite{santini&souza2007}.
+Como elucidado no final da subseção 2.1 desta seção, o ponto de partida para os estudos sobre a música como fonte de informação e tratamento, representação e recuperação foi dado em 1996 por Alexander McLane. Neste mesmo período já era possível identificar o desenvolvimento de tecnologias de compressão de arquivos digitais de música para transmissão na Internet e a popularização da Internet no mundo \cite{santini&souza2007}.
 
 Em seu estudo, McLane direciona sua discussão para os grandes problemas relacionados à representação de documentos de música e à recuperação destes documentos. Ele analisa aspectos significantes da música – sua notação e seu som –, e propõe algumas ideias para sistemas de recuperação de música e formaliza a música como informação segundo três visões: \textit{visão subjetiva}, \textit{visão objetiva} e \textit{visão interpretativa}. Segundo o autor, as necessidades dos vários tipos de análises musicais são tão diversas que é preferível considerar três “visões” sobre a representação da obra musical.
 
@@ -323,11 +323,11 @@ Percebe-se, portanto, que, se por um lado, a ação multidisciplinar dos pesquis
 A análise da informação musical para sua representação apresenta complexidades, pois exige diferentes técnicas de extração de informações para distintas formas de apresentação \cite{downie2003}.
 
 %MÉTODOS E ALGORITMOS PARA RECUPERAÇÃO DA INFORMAÇÃO MUSICAL%
-\subsection{Métodos e Algoritmos para Recuperação da Informação Musical}
+\subsection{Métodos e Algoritmos para Recuperação da Informação Musical} \label{sub:metodos-algoritmos-recuperacao}
 
 Um dado musical geralmente é representado por um conjunto de características extraídas do conteúdo da música. Isto porque dados musicais são basicamente arranjos multidimensionais de valores derivados de vários sensores, que é uma representação limitada para definir a semântica do dado. Neste sentido, dados complexos raramente são comparados diretamente. Em vez disso, o conteúdo do dado (ou uma faceta do conteúdo) é analisado por meio de algoritmos especializados de análise, extraindo um conjunto de características que descrevem numericamente o dado \cite{kaster2012}. Desta forma, as aplicações que lidam com dados complexos, como dados musicais, requerem a realização de consultas por similaridade, ou seja, consultas que realizam busca por objetos da base que sejam similares a um objeto de consulta, de acordo com uma certa medida de similaridade \cite{barioni2006}.
 
-A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\abreviatura{ISMIR}{\textit{International Society for Music Information Retrieval}}, na sigla em inglês) abriga, durante sua conferência anual, o MIREX\footnote{$http://www.music-ir.org/mirex/wiki/MIREX\_HOME$}\abreviatura{MIREX}{\textit{Music Information Retrieval Evaluation eXchange}}, com o objetivo de estabelecer métodos para a avaliação e comparação das aplicações atuais de recuperação musical. Nesta espécie de competição, pesquisadores inscrevem algoritmos que realizam diferentes tarefas da área de recuperação da informação musical, como classificação automática de gênero musical, identificação automática da pulsação, extração de melodia a partir de arquivos áudio, entre outros.
+A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\footnote{https://transactions.ismir.net/}\abreviatura{ISMIR}{\textit{International Society for Music Information Retrieval}}, na sigla em inglês) abriga, durante sua conferência anual, o MIREX\footnote{http://www.music-ir.org/mirex/wiki/MIREX\_HOME}\abreviatura{MIREX}{\textit{Music Information Retrieval Evaluation eXchange}}, com o objetivo de estabelecer métodos para a avaliação e comparação das aplicações atuais de recuperação musical. Nesta espécie de competição, pesquisadores inscrevem algoritmos que realizam diferentes tarefas da área de recuperação da informação musical, como classificação automática de gênero musical, identificação automática da pulsação, extração de melodia a partir de arquivos áudio, entre outros.
 
 \begin{figure}[!htb]
    \centering
@@ -339,7 +339,7 @@ A Sociedade Internacional de Recuperação da Informação Musical (ISMIR\abrevi
 
 Um sistema de recuperação de informação musica atua, portanto, como um ambiente mediador da comunicação entre as necessidades informacionais dos usuários e o conjunto de arquivos de áudio. Na Figura \ref{fig:modeloRecInfo} é possível compreender melhor o processo de recuperação de informação. Dadas as características de um sinal de áudio, pode-se definir métricas de similaridade para comparar músicas. Embora exista uma grande variedade de funções de distância disponível na literatura, não existe um método que determine, de um modo geral, qual deve ser a melhor função de distância a ser utilizada em cada caso. A escolha ou definição de uma função de distância é uma tarefa que depende muito da análise das características específicas do domínio dos dados a serem manipulados \cite{barioni2006}.
 
-Os principais métodos e algoritmos para recuperação de informação musical disponíveis na literatura são descritos a seguir.
+Alguns dos principais métodos e algoritmos para recuperação de informação musical disponíveis na literatura são descritos a seguir.
 
 %AUDIO FINGERPRINT%
 \subsubsection{Audio Fingerprint} \label{audioFingerprint}
@@ -416,12 +416,12 @@ Alguns algoritmos citados por \citeonline{cano2005} são utilizados para medir a
     \item \textit{Exponential Pseudo Norm} (EPN), utilizada para distinguir melhor entre valores próximos e distantes.
 \end{itemize}
 
-Esses algoritmos são descritos em mais detalhes na subseção \ref{conteudo}.
+Esses algoritmos são descritos em mais detalhes na subseção \ref{RecuperacaoConteudo}.
 
 %CROSS RECURRENCE PLOT%
-\subsubsection{Cross Recurrence Plot}
+\subsubsection{Cross Recurrence Plot} \label{crossRecurrencePlot}
 
-O trabalho de \citeonline{serra2009} propõe o uso de \textit{Cross Recurrence Plots} (CRP\abreviatura{CRP}{Cross Recurrence Plots}) como métrica de similaridade entre músicas. Antes de definir CRP, é necessário introduzir o conceito de \textit{Recurrence Plot} (RP\abreviatura{RP}{\textit{Recurrence Plot}}). RP é uma ferramenta utilizada para visualizar recorrências com uma série temporal, ou seja, regiões onde a órbita da série passa perto de um estado previamente visitado. Mais especificamente, RP é uma matriz quadrada, preenchida com zeros e uns, que indica se há ou não recorrência, ou seja, se o estado no tempo \({i}\) é similar ao estado do tempo \({j}\) \cite{eckmann1987, alligood1996}. A diagonal principal de um RP é, portanto, composta por uns. CRPs são construídos da mesma maneira que RPs, mas cada eixo corresponde a uma série temporal diferente e a matriz resultante não é quadrada.
+O trabalho de \citeonline{serra2009} propõe o uso de \textit{Cross Recurrence Plots} (CRP\abreviatura{CRP}{\textit{Cross Recurrence Plots}}) como métrica de similaridade entre músicas. Antes de definir CRP, é necessário introduzir o conceito de \textit{Recurrence Plot} (RP\abreviatura{RP}{\textit{Recurrence Plot}}). RP é uma ferramenta utilizada para visualizar recorrências com uma série temporal, ou seja, regiões onde a órbita da série passa perto de um estado previamente visitado. Mais especificamente, RP é uma matriz quadrada, preenchida com zeros e uns, que indica se há ou não recorrência, ou seja, se o estado no tempo \({i}\) é similar ao estado do tempo \({j}\) \cite{eckmann1987, alligood1996}. A diagonal principal de um RP é, portanto, composta por uns. CRPs são construídos da mesma maneira que RPs, mas cada eixo corresponde a uma série temporal diferente e a matriz resultante não é quadrada.
 
 Primeiramente, o algoritmo extrai a característica HPCP \cite{gomez2006} de duas músicas, resultando em séries temporais de \({H = 12}\) variáveis. Dados os vetores HPCP da música \textbf{\({x}\)} e da música \textbf{\({y}\)}, calcula-se a transposição de \textbf{\({y}\)} de modo que ela fique na mesma tonalidade de \textbf{\({x}\)}. A transposição ocorre rotacionando-se o vetor HPCP de \textbf{\({y}\)} em \({k}\) posições por meio da técnica \textit{Optimal Transposition Index}, proposta em \cite{serra2009}.
 
@@ -476,7 +476,7 @@ em que \({K}\) é o tamanho do caminho e \({D[w_{k}]}\) é o valor da entrada \(
 Seu uso é inviável em grandes conjuntos de dados. Por este motivo, diversas técnicas de indexação específicas para esse algoritmo foram propostas para a tarefa de busca por similaridade, tais como \textit{lower bound} e \textit{early abandoning}. Com essas técnicas, é possível encontrar os vizinhos mais próximos de uma dada subsequência em uma quantidade massiva de séries temporais. Informações mais detalhadas podem ser consultadas em \cite{mizutani2006}, \cite{kruskal1983} e \cite{juang1991}.
 
 %QUERY BY HUMMING%
-\subsubsection{Query by Humming}
+\subsubsection{Query by Humming} \label{qbh}
 A tarefa de busca musical a partir de um trecho de música cantada ou cantarolada pelo usuário passou a ser conhecida na literatura como \textit{query by humming}, ou QBH. Trata-se de um sistema capaz de reconhecer música pelo \textit{casamento aproximado} de cadeias de caracteres. \citeonline{ghias1995}, autores do projeto, aplicaram o conceito de \textit{contorno melódico}, ou seja, a forma natural como nós percebemos a música. A Figura \ref{fig:qbh} mostra a arquitetura do sistema.
 
 \begin{figure}[!htb]
@@ -488,7 +488,7 @@ A tarefa de busca musical a partir de um trecho de música cantada ou cantarolad
 
 Segundo \citeonline{santos2011}, existem dois principais interesses em QBH: Primeiramente, permitir ao usuário identificar uma música da qual não conheça (ou lembre de) qualquer metadado associado (autor, álbum, título da música, entre outros). Em segundo, é dispor de uma maneira mais natural para consultar coleções de músicas digitais armazenadas principalente em dispositivos portáteis.
 
-A base de dados de um sistema de QBH é, frequentemente, construída a partir da transposição de músicas MIDI para o formato de representação musical adotado pelo sistema (formatos vistos na seção \ref{formatos}). Para casos em que a técnica de reconhecimento baseia-se em propriedades estatísticas associadas à incerteza do canto, é necessário também estimar os parâmetros do modelo. Para estimá-los, no entanto, precisamos de gravações da mesma música por diferentes usuários. Por este motivo, uma plataforma com este algoritmo estará em constante crescimento e aprendizado.
+A base de dados de um sistema de QBH é, frequentemente, construída a partir da transposição de músicas MIDI para o formato de representação musical adotado pelo sistema (formatos vistos na seção \ref{sec:formatos}). Para casos em que a técnica de reconhecimento baseia-se em propriedades estatísticas associadas à incerteza do canto, é necessário também estimar os parâmetros do modelo. Para estimá-los, no entanto, precisamos de gravações da mesma música por diferentes usuários. Por este motivo, uma plataforma com este algoritmo estará em constante crescimento e aprendizado.
 
 Capturar o sinal de áudio que codifica uma música cantada por um usuário, seja para construir a base de dados, seja para consultar o sistema por músicas conhecidas, requer atenção quanto ao nível de ruído do ambiente, à taxa de amostragem e à expressão fonética permitida. 
 
@@ -513,10 +513,8 @@ Desta forma, vários tipos de sistemas QBH foram pesquisados:
 Embora os sistemas atuais de última geração para QBH tenham alcançado um desempenho razoável em casos do mundo real, ainda há muito espaço para a melhoria na indexação de músicas e o método de correspondência do sistema QBH, especialmente em um banco de dados de música na escala da Web.
 
 %RECUPERAÇÃO POR CONTEÚDO%
-\subsubsection{Recuperação por Conteúdo} \label{conteudo}
+\subsubsection{Recuperação por Conteúdo} \label{RecuperacaoConteudo}
 Como vimos anteriormente, um dado musical geralmente é representado por um conjunto de características extraídas do conteúdo da música, ou seja, um conjunto de características que descrevem numericamente o dado. 
-
-
 
 O conteúdo do dado (ou uma faceta do conteúdo, como artista, álbum e título da música) é analisado por meio de técnicas baseadas em busca por conteúdo, que utilizam essas características para representar e indexar as informações embutidas no dado musical.
 
@@ -527,15 +525,9 @@ O conteúdo do dado (ou uma faceta do conteúdo, como artista, álbum e título 
     \item Modelo Probabilístico: Tenta tratar o problema da recuperação de informação dentro da visão probabilística. Dada uma consulta de um usuário, há um conjunto de documentos que possui arquivos de áudio digital relevantes e não-relevantes. Tendo a descrição desse conjunto não se teria problema em recuperar esses arquivos. Contudo, considerando que as propriedades de um conjunto ideal de respostas não são conhecidas de imediato na consulta, tenta-se adivinhar quais seriam essas propriedades \cite{bonfim2006}.
 \end{itemize}
 
-
 Esses modelos preveem que um arquivo de áudio digital é descrito como um conjunto de palavras-chave e cada característica é usualmente um valor ou um conjunto de valores numéricos. Mais informações sobre os modelos propostos podem ser vistos no trabalho do \citeonline[p.39]{ferreira2015}.
 
-%=== RONALDO: ACHO QUE A EXPLICACAO ACIMA NAO ESTA CLARA. SE AS CARACTERISITCAS SAO OS METADADOS (TITULO, AUTOR, ANO,...), ELES NAO SAO APENAS VALORES NUMERICOS. ACREDITO QUE ELES SE TORNAM VALORES NUMERICOS QUANDO SAO MAPEADOS PARA O ESPACO VETORIAL. EXPLICAR MELHOR ESSE PARÁGRAFO ACIMA.
-
 A partir dos modelos propostos nos sistemas de recuperação por conteúdo, as operações de comparação entre dados complexos utilizam os vetores de características para medir a similaridade do conteúdo presente nos dados que eles representam.
-
-%=== RONALDO: FALTA AQUI UMA INTRODUCAO PARA OS ITENS DESCRITOS ABAIXO. O QUE ELES SAO? SAO AS OPERACOES DE COMPARACAO MENCIONADAS ACIMA? DEIXAR ISSO MAIS CLARO...
-%=== GISELE: FEITO.
 
 Desta forma, podemos verificar alguns algoritmos citados na literatura que são utilizados para medir a similaridade do conteúdo:
 \begin{enumerate}
@@ -682,17 +674,12 @@ Desta forma, podemos verificar alguns algoritmos citados na literatura que são 
 
 %INDEXAÇÃO%
 \subsubsection{Indexação}
-Indexação é um processo pelo qual as características extraídas dos dados complexos (como artista, álbum e título da música) são armazenados em uma estrutura de índice para facilitar e acelerar a tarefa de busca dos dados musicais. Na literatura podem ser encontradas variadas formas de indexação para dados musicais. Portanto, o objetivo desta subseção é descrever de forma genérica como funcionam os métodos de indexação e citar os mais conhecidos para indexação de dados musicais.
-
-%=== RONALDO: ESTÁS USANDO A SIGLA SGBD NO PARAGRAFO ABAIXO. ELA JA FOI USADA ANTES NO TEXTO? SE NAO FOI, TENS QUE DEFINI-LA AQUI POR EXTENSO PRIMEIRO.
-%=== GISELE: JÁ FOI DEFINIDA NA LINHA 215, SEÇÃO "ARMAZENAMENTO DA INFORMAÇÃO MUSICAL"
+Os dados musicais são armazenados em uma estrutura de índice que visa facilitar e acelerar a tarefa de busca. Tipicamente, um índice permite que um registro seja encontrado sem que seja necessário acessar toda a relação de dados disponíveis.
 
 Estruturas de indexação são normalmente fornecidas pelos SGBDs. Embora essas estruturas sejam suficientes para suprir as necessidades dos usuários de aplicações que lidam com dados convencionais, elas não são adequadas para os sistemas de recuperação de dados complexos, que lidam com dados que apresentam alta dimensionalidade e não apresentam relação de ordem \cite{barioni2006}.
 
 A idéia básica dessas estruturas consiste na escolha de um objeto arbitrário central e na aplicação de uma função de distância para dividir os demais objetos em vários subconjuntos. Dessa maneira, a estrutura de indexação é construída executando-se esse mesmo procedimento, recursivamente, para cada subconjunto não vazio.
 
+Por exemplo, uma fingerprint de áudio é um resumo digital, utilizado para identificar uma amostra ou localizar rapidamente itens semelhantes em uma base de dados, com o objetivo de otimizar o desempenho da busca pelo dado musical.
 
-
-Outros métodos de indexação mais conhecidos na literatura e aplicados à indexação de dados musicais são a \textit{VP-tree} (\textit{Vantage Point tree}) \cite{yanilos1993}, a \textit{MVP-tree} (\textit{Multi-Vantage Point tree}) \cite{bozkaya1997}, a GNAT (\textit{Geometric Near-neighbor Access Tree}) \cite{brin1995}, a \textit{M-tree} \cite{ciaccia1997}, a \textit{Slim-tree}, \textit{Família-Omni} e a \textit{DBM-tree} \cite{traina2000, filho2001, vieira2004}, a \textit{n-grams} \cite{downie1999} e o \textit{Vantage Indexing Method} \cite{typke2003}.
-
-%=== RONALDO: ACHO QUE PELO MENOS 1 DESSAS ESTRUTURAS (A MAIS FAMOSA) PODERIA SER EXPLICADA EM MAIS DETALHE. SENAO FICA MUITO RESUMIDA ESSA SECAO...
+Na literatura podem ser encontradas outros métodos aplicados à indexação de dados musicais, são a \textit{VP-tree} (\textit{Vantage Point tree}) \cite{yanilos1993}, a \textit{MVP-tree} (\textit{Multi-Vantage Point tree}) \cite{bozkaya1997}, a GNAT (\textit{Geometric Near-neighbor Access Tree}) \cite{brin1995}, a \textit{M-tree} \cite{ciaccia1997}, a \textit{Slim-tree}, \textit{Família-Omni} e a \textit{DBM-tree} \cite{traina2000, filho2001, vieira2004}, a \textit{n-grams} \cite{downie1999} e o \textit{Vantage Indexing Method} \cite{typke2003}.
