@@ -632,10 +632,6 @@ em que \({K}\) é o tamanho do caminho e \({D[w_{k}]}\) é o valor da entrada \(
 
 Seu uso é inviável em grandes conjuntos de dados. Por este motivo, diversas técnicas de indexação específicas para esse algoritmo foram propostas para a tarefa de busca por similaridade, tais como \textit{lower bound} e \textit{early abandoning}. Com essas técnicas, é possível encontrar os vizinhos mais próximos de uma dada subsequência em uma quantidade massiva de séries temporais. Informações mais detalhadas podem ser consultadas em \cite{mizutani2006}, \cite{kruskal1983} e \cite{juang1991}.
 
-%===>>> RONALDO - 23/10/2018: ESTA SECAO ABAIXO DE INDEXACAO SE REFERE A ESTRUTURAS DE INDEXACAO ESPECIFICAS PARA DADOS MUSICAIS? DEIXAR CLARO ISSO NO INICIO DA SECAO 
-%===>>> GISELE - 24/10/2018: O CONCEITO DE INDEXAÇÃO NÃO, MAS O EXEMPLO DETALHADO É ESPECIFICO PARA DADOS MUSICAIS.
-%===>>> RONALDO - 30/10/2018: OK !
-
 %===> INDEXAÇÃO%
 \subsubsection{Indexação}\label{subsubsec:indexacao}
 Estruturas de indexação (uma descrição sobre essas estruturas pode ser encontrada em [Garcia-Molina et al., 2002]) são normalmente fornecidas pelos SGBDs. A idéia básica dessas estruturas consiste na escolha de um objeto arbitrário central e na aplicação de uma função de distância para dividir os demais objetos em vários subconjuntos. Dessa maneira, uma estrutura de indexação é construída executando-se esse mesmo procedimento, recursivamente, para cada subconjunto não vazio \cite{barioni2006}.
@@ -834,10 +830,6 @@ Visualização de dados musicais é a exibição na forma de um gráfico ou tabe
 
 A principal motivação para o uso da visualização é que as pessoas podem absorver rapidamente grandes quantidades de informações visuais e encontrar padrões nas mesmas. Há diversas técnicas de visualização mencionadas na literatura. Este trabalho detalha a \textit{Self-Organizing Map} (SOM), em sua tradução, Mapas Auto-Organizados, que é utilizada por uma das soluções acadêmicas analisadas neste trabalho.
 
-%===>>> RONALDO - 23/10/2018: NO PARAGRAFO ACIMA, POR QUE APENAS A TECNICA SOM EH DETALHADA? EH POR QUE ELA EH A MAIS APLICADA? OU ... (JUSTIFICAR)
-%===>>> GISELE - 24/10/2018: POIS EXISTEM OUTRAS, ESOM É A TÉCNICA UTILIZADA POR UMA DAS SOLUÇÕES ACADÊMICAS, E É A DERIVAÇÃO DA TÉCNICA SOM, POR ISSO FALO APENAS DA TÉCNICA SOM.
-%===>>> RONALDO - 30/10/2018: AUMENTEI O PARAGRAFO ACIMA PARA DEIXAR CLARO ISSO QUE TU RESPONDESTE ACIMA. TUDO OK AGORA.
-
 A SOM é um tipo de rede neural artificial (ANN) que é treinada usando aprendizagem não supervisionada para produzir uma representação de baixa dimensionalidade (tipicamente bidimensional), chamado de mapa. Assim como em outros tipos de agrupamento baseado em centróides, como o K-means, o objetivo da SOM é encontrar um conjunto de centróides (vetores de referência) e atribuir cada objeto no conjunto de dados ao centróide que fornece a melhor aproximação desse objeto. Uma característica que distingue a SOM de outras abordagens de agrupamento é que ela impõe uma organização topográfica (espacial) pré-determinada sobre os centróides \cite{pang2009}. Em uma descrição de alto nível, a técnica SOM consiste dos passos descritos no Algoritmo \ref{alg:visualizacao}.
 
 \begin{algorithm}[!htb]
@@ -853,20 +845,13 @@ A SOM é um tipo de rede neural artificial (ANN) que é treinada usando aprendiz
 \label{alg:visualizacao}
 \end{algorithm}
 
-%===>>> RONALDO - 23/10/2018: NO PARÁGRAFO ABAIXO, NAO ENTENDI A FRASE: "Uma SOM emergente difere de uma SOM tradicional em que um número muito grande de neurônios (pelo menos alguns milhares) é usado". QUAL EH A DIFERENCA AFINAL ??  
-%===>>> GISELE - 24/10/2018: SOM É A REPRESENTAÇÃO DE BAIXA DIMENSIONALIDADE, SUA DERIVADA ESOM É PARA A REPRESENTAÇÃO DE ALTA DIMINSIONALIDADE. NO PARÁGRAFO DA LINHA 837 É DITO: "A SOM é um tipo de rede neural artificial (ANN) que é treinada usando aprendizagem não supervisionada para produzir uma representação de baixa dimensionalidade" E NO PARAGRÁFO ABAIXO: "Argumenta-se que seja especialmente útil para visualizar conjuntos de dados esparsos e de alta dimensão", POR ESTE MOTIVO SE DIFERE NO NÚMERO DE NEURÔNIOS UTILIZADOS, POIS SOM É UMA REDE NEURAL (QUE TEM NEURÔNIOS ARTIFICIAIS).
-%===>>> RONALDO - 30/10/2018: OK !
-
 Como derivação da SOM, há a Emergent SOM (ESOM\abreviatura{ESOM}{\textit{Emergent Self-Organizing Maps}}), um mapa topográfico de auto-organização emergente muito recente. Argumenta-se que seja especialmente útil para visualizar conjuntos de dados esparsos e de alta dimensão, produzindo uma visão intuitiva de sua estrutura. Uma SOM emergente difere de uma SOM tradicional em que um número muito grande de neurônios (pelo menos alguns milhares) é usado \cite{ultsch2005-2}. Diz-se que a preservação de topologia da projeção tradicional da SOM é de pouca utilidade quando se usa mapas pequenos: o desempenho de uma pequena SOM é quase idêntica ao de um K-means, com \textbf{\({k}\)} igual ao número de nós no mapa \cite{ultsch2005}. Uma vantagem adicional de uma ESOM é que ela pode ser treinada diretamente no conjunto de dados disponível sem primeiro ter que executar um procedimento de seleção de recursos \cite{ultsch2003}. Os mapas ESOM podem ser criados e utilizados para análise de dados por meio da ferramenta \textit{Databionics ESOM Public}\footnote{http://databionic-esom.sourceforge.net/ }. Esta ferramenta permite ao utilizador construir mapas ESOM planos e não vinculados (isto é, toroidais) \cite{ultsch2007}.
 
 \begin{figure}[!htb]
    \centering
    \caption{Mapa topográfico com pequenos pontos para as músicas}\label{fig:mapaTopografico}
-   \includegraphics[scale=0.20]{figuras/musicmap.png}
+   \includegraphics[scale=0.40]{figuras/musicminerMap.png}
    \\Fonte: \cite{musicminer}
 \end{figure}
 
-Na Figura \ref{fig:mapaTopografico}, é o resultado da aplicação da técnica ESOM, onde é possível visualizar a similaridade de músicas. De uma coleção de músicas, é extraído um mapa topográfico a partir de uma característica da música (por exemplo, gênero), e então, as sombras escuras e as bordas do mapa representam que os dados não possuem similaridade entre si. Já as sombras claras implicam na similaridade da respectiva característica extraída, ou seja, que há similaridade dos dados \cite{lohken2006}.
-
-%===>>> RONALDO - 23/10/2018: A FIGURA ACIMA MOSTRA O QUE? O RESULTADO DA APLICACAO DA ESOM? DEIXAR MAIS CLARO. OUTRA COISA: NAO ENTENDI NADA DA FIGURA... SERIA BOM EXPLICA-LA MELHOR... 
-%===>>> GISELE - 24/10/2018: AJUSTEI A EXPLICAÇÃO, VÊ SE FICOU MELHOR.
+A Figura \ref{fig:mapaTopografico} é o resultado da aplicação da técnica ESOM, onde é possível visualizar a similaridade de músicas. De uma coleção de músicas é extraído um mapa topográfico a partir de uma característica da música (por exemplo, gênero), onde os pontos de mesma cor são similares.

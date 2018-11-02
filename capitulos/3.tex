@@ -2,7 +2,7 @@
 Nos últimos anos, várias plataformas digitais de \textit{streaming} têm surgido, derivado das intensas procuras por música on-line pelos usuários. Este capítulo apresenta de forma resumida as principais soluções comerciais e da academia, para busca de dados musicais.
 
 %%COMERCIAL%%
-\section{Comercial} \label{sec:comercial}
+\section{Soluções Comerciais} \label{sec:comercial}
 
 %MUSICID%
 \subsection{MusicID} \label{subsec:musicid}
@@ -104,14 +104,9 @@ Segundo o site da companhia\footnote{https://www.spotify.com/br/about-us/contact
 Com o Spotify, é fácil encontrar a música certa para cada momento – no seu telefone, computador, tablet e outros. Existem milhões de faixas no Spotify. Não importa se você está malhando, em uma festa ou relaxando, a música certa está sempre em suas mãos. Escolha o que quer ouvir ou deixe o Spotify surpreendê-lo. Você também pode navegar pelas coleções de músicas de amigos, artistas e celebridades, ou criar uma estação de rádio e simplesmente aproveitar. Produza a trilha sonora de sua vida com o Spotify. Assine ou ouça de graça \cite{spotify2006}.
 \end{citacao}
 
-A plataforma emprega um modelo de distribuição de dados híbrido com uma combinação de compartilhamento de dados peer-to-peer\footnote{Do inglês par-a-par ou simplesmente ponto-a-ponto, é uma arquitetura de redes de computadores onde cada um dos pontos ou nós da rede funciona tanto como cliente quanto como servidor, permitindo compartilhamentos de serviços e dados sem a necessidade de um servidor central.} (P2P) e uma infraestrutura de servidor. Ao pesquisar uma música através do smartphone e querer ouvi-lá, o sistema irá primeiro verificar se a música já se encontra baixada na memória cache do \textit{smartphone} para agilizar o processo, em caso negativo é feita a conexão diretamente com o servidor do Spotify, ao mesmo tempo que o método busca "peers"\ entre milhões de usuários para que a música que se queira ouvir, seja baixada o mais rápido possível. A busca da música é feita pela correspondência de texto para identificar arquivos de música digital através da técnica de recuperação por conteúdo (ver subseção \ref{subsubsec:rpc}).
+A plataforma emprega um modelo de distribuição de dados híbrido com uma combinação de compartilhamento de dados peer-to-peer\footnote{Do inglês par-a-par ou simplesmente ponto-a-ponto, é uma arquitetura de redes de computadores onde cada um dos pontos ou nós da rede funciona tanto como cliente quanto como servidor, permitindo compartilhamentos de serviços e dados sem a necessidade de um servidor central.} (P2P) e uma infraestrutura de servidor. Ao pesquisar uma música através do smartphone e desejar ouvi-lá, o sistema primeiro verifica se a música já se encontra baixada na memória \textit{cache} do \textit{smartphone} para agilizar o processo. Em caso negativo, é feita a conexão diretamente com o servidor do Spotify ao mesmo tempo que o método busca "peers"\ entre milhões de usuários para que a música que se queira ouvir seja baixada o mais rápido possível. A busca da música é feita pela correspondência de texto para identificar arquivos de música digital através da técnica de recuperação por conteúdo (ver subseção \ref{subsubsec:rpc}).
 
 O Spotify disponibiliza uma \textit{Web API}\footnote{Do termo em inglês "Application Programming Interface"\ que significa em tradução para o português "Interface de Programação de Aplicativos". É uma forma de integrar sistemas, possibilitando benefícios como a facilidade no intercâmbio entre informações com diferentes linguagens de programação.} que permite que desenvolvedores integrem o conteúdo do Spotify em seus próprios aplicativos. O Spotify \textit{Web API} é um serviço com base na arquitetura REST, que retorna em formato JSON dados sobre álbuns, artistas, faixas, playlists, entre outros. Para acessar outras informações é necessária uma autenticação \textit{OAuth}.
-
-%===>>> RONALDO - 23/10/2018: AQUI NO SPOTIFY TAMBEM SENTI FALTA DA EXPLICACAO DA TECNICA USADA PARA BUSCA POR SIMILARIDADE
-%===>>> GISELE - 24/10/2018: O SPOTIFY USA PEER-TO-PEER PARA BUSCA DA MÚSICA, E É PELA RECUPERAÇÃO DE CONTEÚDO, USANDO APENAS METADADOS.
-%===>>> RONALDO - 29/10/2018: SUGIRO COLOCAR ESSA EXPLICACAO TUA ACIMA NO FINAL DO PARÁGRAFO QUE FALA SOBRE P2P. ELE FAZ ENTAO SOMENTE BUSCA EXATA USANDO OS METADADOS? DEIXAR ISSO CLARO NESTA EXPLICACAO...
-%===>>> GISELE - 29/10/2018: AJUSTADO EXPLICAÇÃO. VÊ SE FICOU MELHOR.
 
 %SOUNDCLOUD%
 \subsection{SoundCloud} \label{subsec:soundcloud}
@@ -133,14 +128,9 @@ Como a maior plataforma de música e áudio do mundo, o SoundCloud permite que a
 
 Os usuários registrados podem ouvir o máximo de conteúdo como quiserem e podem fazer o \textit{upload} de até 180 minutos de áudio ao seu perfil. Todos esses recursos são gratuitos e estão disponíveis para todos os usuários registrados. A plataforma possui uma API integrada a várias aplicações, que permitem fazer o \textit{upload} ou \textit{download} de música e arquivos de música.
 
-O SoundCloud descreve as faixas de música graficamente como formas de onda e permite aos usuários comentar partes específicas do áudio (conhecido como comentários cronometrados). Estes comentários são exibidos ao escutar a parte do áudio que estão se referindo. Outras características incluem respostas, listas de reprodução, seguidores e \textit{downloads} digitais de cortesia. A busca da música é feita pela correspondência de texto para identificar arquivos de música digital através da técnica de recuperação por conteúdo (ver subseção \ref{subsubsec:rpc}). Não foi encontrado documentação informando como funciona a recuperação da música.
+O SoundCloud descreve as faixas de música graficamente como formas de onda e permite aos usuários comentar partes específicas do áudio (conhecido como comentários cronometrados). Estes comentários são exibidos ao escutar a parte do áudio que estão se referindo. Outras características incluem respostas, listas de reprodução, seguidores e \textit{downloads} digitais de cortesia. A busca da música é feita pela correspondência de texto para identificar arquivos de música digital através da técnica de recuperação por conteúdo (ver subseção \ref{subsubsec:rpc}). Não foi encontrada documentação informando como funciona detahadamente a recuperação da música.
 
 O SoundCloud também disponibiliza uma \textit{Web API} que permite que desenvolvedores integrem o conteúdo do SoundCloud em seus próprios aplicativos. O SoundCloud \textit{Web API} é um serviço com base na arquitetura HTTP, que retorna em formato JSON dados sobre álbuns, artistas, faixas, playlists, entre outros. Para acessar outras informações é necessária uma autenticação \textit{OAuth}.
-
-%===>>> RONALDO - 23/10/2018: AQUI NO SOUNDCLOUD TAMBEM SENTI FALTA DA EXPLICACAO DA TECNICA USADA PARA BUSCA POR SIMILARIDADE
-%===>>> GISELE - 24/10/2018: DA MESMA FORMA QUE O SPOTIFY, É POR RECUPERAÇÃO POR CONTEÚDO, ONDE VOCÊ BUSCA A MÚSICA POR METADADOS. NÃO ENCONTREI DOCUMENTAÇÃO INFORMANDO COMO FUNCIONA A RECUPERAÇÃO DA MÚSICA DO SOUNDCLOUD.
-%===>>> RONALDO - 29/10/2018: COMENTAR ENTAO, AO FINAL DO PENULTIMO PARAGRAFO ACIMA, QUE A BUSCA EH FEITA PELOS METADADOS
-%===>>> GISELE - 29/10/2018: AJUSTADO EXPLICAÇÃO. VÊ SE FICOU MELHOR.
 
 %MUSIXMATCH%
 \subsection{Musixmatch} \label{subsec:musixmatch}
@@ -203,7 +193,7 @@ A recuperação da informação, segundo o site da enciclopédia\footnote{https:
 
 
 %%ACADEMICO%%
-\section{Acadêmico} \label{sec:academico}
+\section{Soluções Acadêmicas} \label{sec:academico}
 
 %AMUSE%
 \subsection{AMUSE} \label{subsec:amuse}
@@ -227,18 +217,15 @@ Segundo \citeonline{vatolkin2010}, o \textit{framework} fornece diferentes funci
     \item Componente logger integrado.
 \end{itemize}
 
-O AMUSE possui subtarefas em cadeia para recuperação da informação musical. Cada tarefa pode ser calculada em várias unidades de processamento. Inicia-se pela tarefa de extração de recursos, que fornece descritores numéricos de baixo nível ou alto nível do sinal de áudio (por exemplo, extração de melodia da música). Depois que a tarefa de extração é carregada na memória, é realizado o processamento dos recursos, em uma etapa intermediária, que servirá de entrada para a técnica de classificação (ver subseção \ref{subsubsec:classificacao}). E por fim, a validação dos resultados da classificação. 
+O AMUSE possui subtarefas em cadeia para recuperação da informação musical. Cada tarefa pode ser calculada em várias unidades de processamento. Inicia-se pela tarefa de extração de recursos, que fornece descritores numéricos de baixo nível ou alto nível do sinal de áudio (por exemplo, extração de melodia da música). Depois que a tarefa de extração é carregada na memória, é realizado o processamento dos recursos, em uma etapa intermediária, que serve de entrada para a técnica de classificação (ver subseção \ref{subsubsec:classificacao}). Por fim, é realizada a validação dos resultados da classificação. 
 
 As ferramentas integradas não têm restrições de uso em relação aos seus códigos-fonte. Se eles não estiverem disponíveis como bibliotecas Java, as versões executáveis deverão ser fornecidas. Nesse caso, pode certamente levar à dependência do sistema operacional em execução.
 
 O projeto é oferecido gratuitamente à comunidade de pesquisa. Informações mais detalhadas sobre o projeto podem ser consultadas em \cite{vatolkin2010} e \cite{amuse}.
 
-%===>>> RONALDO - 29/10/2018: AQUI NO AMUSE TAMBEM SENTI FALTA DA EXPLICACAO DA TECNICA USADA PARA BUSCA POR SIMILARIDADE
-%===>>> GISELE - 29/10/2018: ADICIONADO UM PARÁGRAFO SOBRE. VER SE FICOU BOA A EXPLICAÇÃO.
-
 %CLAM%
 \subsection{CLAM} \label{subsec:clam}
-CLAM (\textit{C++ Library for Audio and Music})\footnote{http://clam-project.org/} é um \textit{framework} desenvolvido em C++ no \textit{Music Technology Group} (MTG) da Universidade Pompeu Fabra em Barcelona, Espanha. Ele oferece uma plataforma completa de desenvolvimento e pesquisa para o domínio de áudio e música, baseado na técnica SMS (ver subseção \ref{subsubsec:sms}). Além de oferecer um modelo abstrato para sistemas de áudio, ele também inclui um repositório de algoritmos de processamento e tipos de dados, bem como diversas ferramentas, como entrada/saída de áudio ou MIDI (ver Figura \ref{fig:clam}).
+CLAM (\textit{C++ Library for Audio and Music})\footnote{http://clam-project.org/} é um \textit{framework} desenvolvido em C++ no \textit{Music Technology Group} (MTG) da Universidade Pompeu Fabra em Barcelona, Espanha. Ele oferece uma plataforma completa de desenvolvimento e pesquisa para o domínio de áudio e música baseado na técnica SMS (ver subseção \ref{subsubsec:sms}). Além de oferecer um modelo abstrato para sistemas de áudio, ele também inclui um repositório de algoritmos de processamento e tipos de dados, bem como diversas ferramentas, como entrada/saída de áudio ou MIDI (ver Figura \ref{fig:clam}).
 
 \begin{figure}[!htb]
    \centering
@@ -261,15 +248,9 @@ Segundo \citeonline{amatriain2004}, as características mais importantes do fram
 
 Informações mais detalhadas sobre este \textit{framework} podem ser consultadas em \cite{amatriain2007, amatriain2004}.
 
-%===>>> RONALDO - 29/10/2018: AQUI NO CLAM TAMBEM SENTI FALTA DA EXPLICACAO DA TECNICA USADA PARA BUSCA POR SIMILARIDADE
-%===>>> GISELE - 29/10/2018: ADICIONADO NO PRIMEIRO PARAGRAFO. VER SE FICOU BOA A EXPLICAÇÃO.
-
 %JAVA MIR%
 \subsection{Java MIR} \label{subsec:jmir}
 jMIR (Java MIR)\footnote{http://jmir.sourceforge.net/} é um \textit{software} que possui um conjunto de componentes desenvolvido na CIRMMT e Marianopolis College, ambos localizados no Canadá. Cada um dos componentes pode ser utilizado separadamente ou como um todo (ver Figura \ref{fig:jmir}).
-
-%===>>> RONALDO - 29/10/2018: NO PARAGRAFO ACIMA INFORMAR QUAL EH O PAIS ONDE FICAM AS INSTITUICOES QUE DESENVOLVERAM O JMIR
-%===>>> GISELE - 29/10/2018: FEITO
 
 \begin{figure}[!htb]
    \centering
@@ -278,7 +259,7 @@ jMIR (Java MIR)\footnote{http://jmir.sourceforge.net/} é um \textit{software} q
    \\Fonte: \cite{jmir}, elaborado pela autora
 \end{figure}
 
-O software é de código livre implementado em Java para uso nas pesquisas de Recuperação de Informação Musical (MIR), baseado em técnicas de mineração de dados, como a classificação (ver subseção \ref{subsubsec:classificacao}). Ele pode ser usado para estudar música na forma de gravações de áudio, codificações simbólicas e transcrições líricas, e também pode extrair informações culturais da Internet. Ainda, ele inclui ferramentas para gerenciar e criar perfis de grandes coleções de músicas e para verificar o áudio quanto a erros de produção. É bem documentado e inclui GUIs para aumentar a usabilidade geral.
+O software é de código livre implementado em Java para uso nas pesquisas de Recuperação de Informação Musical (MIR) e se baseia em uma técnica de mineração de dados, a classificação (ver subseção \ref{subsubsec:classificacao}). Ele pode ser usado para estudar música na forma de gravações de áudio, codificações simbólicas e transcrições líricas, e também pode extrair informações culturais da Internet. Ainda, ele inclui ferramentas para gerenciar e criar perfis de grandes coleções de músicas e para verificar o áudio quanto a erros de produção. É bem documentado e inclui GUIs para aumentar a usabilidade geral.
 
 O objetivo principal do \textit{software} é auxiliar nas pesquisas em classificação automática de música e a análise de similaridade, proporcionando as seguintes características:
 
@@ -295,8 +276,6 @@ O objetivo principal do \textit{software} é auxiliar nas pesquisas em classific
 
 Informações mais detalhadas sobre o projeto estão disponíveis nas publicações acadêmicas\footnote{http://jmir.sourceforge.net/publications.html}. Manuais e documentação para cada componente também podem ser consultados em \cite{jmir} e \cite{mckay2010}.
 
-%===>>> RONALDO - 29/10/2018: AQUI NO jMIR TAMBEM SENTI FALTA DA EXPLICACAO DA TECNICA USADA PARA BUSCA POR SIMILARIDADE
-%===>>> GISELE - 29/10/2018: ADICIONADO NO SEGUNDO PARAGRAFO. VER SE FICOU BOA A EXPLICAÇÃO.
 
 %MIR TOOLBOX%
 \subsection{MIRtoolbox} \label{subsec:mirtoolbox}
@@ -318,12 +297,10 @@ Segundo \citeonline{lartillot2013}, foi elaborado um manual onde são descritas 
     \item Recursos: O MIRtoolbox inclui cerca de 50 extratores de recursos de áudio e música e descritores estatísticos.
 \end{itemize}
 
-O MIRtoolbox é baseado em técnicas de mineração de dados, e por ser um pacote de ferramentas, são variadas técnicas para recuperação da informação musical, entre elas podemos citar: clusterização (ver subseção \ref{subsubsec:clustering}) e classificação (ver subseção \ref{subsubsec:classificacao}).
+O MIRtoolbox é baseado em técnicas de mineração de dados e, por ser um pacote de ferramentas, são variadas as técnicas para recuperação da informação musical, como a classificação (ver subseção \ref{subsubsec:classificacao}).
 
 Desta forma, ele pode ser útil para a comunidade de pesquisa em Recuperação da Informação Musical (MIR), mas também para fins educacionais. Mais informações sobre o projeto podem ser consultadas em \cite{lartillot2007, lartillot2013} e \cite{mirtoolbox}
 
-%===>>> RONALDO - 29/10/2018: AQUI NO MIRTOOLBOX TAMBEM SENTI FALTA DA EXPLICACAO DA TECNICA USADA PARA BUSCA POR SIMILARIDADE
-%===>>> GISELE - 29/10/2018: ADICIONADO UM PARÁGRAFO.
 
 %MUSIC MINER%
 \subsection{MusicMiner} \label{subsec:musicminer}
@@ -368,7 +345,7 @@ O \textit{MusicMiner} é escrito em Java para máxima portabilidade e publicado 
 \begin{figure}[!htb]
    \centering
    \caption{Tunebot Web}\label{fig:tunebotWeb} 
-   \includegraphics[scale=0.50]{figuras/tunebotWeb.png}
+   \includegraphics[scale=0.60]{figuras/tunebotWeb.png}
    \\Fonte: \cite{pardo2010}
 \end{figure}
 
@@ -377,5 +354,3 @@ O sistema não exige chaves de pesquisa codificadas manualmente, pois atualiza a
 Outro objetivo do projeto é ajudar pesquisadores na área de reconhecimento de músicas que utilizam o algoritmo \textit{query by humming}, facilitando uma pesquisa mais precisa do desempenho do mundo real do que seria possível com conjuntos de dados existentes.
 
 Informações mais detalhadas sobre o projeto podem ser consultadas em \cite{pardo2010, pardo2012} e \cite{huq2010}.
-
-
