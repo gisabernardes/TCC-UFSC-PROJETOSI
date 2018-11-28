@@ -104,7 +104,7 @@ Na Tabela \ref{tab:diferencasId3} é possível verificar as diferenças com rela
     \caption{Diferenças entre as versões ID3}
     \begin{tabular}{p{4cm}|p{4cm}}
     \hline
-        ID3v1 & ID3v2 \\
+        \textbf{ID3v1} & \textbf{ID3v2} \\
     \hline
         128 B & 256 MB \\
     \hline
@@ -143,9 +143,9 @@ Um Banco de Dados(BD) \abreviatura{BD}{Banco de Dados} normalmente armazena os m
 \begin{table}[ht]
     \centering
     \caption{Diferenças entre as formas de armazenamento de metadados}
-    \begin{tabular}{p{5cm}|p{5cm}}
+    \begin{tabular}{p{6cm}|p{6cm}}
     \hline
-        Armazenamento Interno & Armazenamento Externo \\
+        \textbf{Armazenamento Interno} & \textbf{Armazenamento Externo} \\
     \hline
         Não permite a gestão de todos os metadados em um só lugar & Procura e gestão mais eficiente dos metadados \\
     \hline
@@ -231,12 +231,12 @@ A agenda de pesquisas sobre a MIR intensificou sua produção recentemente com a
 
 A área de MIR conta com profissionais das mais diversas áreas inclusas na questão do tratamento e recuperação da informação musical como apresentado na Tabela \ref{tab:comunidadeMIR}, traduzida por \citeonline{santini&souza2007}.
 
-\begin{table}[ht]
+\begin{table}[ht!]
     \centering
     \caption{Comunidades de MIR}
-    \begin{tabular}{p{4cm}|p{4cm}|p{4cm}}
+    \begin{tabular}{p{4cm}|p{4.4cm}|p{4cm}}
     \hline
-        Comunidade & Tipo(s) de instituição & Área de pesquisa \\
+        \textbf{Comunidade} & \textbf{Tipo(s) de instituição} & \textbf{Área de pesquisa} \\
     \hline
         Ciência da Computação, Recuperação da Informação & Acadêmica, Comercial & Representação, Indexação, Recuperação, Aprendizado de máquina, Design de interface de uso \\
     \hline
@@ -343,7 +343,7 @@ Um sistema de recuperação de informação musical atua, portanto, como um ambi
 
 O foco deste trabalho não é aprofundar o conhecimento nos métodos e algoritmos utilizados para recuperação da informação musical. Assim sendo, os principais métodos e algoritmos disponíveis na literatura são descritos aqui de forma breve.
 
-%AUDIO FINGERPRINT%
+%===> AUDIO FINGERPRINT%
 \subsubsection{Audio Fingerprint} \label{subsubsec:audioFingerprint}
 \textit{Audio Fingerprint} é como uma assinatura única de uma música, contendo um sumário de suas características que resume uma gravação de áudio. \citeonline{cano2005} que definem que uma \textit{fingerprint} de áudio é um resumo digital, que pode ser utilizado para identificar uma amostra ou localizar rapidamente itens semelhantes em uma base de dados de áudio, independente do nível de compressão, distorção ou interferência no canal de transmissão.
 
@@ -454,15 +454,28 @@ Os métodos de classificação podem ser divididos de duas formas: classificador
         Senão, o nodo é determinado com um atributo que não ocorra no trajeto da raiz e arcos são criados para todos os valores. O algoritmo retorna ao passo 3.
     \caption{Algoritmo ID3 básico}
     \label{alg:id3}
-    \end{algorithm}
+\end{algorithm}
     
     
 No caso dos classificadores preguiçosos, cada novo registro é comparado com todo o conjunto de treinamento e é classificado segundo a classe do registro que é mais similar. Um exemplo de método bastante conhecido nesta categoria é o K-\textit{Nearest Neighbors}.
     
-O K-\textit{Nearest Neighbors}, ou K-NN, é um classificador onde o aprendizado é baseado na analogia. O conjunto de treinamento é formado por vetores n-dimensionais e cada elemento deste conjunto representa um ponto no espaço n-dimensional.
+O K-\textit{Nearest Neighbors}, ou K-NN, é um classificador onde o aprendizado é baseado na analogia. O conjunto de treinamento é formado por vetores n-dimensionais e cada elemento deste conjunto representa um ponto no espaço n-dimensional (ver Figura \ref{fig:knn}).
     
-Para determinar a classe de um elemento que não pertença ao conjunto de treinamento, o classificador procura K elementos do conjunto de treinamento que estejam mais próximos deste elemento desconhecido, ou seja, que tenham a menor distância. Estes K elementos são chamados de \textit{K-Nearest Neighbors} (K-vizinhos mais próximos). Verifica-se quais são as classes desses K vizinhos e a classe mais frequente será atribuída à classe do elemento desconhecido. O número de K-vizinhos é um parâmetro livre controlado pelo usuário com o objetivo de obter uma melhor classificação (ver Figura \ref{fig:knn}).
-        
+Para determinar a classe de um elemento que não pertença ao conjunto de treinamento, o classificador procura K elementos do conjunto de treinamento que estejam mais próximos deste elemento desconhecido, ou seja, que tenham a menor distância. Estes K elementos são chamados de \textit{K-Nearest Neighbors} (K-vizinhos mais próximos). Verifica-se quais são as classes desses K vizinhos e a classe mais frequente será atribuída à classe do elemento desconhecido. O número de K-vizinhos é um parâmetro livre controlado pelo usuário com o objetivo de obter uma melhor classificação (ver Algoritmo \ref{alg:knn}).
+
+\begin{algorithm}[!htb]
+    \SetAlgoLined
+        Selecionar um conjunto de exemplos de treinamento\; 
+        Definir uma métrica para calcular a distância entre os exemplos de treinamento\;
+        Definir o valor de K (o número de vizinhos mais próximos que serão considerados pelo algoritmo)\;
+        \Repita{que identifique os K vizinhos mais próximos}{
+            Calcular a distância entre o exemplo desconhecido e o outros exemplos do conjunto de treinamento\;
+        }
+        Utilizar o rotulo da classe dos vizinhos mais próximos para determinar o rótulo de classe do exemplo desconhecido (votação majoritária)\;
+    \caption{Algoritmo K-NN básico}
+    \label{alg:knn}
+\end{algorithm}
+
 As métricas mais comuns utilizadas para o cálculo da distância são: Distância Euclidiana, Distância de Manhattan e Distância de Minkowski. Este processo de classificação pode ser computacionalmente exaustivo se considerado um conjunto com muitos dados, mas para determinadas aplicações, no entanto, o processo é bem aceitável \cite{knn2005}.
         
 \begin{figure}[!htb]
@@ -772,11 +785,14 @@ Em seguida, a tarefa executada no sistema QBH é propor ao usuário uma lista de
    \\Fonte: ACRCloud
 \end{figure}
 
-Desta forma, vários tipos de sistemas QBH foram pesquisados:
+Desta forma, vários tipos de sistemas QBH e suas derivações foram pesquisados:
 \begin{itemize}
     \item \citeonline{wang2008} propuseram o sistema de QBH combinando as distâncias do \textit{earth mover’s distance} (EMD) e do \textit{dynamic time warping} (DTW) baseado na regra de soma ponderada.
     \item \citeonline{ryynanen2008} propuseram o método de extração dos vetores \textit{pitch} através do uso de uma janela de tempo de tamanho fixo e comparando-os por meio do método \textit{locality sensitive hashing} (LSH).
     \item \citeonline{salamon2009} propuseram recuperação em dois estágios para o sistema QBH. No primeiro estágio, o número de candidatos é reduzido através do método de indexação utilizando \textit{ngrams}. Depois, um método de comparação mais sofisticado é aplicado com os candidatos restantes baseado no alinhamento local com funções de custos modificados.
+    \item \citeonline{wang2006} propuseram métodos para extrair a melodia de vocais das músicas de karaokê, reduzindo a interferência dos acompanhamentos de fundo. Em paralelo, aplicando o \textit{bayesian information criterion} (BIC) para detectar o tempo de inicio de cada frase no canal vocal acompanhado, o que permite a comparação de similaridade baseada em \textit{dynamic time warping} (DTW) para que seja executada de forma mais eficiente.
+    \item \citeonline{motoyuki2006} propuseram um método de reconhecimento de letras usando informações de melodia. A informação da melodia é extraída de uma música de entrada usando informações de alinhamento de tempo, e uma hipótese pode ser verificada do ponto de vista melódico. Um autômato de estado finito (FSA) é usado como gramática de reconhecimento, e uma pontuação total é calculada a partir da pontuação de reconhecimento e da pontuação de verificação.
+    \item Segundo \citeonline{mesaros2013}, há os métodos e aplicações que lidam com a análise dos sinais de áudio de voz cantada, relacionados à identidade do cantor e ao conteúdo das letras do canto, onde a identificação do cantor em música polifônica é baseada em métodos gerais de classificação de áudio. A classificação de vozes cantadas pode ser feita de maneira robusta em música polifônica quando se usa separação de fontes. A precisão do reconhecimento de palavras da transcrição das letras do canto é bastante baixa, mas mostra-se útil em uma aplicação de consulta por canto, para realizar uma pesquisa textual baseada nas palavras reconhecidas da consulta.
 \end{itemize}
 
 Embora os sistemas atuais de última geração para QBH tenham alcançado um desempenho razoável em casos do mundo real, ainda há muito espaço para a melhoria na indexação de músicas e o método de correspondência do sistema QBH, especialmente em um banco de dados de música na escala da Web.
@@ -803,6 +819,8 @@ O módulo de extração de características é uma das bases fundamentais dos si
 Ao contrário das aplicações tradicionais de bases de dados que manipulam dados numéricos e textuais por meio da realização de consultas por igualdade e ordem, as aplicações que lidam com dados musicais requerem a realização de consultas por similaridade, ou seja, consultas que realizam busca por objetos da base que sejam similares a um objeto de consulta, de acordo com uma certa medida de similaridade. Para que um sistema de recuperação por conteúdo possa responder a consultas por similaridade, é necessário que ele seja capaz de mensurar o quão similar são os diferentes pares de objetos armazenados na base de dados bem como com o objeto de consulta, e é por meio da aplicação de métodos e algoritmos (ver subseção \ref{subsec:metodos-algoritmos-recuperacao}) que é obtida a quantificação dessa similaridade \cite{bohm2001, chavez2001}.
 
 Porém, essa estratégia não é a mais adequada para ser utilizada em grandes conjuntos de dados, uma vez que o custo computacional envolvido é muito alto. Assim sendo, outro aspecto importante na recuperação de dados musicais por conteúdo está relacionado à utilização de estruturas de indexação (ver subseção \ref{subsubsec:indexacao}) apropriadas para espaços métricos que possam agilizar a realização de consultas por similaridade, ou seja, minimizar o número de cálculos de distância necessários para executar uma consulta.
+
+\citeonline{murthy2018} apresentam os aspectos essenciais das tarefas básicas de MIR, como identificação de artista, classificação de gêneros, classificação de emoções musicais, identificação de instrumentos e anotação musical. Juntamente com essa informação específica da tarefa, os autores também abordam os recursos gerais e os classificadores usados no MIR. As aplicações de cada tarefa MIR para a indústria musical são discutidas em detalhes.
 
 %===> SPECTRAL MODELING SYNTHESIS%
 \subsubsection{Spectral Modeling Synthesis} \label{subsubsec:sms}

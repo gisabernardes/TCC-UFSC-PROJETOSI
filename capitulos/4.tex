@@ -10,7 +10,7 @@ Neste trabalho foi realizada uma adaptação de heurísticas para permitir uma b
 Assim sendo, os seguintes critérios e subcritérios são considerados:
 
 \begin{itemize}
-    \item Eficiência de desempenho: Trata da otimização do uso de recursos de tempo e espaço. Espera-se que o sistema seja o mais eficiente possível de acordo com o tipo de problema que ele soluciona:
+    \item Eficiência: Trata da otimização do uso de recursos de tempo e espaço. Espera-se que o sistema seja o mais eficiente possível de acordo com o tipo de problema que ele soluciona:
     \begin{itemize}
         \item \textit{Comportamento em relação ao tempo}: Mede o tempo que o sistema leva para processar suas funções, ou seja, o tempo de reconhecimento/busca de uma música;
         \item \textit{Utilização de recursos}: Avalia a complexidade das estratégias e algoritmos utilizados na recuperação de informação musical;
@@ -39,33 +39,92 @@ Assim sendo, os seguintes critérios e subcritérios são considerados:
 
 \section{Análise} \label{sec:analise}
 
-A Tabela \ref{comparacaoCriterios}, disponível a partir da página \pageref{comparacaoCriterios}, apresenta um sumário da análise comparativa das soluções existentes para recuperação de informação musical. Uma comparação é primeiramente realizada entre as soluções comerciais, seguida das soluções acadêmicas.
+Uma comparação é primeiramente realizada entre as soluções comerciais, seguida das soluções acadêmicas.
 
 \subsection{Soluções Comerciais}
 
-Inicialmente, pode-se verificar que as soluções comerciais, em sua grande maioria, possuem um modelo de desenvolvimento fechado (F), ou seja, seu código não pode ser alterado, mas disponibilizam APIs Web para a comunidade de desenvolvedores, para que a solução possa ser incorporada a seus próprios sites e aplicações.
+Inicialmente, para a análise das soluções comerciais, foram criadas 3 tabelas, uma para cada grande critério analisado para melhor visualização.
 
-Das 9 soluções comerciais analisadas, 4 possuem reconhecimento de músicas de forma aproximada (A), ou seja, é possível realizar buscas de músicas por similaridade através da voz, sendo que 2 delas permite cantarolar. Já as 5 demais soluções realizam o reconhecimento de músicas de forma exata (E), sendo necessária uma parte de áudio "original"\ e/ou uma busca por conteúdo através de metadados.
+Em relação ao critério de Eficiência mostrado na Tabela \ref{tab:eficiencia-comercial}, o comportamento das soluções em relação ao tempo foram constatados as diferenças verificando o tipo de método utilizado para o reconhecimento/busca de músicas.Os testes foram realizados usando conexão de Internet Wi-Fi e Dados Móveis (4G). Com um smartphone e um cronômetro, foram feitas 5 execuções em cada aplicação com músicas diferentes. E então, calculado a média de todos os tempos para cada aplicação.
 
-Apenas 3 soluções permitem a inclusão de músicas criadas por usuários, enquanto as outras 6 permitem a inclusão de novas músicas somente através de contatos com gravadoras e/ou artistas. Destas 3 primeiras, duas reconhecem músicas de forma aproximada: ACRCloud e Musipedia. A primeira é um serviço na nuvem, sendo, até o momento, o maior banco de dados de músicas e um serviço utilizado pela maioria das outras soluções aqui analisadas, como Musixmatch, que permite o reconhecimento de músicas por similaridade, e o Deezer, que possui o recurso de identificação de músicas que são tocadas ao seu redor. Ambas as soluções utilizam o método \textit{Fingerprint}.
+Para as soluções utilizando RPC, foi testada a busca de músicas pela correspondência de texto através de metadados (ou seja, através da informação do título, álbum ou genero da música). Neste caso, a busca demorou até 30s para retornar uma amostra de resultados. Para as soluções que utilizam \textit{Fingerprint} e fazem reconhecimento de música de forma exata (E), foi testada a busca através da informação de uma parte de áudio "original". Já para as soluções de reconhecimento de músicas de forma aproximada (A), foi testada a busca através da informação de uma parte de áudio "original", do canto ou do cantarolar. Ambas as soluções podem variar de 5s até 13s para retornar uma amostra de resultados.
 
-Musipedia é uma wikipedia de músicas que aceita contribuições musicais de diversas formas: através da voz, partes de músicas, ou até em formato MIDI (quando o som é criado digitalmente). Não foi encontrada documentação que especificasse o método ou algoritimo utilizado para o reconhecimento das músicas.
+Cabe observar aqui que uma análise feita apenas sobre o comportamento geral das soluções em relação ao tempo não seria relevante, já que tempos entre 5s e 30s são relativos à situação em que o usuário está no momento. Por exemplo, o usuário pode estar em lugares onde a conexão de Internet não é boa ou quase nula, ou pode estar em lugares onde a conexão de Internet é ótima, já que o reconhecimento de uma música depende de uma conexão de Internet. Quanto melhor a conexão, mais rápido será o reconhecimento da música.
 
-Com isso, é possível verificar que tanto soluções para o reconhecimento de músicas de forma aproximada quanto soluções para o reconhecimento de forma exata podem utilizar o mesmo método de \textit{Fingerprint}. Apesar de utilizarem o mesmo método, a forma como pode ter sido desenvolvido é que gerou a vantagem competitiva dentre os concorrentes do mesmo ramo.
+É possível verificar que tanto soluções para o reconhecimento de músicas de forma aproximada, como o MusicID e o ACRCloud, quanto soluções para o reconhecimento de forma exata, como o Shazam, Deezer e Musixmatch, podem utilizar o mesmo método de \textit{Fingerprint}. Apesar de utilizarem o mesmo método, a forma como pode ter sido desenvolvido é que gerou a vantagem competitiva dentre os concorrentes do mesmo ramo.
 
 O SoundHound utiliza a tecnologia de Inteligência Artificial (IA) \abreviatura{IA}{Inteligência Artificial} para o reconhecimento de músicas. O desenvolvimento de uma solução baseada em IA se dá através de métodos e algoritmos de aprendizagem de máquina, como Classificação e Clustering, porém não foi encontrada documentação que especificasse o método ou algoritimo utilizado pelo SoundHound para o reconhecimento das músicas. Com essa solução, é possível recuperar músicas através da voz, cantarolando ou até mesmo informando uma parte do áudio "original". Conforme os usuários cantam e conforme a escolha da música do resultado amostrado, a IA associa a cantoria àquela música. Então, quanto mais cantar e buscar as músicas "certas"\ para a cantoria, a taxa de acerto aumenta, formando uma rede totalmente interligada para o reconhecimento correto de músicas.
 
 Há também as soluções que utilizam o método de Recuperação por Conteúdo (RPC), que seriam as cadeias de caracteres, em buscas, por exemplo, por título, álbum ou gênero da música - o que chamamos de metadados -, conforme já explícitado em seções anteriores deste trabalho. Destas soluções, pode-se citar o Spotify e o SoundCloud. A busca das músicas no Spotify, por exemplo, é feita exclusivamente através de texto, não sendo possível adicionar músicas criadas pelo usuário. Entretanto, é possível criar playlists com as suas músicas preferidas.
 
-Em relação ao tempo, as diferenças foram constatadas verificando o tipo de método utilizado para o reconhecimento/busca de músicas. Os testes foram realizados usando conexão de Internet Wi-Fi e Dados Móveis (4G). Para as soluções utilizando RPC, foi testada a busca de músicas pela correspondência de texto através de metadados (ou seja, através da informação do título, álbum ou genero da música). Neste caso, a busca demorou até 30s para retornar uma amostra de resultados. Para as soluções que utilizam \textit{Fingerprint} e fazem reconhecimento de música de forma exata (E), foi testada a busca através da informação de uma parte de áudio "original". Já para as soluções de reconhecimento de músicas de forma aproximada (A), foi testada a busca através da informação de uma parte de áudio "original", do canto ou do cantarolar. Ambas as soluções podem variar de 5s até 13s para retornar uma amostra de resultados.
+Para o Musipedia, não foi encontrada documentação que especificasse o método ou algoritimo utilizado para o reconhecimento das músicas.
 
-Cabe observar aqui que uma análise feita apenas sobre o comportamento geral das soluções em relação ao tempo não seria relevante, já que tempos entre 5s e 30s são relativos à situação em que o usuário está no momento. Por exemplo, o usuário pode estar em lugares onde a conexão de Internet não é boa ou quase nula, ou pode estar em lugares onde a conexão de Internet é ótima, já que o reconhecimento de uma música depende de uma conexão de Internet. Quanto melhor a conexão, mais rápido será o reconhecimento da música.
+Quanto ao critério de Bitrate, das 9 soluções analisadas, foi encontrado essa informação em apenas 4. Diferentes bitrates podem produzir qualidade de som variável. Assim, quanto maior o bitrate, mais vezes por segundo o som original é amostrado, produzindo assim uma reprodução mais autêntica e melhor do som \cite{sandisk}.
 
-Com exceção do ACRCloud, todas as demais soluções possuem versões gratuitas para uso, com a possibilidade de pagar uma mensalidade e não ter interrupções e propagandas entre as músicas. Ainda, poucas soluções possuem integrações com outros serviços e/ou aplicações. Com o Shazam, por exemplo, é possível integrar-se ao Spotify e, então, ao encontrar uma música, poder ouvi-la por completo. Da mesma forma para o SoundHound, além de ser possível o compartilhamento da sua pesquisa com o Twitter. Com o Musixmatch integrado ao Spotify, por exemplo, ao encontrar uma música, você acompanha a música com a letra em tempo real. O ACRCloud e o Musixmatch são as soluções que possuem o maior número de integrações.
+O Deezer e Spotify apresentam bitrate de até 320kbps, possuindo 3MB por minuto de áudio e uma qualidade aproximada à de um CD. Já o MusicID e o SoundCloud apresentam bitrate de até 128kbps, possuindo 1MB por minuto de áudio e uma qualidade mínima aceitável em termos de alta fidelidade do áudio \cite{sean2012}.
+
+%%%====== INICIO TABELA EFICIÊNCIA COMERCIAL ======%%%
+\begin{table}[!htb]
+\centering
+\caption{Análise das soluções comerciais: Critério de Eficiência}
+\tabcolsep=0.12cm
+\label{tab:eficiencia-comercial}
+\begin{tabular}{c|l|c|c|c}
+\hline
+\multicolumn{2}{c|}{\multirow{2}{*}{\textbf{CRITÉRIOS}}} & \multicolumn{3}{|c}{\textbf{Eficiência}} \\ \cline{3-5} 
+\multicolumn{2}{c|}{} & \textbf{\begin{tabular}[c]{@{}c@{}}Comportamento\\ em relação ao\\ tempo\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Utilização de\\ recursos\end{tabular}} & \textbf{Bitrate} \\ \hline
+\multirow{9}{*}{\begin{tabular}[c]{@{}c@{}}C\\ O\\ M\\ E\\ R\\ C\\ I\\ A\\ L\end{tabular}} & \textbf{MusicID} & Até 8s & FP & Até 128kbps \\ \cline{2-5} 
+ & \textbf{Shazam} & Até 8s & FP & - \\ \cline{2-5} 
+ & \textbf{SoundHound} & Até 5s & IA & - \\ \cline{2-5} 
+ & \textbf{Deezer} & Até 10s & RPC e FP & Até 320kbps \\ \cline{2-5} 
+ & \textbf{Spotify} & Até 30s & RPC & Até 320kbps \\ \cline{2-5} 
+ & \textbf{SoundCloud} & Até 30s & RPC & Até 128kbps \\ \cline{2-5} 
+ & \textbf{Musixmatch} & Até 13s & RPC e FP & - \\ \cline{2-5} 
+ & \textbf{ACRCloud} & Até 5s & FP & - \\ \cline{2-5} 
+ & \textbf{Musipedia} & - & - & - \\ \hline
+\end{tabular}
+\caption*{Legenda: FP - Fingerprint; IA - Inteligência Artificial; RPC - Recuperação por Conteúdo;}
+\end{table}
+%%%====== FIM TABELA EFICIÊNCIA COMERCIAL ======%%%
+
+Em relação ao critério de Adequação Funcional mostrado na Tabela \ref{tab:adequacaoFuncional-comercial}, das 9 soluções analisadas, 7 são multiplataformas, sendo em sua maioria voltadas para uso em smartphones e 2 de uso exclusivo via Web.
+
+Pode-se verificar que as soluções comerciais, em sua grande maioria, possuem um modelo de desenvolvimento fechado (F), ou seja, seu código não pode ser alterado, mas disponibilizam APIs Web para a comunidade de desenvolvedores, para que a solução possa ser incorporada a seus próprios sites e aplicações.
 
 Quanto à acessibilidade, todas precisam de conexão com a Internet para o uso de suas funcionalidades e apenas 2 das 9 soluções analisadas possuem acesso off-line, que se dá através do download de músicas para a memória interna do dispositivo. As 2 soluções são Spotify e Deezer.
 
-Com relação à usabilidade, testes foram realizados considerando os critérios e subcritérios descritos na seção \ref{sec:criterios-analise}. Foi realizada uma adaptação do \textit{MATcH Checklist} disponibilizado pelo Grupo de Qualidade de Software (GQS) da UFSC, onde o conjunto de perguntas possui uma escala de resposta com 2 opções: Sim (a solução atende o objetivo) e Não (a solução não atende o objetivo). Cada solução possui particularidades que podem atrair ou afastar o usuário. Os resultados dos testes são discriminados abaixo, feitos em um smartphone, modelo Asus Zenfone 4, com sistema operacional Android.
+Das 9 soluções comerciais analisadas, 4 possuem reconhecimento de músicas de forma aproximada (A), ou seja, é possível realizar buscas de músicas por similaridade através da voz, sendo que 2 delas permite cantarolar. Já as 5 demais soluções realizam o reconhecimento de músicas de forma exata (E), sendo necessária uma parte de áudio "original"\ e/ou uma busca por conteúdo através de metadados.
+
+Apenas 3 soluções permitem a inclusão de músicas criadas por usuários, enquanto as outras 6 permitem a inclusão de novas músicas somente através de contatos com gravadoras e/ou artistas. Destas 3 primeiras, duas reconhecem músicas de forma aproximada: ACRCloud e Musipedia. A primeira é um serviço na nuvem, sendo, até o momento, o maior banco de dados de músicas e um serviço utilizado pela maioria das outras soluções aqui analisadas, como Musixmatch, que permite o reconhecimento de músicas por similaridade, e o Musipedia é uma wikipedia de músicas que aceita contribuições musicais de diversas formas: através da voz, partes de músicas, ou até em formato MIDI (quando o som é criado digitalmente). 
+
+Com exceção do ACRCloud, todas as demais soluções possuem versões gratuitas para uso, com a possibilidade de pagar uma mensalidade e não ter interrupções e propagandas entre as músicas. Ainda, poucas soluções possuem integrações com outros serviços e/ou aplicações. Com o Shazam, por exemplo, é possível integrar-se ao Spotify e, então, ao encontrar uma música, poder ouvi-la por completo. Da mesma forma para o SoundHound, além de ser possível o compartilhamento da sua pesquisa com o Twitter. Com o Musixmatch integrado ao Spotify, por exemplo, ao encontrar uma música, você acompanha a música com a letra em tempo real. O ACRCloud e o Musixmatch são as soluções que possuem o maior número de integrações.
+
+%%%====== INICIO TABELA ADEQUAÇÃO FUNCIONAL COMERCIAL ======%%%
+\begin{table}[!htb]
+\centering
+\caption{Análise das soluções comerciais: Critério de Adequação Funcional}
+\fontsize{8.5}{12}\selectfont
+\tabcolsep=0.12cm
+\label{tab:adequacaoFuncional-comercial}
+\begin{tabular}{c|l|c|c|c|c|c|c|c}
+\hline
+\multicolumn{2}{c|}{\multirow{2}{*}{\textbf{CRITÉRIOS}}} & \multicolumn{7}{|c}{\textbf{Adequação funcional}} \\ \cline{3-9} 
+\multicolumn{2}{c|}{} & \textbf{Disponibilidade} & \textbf{\begin{tabular}[c]{@{}c@{}}Modelo\\ de\\ desenv.\end{tabular}} & \textbf{Integrações} & \textbf{Acessibilidade} & \textbf{\begin{tabular}[c]{@{}c@{}}Busca\\ de\\ dados\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Inclusão\\ de\\ dados\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Modelo\\ de\\ Pagamento\end{tabular}} \\ \hline
+\multirow{9}{*}{\begin{tabular}[c]{@{}c@{}}C\\ O\\ M\\ E\\ R\\ C\\ I\\ A\\ L\end{tabular}} & \textbf{MusicID} & iOS, Android & F & não & On & A & não & G \\ \cline{2-9} 
+ & \textbf{Shazam} & iOS, Android & F & \begin{tabular}[c]{@{}c@{}}Spotify, \\ Google Music, \\ Apple Music\end{tabular} & On & E & não & G \\ \cline{2-9} 
+ & \textbf{SoundHound} & iOS, Android & F & \begin{tabular}[c]{@{}c@{}}Spotify,\\ Youtube,\\ Twitter\end{tabular} & On & A & não & F \\ \cline{2-9} 
+ & \textbf{Deezer} & \begin{tabular}[c]{@{}c@{}}iOS, Android, \\ Windows, Web\end{tabular} & F & \begin{tabular}[c]{@{}c@{}}Google Music,\\ Twitter, \\ Facebook\end{tabular} & On/Off & E & não & F \\ \cline{2-9} 
+ & \textbf{Spotify} & \begin{tabular}[c]{@{}c@{}}iOS, Android, \\ Windows, Web\\ Linux, OS X\end{tabular} & F & não & On/Off & E & não & F \\ \cline{2-9} 
+ & \textbf{SoundCloud} & iOS, Android & F & não & On & E & sim & F \\ \cline{2-9} 
+ & \textbf{Musixmatch} & iOS, Android & F & \begin{tabular}[c]{@{}c@{}}Spotify,\\ Deezer,\\ Google Music, \\ Youtube,\\ Twitter, \\ Facebook, \\ Last.fm\end{tabular} & On & E & não & F \\ \cline{2-9} 
+ & \textbf{ACRCloud} & Web & F & \begin{tabular}[c]{@{}c@{}}Spotify, \\ Deezer, \\ Youtube, \\ ISRC,  \\ UPC, \\ LyricFind, \\ Music Story, \\ SyncPower\end{tabular} & On & A & sim & P \\ \cline{2-9} 
+ & \textbf{Musipedia} & Web & A & não & On & A & sim & G \\ \hline
+\end{tabular}
+\caption*{Legenda: F - Fechado; A - Aberto; E - Busca Exata; A - Busca Aproximada; G - Gratuito; F - Freemiun; P - Premium;}
+\end{table}
+%%%====== FIM TABELA ADEQUAÇÃO FUNCIONAL COMERCIAL ======%%%
+
+Com relação à usabilidade mostrado na Tabela \ref{tab:usabilidade-comercial}, testes foram realizados considerando os critérios e subcritérios descritos na seção \ref{sec:criterios-analise}. Foi realizada uma adaptação do \textit{MATcH Checklist} disponibilizado pelo Grupo de Qualidade de Software (GQS) da UFSC, onde o conjunto de perguntas possui uma escala de resposta com 2 opções: Sim (a solução atende o objetivo) e Não (a solução não atende o objetivo). Cada solução possui particularidades que podem atrair ou afastar o usuário. Os resultados dos testes são discriminados abaixo, feitos em um smartphone, modelo Asus Zenfone 4, com sistema operacional Android.
 
 Todas as soluções são simples, possuem navegação intuitiva e são de fácil execução. As funções mais utilizadas são facilmente acessadas. Os componentes interativos são claramente distintos uns dos outros, com ícones intuitivos. Com exceção do Musipedia, as soluções possuem uma linguagem clara, concisa e funcionam corretamente, não apresentando problemas. Com relação à Musipedia (ver Figura \ref{fig:musipedia}), ela é uma enciclopédia de músicas e sua navagação não é muito intuitiva, além de possuir textos longos, não apresentando uma linguagem clara e concisa. Não funciona corretamente, não apresentando mensagens de erros claras e objetivas.
 
@@ -81,73 +140,90 @@ O Spotify (ver Figura \ref{fig:spotify}) é similar ao Deezer em termos de funci
 
 O Musixmatch (ver Figura \ref{fig:musixmatch}) é um aplicativo que sincroniza letras de músicas e também permite o reconhecimento de músicas que são tocadas ao seu redor. Ainda, o ACRCloud (ver Figura \ref{fig:acrcloud}) é um serviço na nuvem, com um grande banco de dados musical. Além de oferecer o serviço de reconhecimento de músicas, ele também permite o reconhecimento de músicas pela web, como um teste do seu serviço.
 
-Quanto ao critério de Bitrate, das 9 soluções analisadas, foi encontrado essa informação em apenas 4. Diferentes bitrates podem produzir qualidade de som variável. Assim, quanto maior o bitrate, mais vezes por segundo o som original é amostrado, produzindo assim uma reprodução mais autêntica e melhor do som \cite{sandisk}.
-
-O Deezer e Spotify apresentam bitrate de até 320kbps, possuindo 3MB por minuto de áudio e uma qualidade aproximada à de um CD. Já o MusicID e o SoundCloud apresentam bitrate de até 128kbps, possuindo 1MB por minuto de áudio e uma qualidade mínima aceitável em termos de alta fidelidade do áudio \cite{sean2012}.
-
-Por fim, das 9 soluções analisadas, 7 são multiplataformas, sendo em sua maioria voltadas para uso em smartphones e 2 de uso exclusivo via Web.
-
+%%%====== INICIO TABELA USABILIDADE COMERCIAL ======%%%
+\begin{table}[!htb]
+\centering
+\caption{Análise das soluções comerciais: Critério de Usabilidade}
+\fontsize{9}{12}\selectfont
+\tabcolsep=0.12cm
+\label{tab:usabilidade-comercial}
+\begin{tabular}{c|l|c|c|c|c|c}
+\hline
+\multicolumn{2}{c|}{\multirow{2}{*}{\textbf{CRITÉRIOS}}} & \multicolumn{5}{c}{\textbf{Usabilidade}} \\ \cline{3-7} 
+\multicolumn{2}{c|}{} & \textbf{\begin{tabular}[c]{@{}c@{}}Visibilidade \\ do status \\ do sistema\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Prevenção\\ de erros\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Flexibilidade \\ e eficiência \\ de uso\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Estética e \\ Design\\  minimalista\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Pouca interação\\  homem/dispositivo\end{tabular}} \\ \hline
+\multirow{9}{*}{\begin{tabular}[c]{@{}c@{}}C\\ O\\ M\\ E\\ R\\ C\\ I\\ A\\ L\end{tabular}} & \textbf{MusicID} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{Shazam} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{SoundHound} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{Deezer} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{Spotify} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{SoundCloud} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{Musixmatch} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{ACRCloud} & sim & sim & sim & sim & sim \\ \cline{2-7} 
+ & \textbf{Musipedia} & sim & não & sim & não & sim \\ \hline
+\end{tabular}
+\end{table}
+%%%====== FIM TABELA USABILIDADE COMERCIAL ======%%%
 
 \subsection{Soluções Acadêmicas}
 
-As soluções acadêmicas apresentam um modelo de desenvolvimento aberto, ou seja, seu código pode ser alterado por outros usuários, contribuindo para a resolução de problemas existentes nas aplicações. Das 6 soluções analisadas, todas possuem reconhecimento de músicas de forma aproximada (A), ou seja, permitem realizar buscas de músicas através de trechos de áudio e/ou voz e/ou codificação MIDI e/ou por conteúdo (metadados).
-
-Todas as soluções permitem a inclusão de músicas criadas por usuários. Quanto à disponibilidade, com exceção do Tunebot, todas as soluções estão disponíveis para Linux, Mac OSX e Windows e seu acesso é off-line, ou seja, é necessário o download e instalação do projeto no dispositivo. O download e instalação das soluções é feito de forma gratuita. O Tunebot está disponivel na Web e também possui uma versão beta para smartphones iOS, tendo o seu acesso on-line (Ver Figura \ref{fig:tunebotIphone}).
+Em relação ao critério de Eficiência mostrado na Tabela \ref{tab:eficiencia-academico}, o comportamento das soluções em relação ao tempo foi encontrada documentação apenas para o Tunebot. A solução utiliza QBH e, segundo \citeonline{tunebot}, o comprimento mediano de uma música cantada por um usuário é de cerca de 18 segundos de áudio, levando cerca de 5s para retornar resultados a partir do momento em que a aplicação recebe a música. Para comparação, a música mais longa recebida até o momento tem cerca de 48 segundos e a aplicação demora cerca de 13s para retornar uma resposta. O tempo de retorno é uma função de vários fatores, incluindo o tamanho do banco de dados e o comprimento da consulta, tanto em termos da duração total do áudio quanto do número de notas que o usuário cantou.
 
 Cada solução possui ferramentas variadas para uso distinto no reconhecimento de músicas, o que gera diversas formas de utilização dos recursos. Por exemplo, o MusicMiner (ver Figura \ref{fig:musicminer}) possui ferramentas que utilizam os métodos de Classificação (ver subsção \ref{subsubsec:classificacao}) e Visualização (ver subseção \ref{subsubsec:visualizacao}) através de Mapas Musicais Topográficos.
 
 O AMUSE (ver Figura \ref{fig:amuse}) e o Java MIR (ver Figura \ref{fig:jmir}) utilizam o método de Classificação (ver subsção \ref{subsubsec:classificacao}). Já o Tunebot (ver Figura \ref{fig:tunebotWeb} e \ref{fig:tunebotIphone}) utiliza Query by Humming (QBH) (ver subseção \ref{subsubsec:qbh}). O CLAM (ver Figura \ref{fig:clam}) utiliza Spectral Modeling Synthesis (SMS), e o MIRtoolbox (ver Figura \ref{fig:mirtoolbox}) é um acoplado de ferramentas baseado em técnicas de mineração de dados. Por ser um pacote de ferramentas, são variadas técnicas para recuperação da informação musical que ele oferece, como por exemplo, clusterização e classificação.
 
-O AMUSE e o Tunebot são as duas soluções que possuem integração com outras aplicações. O AMUSE faz parte do rol de ferramentas do MIRtoolbox. Já o Tunebot tem integração com o \textit{Karaoke Callout}\footnote{\textit{Karaoke Callout} é um jogo de karaokê para a plataforma iOS da Apple que permite aos usuários "tunebot" desafiarem uns aos outros para um duelo de canto \cite{karaokeCallout2006}.}, que ajuda a construir a base de conhecimento de músicas do Tunebot.
-
-Em relação ao tempo, foi encontrada documentação apenas para o Tunebot. A solução utiliza QBH e, segundo \citeonline{tunebot}, o comprimento mediano de uma música cantada por um usuário é de cerca de 18 segundos de áudio, levando cerca de 5s para retornar resultados a partir do momento em que a aplicação recebe a música. Para comparação, a música mais longa recebida até o momento tem cerca de 48 segundos e a aplicação demora cerca de 13s para retornar uma resposta. O tempo de retorno é uma função de vários fatores, incluindo o tamanho do banco de dados e o comprimento da consulta, tanto em termos da duração total do áudio quanto do número de notas que o usuário cantou.
-
 Quanto ao critério de bitrate, das 6 soluções analisadas, não foi encontrada documentação que especificasse o bitrate utilizado para o fluxo de transferência das músicas.
 
-Como explicitado anteriormente, as soluções analisadas tem seu acesso off-line. Diante disso, para o funcionamento correto de cada aplicação é necessário a instalação de projetos de terceiros. Desta forma, com a impossibilidade de funcionamento das aplicações, não foi possível analisar os critérios de usabilidade das soluções acadêmicas.
+%%%====== INICIO TABELA EFICIÊNCIA ACADÊMICO ======%%%
+\begin{table}[!htb]
+\centering
+\caption{Análise das soluções acadêmicas: Critério de Eficiência}
+\tabcolsep=0.12cm
+\label{tab:eficiencia-academico}
+\begin{tabular}{c|l|c|c|c}
+\hline
+\multicolumn{2}{c|}{\multirow{2}{*}{\textbf{CRITÉRIOS}}} & \multicolumn{3}{|c}{\textbf{Eficiência}} \\ \cline{3-5} 
+\multicolumn{2}{c|}{} & \textbf{\begin{tabular}[c]{@{}c@{}}Comportamento\\ em relação ao \\ tempo\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Utilização de\\ recursos\end{tabular}} & \textbf{Bitrate} \\ \hline
+\multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}A\\ C\\ A\\ D\\ Ê\end{tabular}} & \textbf{MusicMiner} & - & C e V & - \\ \cline{2-5} 
+ & \textbf{CLAM} & - & SMS & - \\ \cline{2-5} 
+ & \textbf{MIRtoolbox} & - & Diversas & - \\ \cline{2-5} 
+ & \textbf{AMUSE} & - & C & - \\ \cline{2-5} 
+ & \textbf{Java MIR} & - & C & - \\ \cline{2-5} 
+ & \textbf{Tunebot} & Até 13s & QBH & - \\ \hline
+\end{tabular}
+\caption*{Legenda: C - Classificação; V - Visualização; SMS - Spectral Modeling Synthesis; QBH - Query by Humming;}
+\end{table}
+%%%====== FIM TABELA EFICIÊNCIA ACADÊMICO ======%%%
 
-%%%====== INICIO TABELA ======%%%
-\begin{landscape}
+Em relação ao critério de Adequação Funcional mostrado na Tabela \ref{tab:adequacaoFuncional-academico}, as soluções acadêmicas apresentam um modelo de desenvolvimento aberto, ou seja, seu código pode ser alterado por outros usuários, contribuindo para a resolução de problemas existentes nas aplicações. Das 6 soluções analisadas, todas possuem reconhecimento de músicas de forma aproximada (A), ou seja, permitem realizar buscas de músicas através de trechos de áudio e/ou voz e/ou codificação MIDI e/ou por conteúdo (metadados).
+
+Todas as soluções permitem a inclusão de músicas criadas por usuários. Quanto à disponibilidade, com exceção do Tunebot, todas as soluções estão disponíveis para Linux, Mac OSX e Windows e seu acesso é off-line, ou seja, é necessário o download e instalação do projeto no dispositivo. O download e instalação das soluções é feito de forma gratuita. O Tunebot está disponivel na Web e também possui uma versão beta para smartphones iOS, tendo o seu acesso on-line (Ver Figura \ref{fig:tunebotIphone}).
+
+O AMUSE e o Tunebot são as duas soluções que possuem integração com outras aplicações. O AMUSE faz parte do rol de ferramentas do MIRtoolbox. Já o Tunebot tem integração com o \textit{Karaoke Callout}\footnote{\textit{Karaoke Callout} é um jogo de karaokê para a plataforma iOS da Apple que permite aos usuários "tunebot" desafiarem uns aos outros para um duelo de canto \cite{karaokeCallout2006}.}, que ajuda a construir a base de conhecimento de músicas do Tunebot.
+
+%%%====== INICIO TABELA ADEQUAÇÃO FUNCIONAL ACADÊMICO ======%%%
+\begin{table}[!htb]
+\centering
+\caption{Análise das soluções acadêmicas: Critério de Adequação Funcional}
 \fontsize{8.5}{12}\selectfont
-\tabcolsep=0.11cm
-\begin{longtable}[c]{c|p{.09\textwidth}|p{.07\textwidth}|p{.065\textwidth}|p{.103\textwidth}|p{.07\textwidth}|p{.08\textwidth}|p{.10\textwidth}|p{.10\textwidth}|p{.09\textwidth}|p{.085\textwidth}|p{.10\textwidth}|p{.06\textwidth}|p{.10\textwidth}|p{.07\textwidth}|p{.08\textwidth}|p{.07\textwidth}}
-\caption{Comparação entre as Soluções Comerciais e Acadêmicas}
-\label{comparacaoCriterios}\\
+\tabcolsep=0.12cm
+\label{tab:adequacaoFuncional-academico}
+\begin{tabular}{c|l|c|c|c|c|c|c|c}
 \hline
-\multicolumn{2}{c|}{\multirow{3}{*}{CRITÉRIOS}} & \multicolumn{15}{c}{SOLUÇÕES} \\ \cline{3-17} 
-\multicolumn{2}{c|}{} & \multicolumn{9}{c|}{COMERCIAIS} & \multicolumn{6}{c}{ACADÊMICAS} \\ \cline{3-17} 
-\multicolumn{2}{c|}{} & MusicID & Shazam & SoundHound & Deezer & Spotify & SoundCloud & Musixmatch & ACRCloud & Musipedia & MusicMiner & CLAM & MIRtoolbox & AMUSE & Java MIR & Tunebot \\ \hline
-\endfirsthead
-%
-\multicolumn{17}{c}%
-{{\bfseries \tablename\ \thetable\ (continuação)}} \\
-\hline
-\multicolumn{2}{c|}{\multirow{3}{*}{CRITÉRIOS}} & \multicolumn{15}{c}{SOLUÇÕES} \\ \cline{3-17} 
-\multicolumn{2}{c|}{} & \multicolumn{9}{c|}{COMERCIAIS} & \multicolumn{6}{c}{ACADÊMICAS} \\ \cline{3-17} 
-\multicolumn{2}{c|}{} & MusicID & Shazam & SoundHound & Deezer & Spotify & SoundCloud & Musixmatch & ACRCloud & Musipedia & MusicMiner & CLAM & MIRtoolbox & AMUSE & Java MIR & Tunebot \\ \hline
-\endhead
-%
-\multirow{3}{*}{\rotatebox[origin=c]{90}{Eficiência de desempenho}} & Comporta-mento em relação ao tempo & até 8s & até 8s & até 5s & até 10s & até 30s & até 30s & até 13s & até 5s & - & - & - & - & - & - & até 13s \\ \cline{2-17} 
- & Utilização de recursos & FP & FP & IA & RPC e FP & RPC & RPC & RPC e FP & FP & - & C e V & SMS & Diversas & C & C & QBH \\ \cline{2-17} 
- & Bitrate & até 128kbps & - & - & até 320kbps & até 320kbps & até 128kbps & - & - & - & - & - & - & - & - & - \\ \hline
-\multirow{7}{*}{\rotatebox[origin=c]{90}{Adequação Funcional}} & Disponibi-lidade & iOS, Android & iOS, Android & iOS, Android & iOS, Android, Windows, Web & Linux, Windows, OS X, iOS, Android, Web & iOS, Android & iOS, Android & Web & Web & Linux, Mac OSX, Windows & Linux, Mac OSX, Windows & Linux, Mac OSX, Windows & - & Linux, Mac OSX, Windows & Web, iOS \\ \cline{2-17} 
- & Modelo de desenvolvimento & F & F & F & F & F & F & F & F & A & A & A & A & A & A & A \\ \cline{2-17} 
- & Integrações & não & Spotify, Google Play Music, Apple Music & Twitter, Youtube, Spotify & Twitter, Facebook, Google & não & não & Spotify, Google Play Music, Deezer, Youtube, Facebook, Twitter, Last.fm & Spotify, Deezer, Youtube, ISRC\footnote{International Standard Recording Code}, UPC\footnote{Universal Product Code}, LyricFind\footnote{https://www.lyricfind.com/}, Music Story\footnote{http://www.music-story.com/}, SyncPower\footnote{https://www.syncpower.jp/en/} & não & não & não & não & MIR-toolbox & não & Karaoke Callout \\ \cline{2-17} 
- & Acessibi-lidade & On & On & On & On/Off & On/Off & On & On & On & On & Off & Off & Off & Off & Off & On \\ \cline{2-17} 
- & Busca de dados & A & E & A & E & E & E & E & A & A & A & A & A & A & A & A \\ \cline{2-17} 
- & Inclusão de dados & não & não & não & não & não & sim & não & sim & sim & sim & sim & sim & sim & sim & sim \\ \cline{2-17} 
- & Modelo de pagamento & G & G & F & F & F & F & F & P & G & G & G & G & G & G & G \\ \hline
-\multirow{5}{*}{\rotatebox[origin=c]{90}{Usabilidade}} & Visibilida-de do status do sistema & sim & sim & sim & sim & sim & sim & sim & sim & sim & - & - & - & - & - & - \\ \cline{2-17} 
- & Prevenção de erros & sim & sim & sim & sim & sim & sim & sim & sim & não & - & - & - & - & - & - \\ \cline{2-17} 
- & Flexibili-dade e eficiência de uso & sim & sim & sim & sim & sim & sim & sim & sim & sim & - & - & - & - & - & - \\ \cline{2-17} 
- & Estética e Design minimalista & sim & sim & sim & sim & sim & sim & sim & sim & não & - & - & - & - & - & - \\ \cline{2-17} 
- & Pouca interação homem / dispositivo & sim & sim & sim & sim & sim & sim & sim & sim & sim & - & - & - & - & - & - \\ \hline
-\caption*{Legenda: FP - FingerPrint; IA - Inteligência Artificial; RPC - Recuperação por Conteúdo; SMS - Spectral Modeling Synthesis; C - Classificação; QBH - Query by Humming; V - Visualização A - Aberto; F - Fechado; G - Gratuito; F - Freemium; P - Premium}
-\end{longtable}
-\end{landscape}
-%%%====== FIM TABELA ======%%%
+\multicolumn{2}{c|}{\multirow{2}{*}{\textbf{CRITÉRIOS}}} & \multicolumn{7}{|c}{\textbf{Adequação funcional}} \\ \cline{3-9} 
+\multicolumn{2}{c|}{} & \textbf{Disponibilidade} & \textbf{\begin{tabular}[c]{@{}c@{}}Modelo\\ de\\ desenv.\end{tabular}} & \textbf{Integrações} & \textbf{Acessibilidade} & \textbf{\begin{tabular}[c]{@{}c@{}}Busca\\ de\\ dados\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Inclusão\\ de\\ dados\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Modelo\\ de\\ Pagamento\end{tabular}} \\ \hline
+\multirow{6}{*}{\begin{tabular}[c]{@{}c@{}}A\\ C\\ A\\ D\\ Ê\\ M\\ I\\ C\\ O\end{tabular}} & \textbf{MusicMiner} & \begin{tabular}[c]{@{}c@{}}Linux, Mac OSX,\\ Windows\end{tabular} & A & não & Off & A & sim & G \\ \cline{2-9} 
+ & \textbf{CLAM} & \begin{tabular}[c]{@{}c@{}}Linux, Mac OSX,\\ Windows\end{tabular} & A & não & Off & A & sim & G \\ \cline{2-9} 
+ & \textbf{MIRtoolbox} & \begin{tabular}[c]{@{}c@{}}Linux, Mac OSX,\\ Windows\end{tabular} & A & não & Off & A & sim & G \\ \cline{2-9} 
+ & \textbf{AMUSE} & - & A & MIRtoolbox & Off & A & sim & G \\ \cline{2-9} 
+ & \textbf{Java MIR} & \begin{tabular}[c]{@{}c@{}}Linux, Mac OSX,\\ Windows\end{tabular} & A & não & Off & A & sim & G \\ \cline{2-9} 
+ & \textbf{Tunebot} & Web, iOS & A & \begin{tabular}[c]{@{}c@{}}Karaokê\\ Callout\end{tabular} & On & A & sim & G \\ \hline
+\end{tabular}
+\caption*{Legenda: F - Fechado; A - Aberto; E - Busca Exata; A - Busca Aproximada; G - Gratuito; F - Freemiun; P - Premium;}
+\end{table}
+%%%====== FIM TABELA ADEQUAÇÃO FUNCIONAL ACADÊMICO ======%%%
 
-
+Como explicitado anteriormente, as soluções analisadas tem seu acesso off-line. Diante disso, para o funcionamento correto de cada aplicação é necessário a instalação de projetos de terceiros. Desta forma, com a impossibilidade de funcionamento das aplicações, não foi possível analisar os critérios de usabilidade das soluções acadêmicas.
 
 \section{Discussão dos Resultados} \label{sec:resultados}
 
