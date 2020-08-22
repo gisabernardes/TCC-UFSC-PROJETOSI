@@ -1,131 +1,22 @@
-ufscThesis - Template LaTeX 
-----------------------------
+<p align="center"><img width="120rem" alt="Federal University of Santa Catarina" src="https://github.com/gisabernardess/ufsc-tcc/blob/master/figuras/ufsc-logo-brasao.png"/></p>
+<h2 align="center">Analysis of Solutions for Searching for Similarity (<em>Matching</em>) of Musical Data</h2>
+<h5 align="center">Final project of the Undergraduate Course in Information Systems of the Department of Informatics and Statistics of the Federal University of Santa Catarina as a requirement for obtaining the Bachelor's Degree in Information Systems.</h5>
 
-IMPORTANTE!!!
+<p align="center">
+	<img alt="Author" src="https://img.shields.io/badge/author-Silva%2C%20Gisele%20Bernardes%20da-blue"/>
+	<img alt="Presentation date" src="https://img.shields.io/badge/presented%20in-Nov.%2023%2C2018-blue"/>
+	<img alt="Language" src="https://img.shields.io/badge/language-only%20in%20Portuguese-blue"/>
+	<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/gisabernardess/ufsc-tcc"/>
+</p>
 
-LEIA ESTE DOCUMENTO ANTES DE TENTAR USAR O TEMPLATE!!!
+<h3>Abstract</h3>
+<p>Sound is something we can't see. So, what is sound? Sound is the variation of air pressure. The way to produce a certain sound depends the air pressure varies. Representing the sound numerically is called scan, it is to represent a sound wave (analog audio) in binary code (digital audio). A process of transformation and compression of sound, reducing its size, since storing audio data in analog format consumes a lot of space. In parallel, it became possible to encode audio files with more information than just the file name, using metadata. With metadata it is possible to name, describe, catalog and indicate the copyright of a digital audio file. In this way, a digital audio file is composed of metadata and digitized sound, thus being a musical data. The data is the physical representation of an event in time and space that does not add a foundation, and it can not be possible to understand what it represents or for what it exists, however, by including a "meaning" in the given and generating meaning for the listener and whether or not it is clear what it refers to, the information is generated. A musical information presents certain specificities of behavior in its production, objectification and use. Thus, music has different meanings for each individual. Music was a means of exclusively on-site communication and with the evolution of technological inventions, music surpasses the physical limits of the media, plunging into the digital universe. In this way, the problem of representation and the process of construction of musical processing and recovery systems is aggravated by the need to develop systems with internal structures as compatible as possible to the visions or desires of the users. Therefore, the relevance of this work contributes, directly, to aggregate knowledge with the study on the retrieval of musical data information that will aid in the future development of solutions for searching for similarity of musical data. Specifically, this work aims to present and compare solutions for music information retrieval. The intention is to analyze solutions that do not necessarily search for musical data only through direct marriage of input parameters to the search, such as song title, keywords or an audio with part of the song, but also through approximate (or similar) these parameters.</p>
 
-
-Sobre o ufscThesis
-------------------
-O ufscThesis é um template LaTeX para a elaboraçăo de trabalhos acadęmicos
-no formato definido pela Biblioteca Universitária da Universidade Federal
-de Santa Catarina.
-
-O template foi criado a partir da necessidade identificada por parte
-dos pós-graduandos usuários de LaTeX, que năo contavam com classes de 
-documentos similares quanto ŕ geometria das páginas.
-
-Os autores săo Roberto Simoni e Carlos R Rocha, ambos pós-graduandos em
-Engenharia Mecânica da UFSC no momento em que a primeira versăo do 
-template foi colocada para testes.
-
-Esta é uma versăo inicial do template. Apesar de testado para a elaboraçăo
-de teses e ter pelo menos uma tese aprovada e disponibilizada na BU feita
-com o ufscThesis, entende-se que ainda é possível aparecer situaçőes em
-que o documento gerado apresente alguma discrepância em relaçăo ŕ norma
-da BU/UFSC. Isso é normal para qualquer implementaçăo inicial, e pede-se
-aos usuários que comuniquem ŕ BU essas năo conformidades
-quando e se aparecerem.
-
-Este template está disponível através de licença GPL. Para maiores
-informaçőes, acesse http://www.gnu.org/licenses/gpl.html
-
-
-Pré-requisitos
---------------
-Como a norma da BU/UFSC é baseada nas normas ABNT, o ufscThesis usa o 
-template ABNTeX como base, modificando-o onde a norma da BU/UFSC difere
-da ABNT.
-
-Isso significa que é necessário ter o ABNTeX instalado na sua distribuiçăo
-LaTeX. Informaçőes e download do ABNTeX estăo disponíveis no sítio
-eletrônico do projeto: http://abntex.codigolivre.org.br/
-
-Usuários de LaTeX em distribuiçőes linux podem ter o ABNTeX disponível
-como um pacote no repositório (por exemplo, Ubuntu). Em outros casos, o
-usuário terá de ver como instalar o ABNTeX em seu LaTeX.
-
-A versăo de ABNTeX sobre a qual o ufscThesis foi construida foi a 0.8.2,
-considerada a última estável. É possível que sua distribuiçăo de LaTex
-utilize versőes posteriores, como a 0.9.x, que ainda estăo em estágio de
-desenvolvimento. Isso pode causar diferenças de fontes e formataçăo de
-parágrafo. Podem ser definidos parâmetros no documentclass que reduzam
-estes problemas.
-
-Dentro do pacote do ufscThesis há um arquivo comprimido contendo o ABNTeX
-0.8.2, para o caso do usuário năo encontrar uma instalaçăo. Recomenda-se
-seguir as instruçőes de instalaçăo específicas do ABNTeX.
-
-O ufscThesis já foi utilizado em distribuiçőes de LaTeX como o texlive
-(linux) e o MiKTeX (windows). Se vocę utiliza outra distribuiçăo de LaTeX
-e conseguiu trabalhar com o ufscThesis, por favor informe para atualizar
-o banco de informaçőes.
-
-Instalaçăo e Uso
-----------------
-Por ser uma versăo incial, o ufscThesis năo tem instalador. Para deixá-lo 
-em condiçőes de uso, basta descomprimir o arquivo ufscThesis.zip em uma
-pasta qualquer. A pasta em que ele foi descomprimido passará a ser a pasta
-raiz do trabalho científico que vocę redigirá.
-
-Vocę encontrará 4 arquivos relevantes no ufscThesis:
-
-- tutorial.tex : exemplo de uso do ufscThesis. Vocę pode utilizar ele como
-                 base do seu trabalho científico, apagando o texto presente
-				 dentro do documento, mas aproveitando as suas definiçőes.
-- ufscThesis.cls : Esta é a classe de documento que define a formataçăo e o
-                   comportamento do ufscThesis. Vocę năo deve alterar este
-				   arquivo a năo ser que conheça como elaborar classes de 
-				   documento no LaTeX.
-- BUUFSCThesis.sty : Arquivo de estilo que contém os textos usados para gerar
-                     os elementos pré-textuais, principalmente. Evite alterar
-					 este arquivo, a năo ser que năo exista outra maneira de
-					 gerar o elemento pré-textual a partir dos comandos nos
-					 arquivos do seu trabalho científico.
-- ufsc-alf.bst : Arquivo de formataçăo de referęncias bibliográficas. Este é
-                 uma adaptaçăo dos formatadores do ABNTeX, visando atualizar
-				 a classe de documento em relaçăo ŕ ABNT. Năo altere este
-				 arquivo a năo ser que saiba trabalhar com este formatador de
-				 referęncias. Se conseguir aperfeiçoa-lo, por favor, dę o
-				 devido retorno, para melhorarmos o template e disponibilizarmos
-				 ŕ comunidade acadęmica.
-                 
-Como foi dito, basta descomprimir o arquivo .zip e começar a utilizar. Um
-exemplo de uso consiste no arquivo tutorial.tex. Uma sugestăo para iniciar o
-seu trabalho é justamente copiar ou renomear este arquivo e sobrescrever o seu
-conteúdo com a redaçăo do seu trabalho científico. Há vários comentários neste
-arquivo detalhando o uso dos campos de definiçăo de dados para os elementos 
-pré-textuais e como gerá-los. Sugere-se que o usuário do template iniciante
-analise primeiro estes dados, antes de começar a utilizar sem saber o que está
-fazendo.
-
-O texto do tutorial.tex foi retirado de um tutorial para elaboraçăo de trabalhos
-para o XX Congresso Internacional de Engenharia Mecânica, que ocorreu em 2009 na
-cidade de Gramado(RS). O texto năo contém nenhuma informaçăo relevante para o
-template em si, servindo apenas para verificar se a formataçăo gerada pelo
-ufscThesis está de acordo com as normas da BU/UFSC.
-
-Comentários Finais
-------------------
-Este template foi elaborado para utilizaçăo livre de toda a comunidade acadęmica
-da UFSC e outros interessados. Os usuários podem copiar, estudar, analisar, 
-modificar e repassar as alteraçőes para os demais usuários, desde que mantenham
-os créditos dos autores da versăo original, conforme diz a licença GPL.
-
-Reiteramos que é possível que apareçam alguns problemas decorrentes de situaçőes
-năo testadas na elaboraçăo de trabalhos acadęmicos. Se este for o caso, por favor
-comunique. Se conseguir solucionar um problema encontrado, repasse para os
-autores, para que possa ser sanado em atualizaçőes do template e assim beneficie
-os demais usuários.
-
-Os autores deste template o fizeram por necessidade própria de redaçăo de suas
-teses. A disponibilizaçăo para a comunidade acadęmica foi feita no sentido de 
-colaboraçăo. Atualizaçőes serăo feitas de acordo com o tempo disponível dos
-autores ou seus associados para trabalhar no template. Isso posto, espera-se 
-que os usuários entendam que năo serăo fornecidos atendimentos personalizados,
-năo serăo respondidas dúvidas sobre o uso de LaTeX ou outros assuntos que năo
-estejam diretamente relacionados com o template ufscThesis.
-
-Para um futuro próximo, espera-se criar um FAQ list com as principais dúvidas
-de elaboraçăo dos trabalhos acadęmicos com o ufscThesis e um gerador de capas.
+<h3>Resumo</h3>
+<p>O som não é algo que podemos ver com nossos olhos. Então, o que é som? O som é a variação da pressão do ar. Sendo assim, a forma de produzir um determinado som depende da maneira como a pressão do ar varia. Representar o som numericamente é chamado de digitalização, ou seja, é representar uma onda sonora (áudio analógico) em código binário (áudio digital). Um processo de transformação e compressão do som, reduzindo o seu tamanho, pois armazenar dados de áudio em formato analógico consome muito espaço. Em paralelo, tornou-se possível codificar arquivos de áudio com mais informação do que apenas o nome do arquivo, utilizando os metadados. Com os metadados é possível nomear, descrever, catalogar e indicar os direitos de autor de um arquivo de áudio digital. Desta forma, um arquivo de áudio digital é composto por metadados e som digitalizado, sendo assim, um dado musical. O dado é a representação física de um evento no tempo e espaço que não agrega fundamento, não podendo ser possível entender o que ele representa ou para que ele existe, porém, ao incluir um “significado” no dado e gerar sentido para quem o ouve e ficando claro ou não a que se refere, é gerada a informação. Uma informação musical apresenta determinadas especificidades de comportamento na sua produção, objetivação e uso. Assim, a música tem diferentes significações para cada indivíduo. A música era um meio de comunicação exclusivamente presencial e com a evolução dos inventos tecnológicos, a música ultrapassa os limites físicos da mídia, mergulhando no universo digital. Desta forma, o problema de representação e o processo de construção de sistemas de processamento e recuperação musicais, agrava-se com a necessidade de desenvolvimento de sistemas com estruturas internas o mais compatível possível com as visões ou desejos dos usuários. Portanto, a relevância deste trabalho contribui diretamente, para agregar conhecimento com o estudo sobre a recuperação da informação musical, que auxiliarão no desenvolvimento futuro de soluções, para busca por similaridade de dados musicais. Especificamente, este trabalho visa apresentar e comparar soluções para recuperação de informação musical. A intenção é analisar soluções que não necessariamente buscam dados musicais apenas através do casamento direto de parâmetros de entrada para a busca, como título da música, palavras-chave ou um áudio com parte da música, mas também através do casamento aproximado (ou similar) destes parâmetros.</p>
+<br/>
+<a href="https://repositorio.ufsc.br/handle/123456789/192180" rel="nofollow">See publication</a>
+<br/>
+<hr/>
+<br/>
+<p> ⭐ This project was written using the <em>ufscThesis</em> template in LaTeX, for the preparation of academic papers in the format defined by the University Library of the Federal University of Santa Catarina. The template was created by the authors Roberto Simoni and Carlos R Rocha. This template was designed for free use by the entire academic community at UFSC and other interested parties. Users can copy, study, analyze, modify and pass the changes on to other users, as long as they keep the credits of the authors of the original version, as stated in the GPL license. More info <a href="https://github.com/gisabernardess/ufsc-tcc/blob/master/CONTRIBUTING.md" rel="nofollow">here</a></p>
